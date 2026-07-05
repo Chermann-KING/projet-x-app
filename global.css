@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Tokens couleur light mode ─────────────────────────────────────
+       Format L C H (sans oklch()) pour compatibilité Tailwind opacity
+       Ex : bg-primary/50 fonctionne grâce à oklch(var(--primary) / 0.5)
+       Source : for.css (palette approuvée)                             */
+    --background: 0.985 0 180;
+    --foreground: 0.321 0 180;
+    --muted: 0.962 0 180;
+    --muted-foreground: 0.321 0 180;
+    --popover: 1 0 180;
+    --popover-foreground: 0.321 0 180;
+    --card: 1 0 180;
+    --card-foreground: 0.321 0 180;
+    --border: 0.923 0 164.055;
+    --input: 1 0 180;
+    --primary: 0.39 0.159 29.027;
+    --primary-foreground: 1 0 180;
+    --secondary: 0.844 0.172 84.932;
+    --secondary-foreground: 0 0 0;
+    --accent: 0.653 0.233 26.627;
+    --accent-foreground: 1 0 180;
+    --destructive: 0.389 0 180;
+    --destructive-foreground: 1 0 180;
+    --ring: 0.649 0.237 26.973;
+
+    /* ── Tokens couleur étendus (issus de la palette Figma) ─────────── */
+    --success: 0.55 0.18 145;
+    --success-foreground: 1 0 180;
+    --warning: 0.75 0.16 75;
+    --warning-foreground: 0 0 0;
+    --error: 0.55 0.22 25;
+    --error-foreground: 1 0 180;
+  }
+
+  .dark {
+    --background: 0.172 0 180;
+    --foreground: 0.962 0 180;
+    --muted: 0.321 0 180;
+    --muted-foreground: 0.962 0 180;
+    --popover: 0.181 0 195.945;
+    --popover-foreground: 0.962 0 180;
+    --card: 0.28 0 180;
+    --card-foreground: 0.962 0 180;
+    --border: 0.418 0 173.29;
+    --input: 0.321 0 180;
+    --primary: 0.55 0.218 28.511;
+    --primary-foreground: 0.961 0 180;
+    --secondary: 0.844 0.16 82.286;
+    --secondary-foreground: 0.187 0 170.538;
+    --accent: 0.646 0.23 26.541;
+    --accent-foreground: 1 0 180;
+    --destructive: 0.877 0 180;
+    --destructive-foreground: 0.144 0 180;
+    --ring: 0.815 0 201.801;
+    --success: 0.65 0.18 145;
+    --success-foreground: 0.1 0 180;
+    --warning: 0.75 0.16 75;
+    --warning-foreground: 0 0 0;
+    --error: 0.65 0.22 25;
+    --error-foreground: 1 0 180;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
