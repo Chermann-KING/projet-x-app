@@ -1,0 +1,984 @@
+{
+  "common": {
+    "button": {
+      "confirm": "Thibitisha",
+      "cancel": "Ghairi",
+      "save": "Hifadhi",
+      "back": "Rudi",
+      "next": "Ifuatayo",
+      "submit": "Wasilisha",
+      "edit": "Hariri",
+      "delete": "Futa",
+      "retry": "Jaribu tena",
+      "close": "Funga",
+      "send": "Tuma",
+      "accept": "Kubali",
+      "decline": "Kataa",
+      "viewAll": "Ona yote",
+      "done": "Maliza"
+    },
+    "loading": "Inapakia…",
+    "error": {
+      "title": "Hitilafu",
+      "generic": "Hitilafu imetokea",
+      "network": "Angalia muunganiko wako wa intaneti",
+      "permissionDenied": "Ruhusa imekataliwa",
+      "galleryPermission": "Ruhusu ufikiaji wa picha zako ili kuongeza picha.",
+      "photoUpload": "Haikuwezekana kutuma picha. Angalia muunganiko wako na jaribu tena."
+    },
+    "empty": {
+      "title": "Hakuna matokeo",
+      "description": "Hakuna kitu cha kuonyesha hapa."
+    },
+    "status": {
+      "verified": "Imethibitishwa",
+      "pending": "Inasubiri",
+      "rejected": "Imekataliwa"
+    },
+    "phone": {
+      "selectCountry": "Chagua nchi",
+      "hint": "Muundo: {{placeholder}} · {{name}}"
+    },
+    "zoneSearch": {
+      "networkError": "Haiwezekani kutafuta. Angalia muunganiko wako."
+    },
+    "artisanClientBanner": {
+      "label": "Hali ya mteja",
+      "back": "Rudi kwa fundi"
+    },
+    "legal": {
+      "title": "Kisheria",
+      "cgu": "Masharti ya matumizi",
+      "privacy": "Sera ya faragha"
+    },
+    "selector": {
+      "switchToClient": "Badilika kwa hali ya mteja",
+      "switchToArtisan": "Rudi kwa hali ya fundi"
+    },
+    "date": {
+      "todayAt": "Leo {{time}}",
+      "yesterdayAt": "Jana {{time}}"
+    },
+    "notifications": {
+      "title": "Arifa",
+      "empty": {
+        "title": "Hakuna arifa",
+        "description": "Bado huna arifa yoyote."
+      }
+    }
+  },
+  "notification": {
+    "quote": {
+      "newRequest": {
+        "title": "Ombi jipya la bei",
+        "body": "Mteja amekutumia ombi. Fungua programu kujibu."
+      },
+      "responded": {
+        "title": "Bei imepokelewa",
+        "body": "Fundi wako amejibu ombi lako la bei."
+      },
+      "done": {
+        "title": "Huduma imekamilika",
+        "body": "Fundi ameweka alama ya kukamilika kwa huduma yako."
+      }
+    },
+    "message": {
+      "received": {
+        "title": "Ujumbe mpya",
+        "body": "Umepokea ujumbe mpya."
+      }
+    }
+  },
+  "metier": {
+    "plombier": "Fundi mabomba",
+    "electricien": "Fundi umeme",
+    "peintre": "Mpakaji rangi",
+    "maçon": "Fundi ujenzi",
+    "menuisier": "Seremala",
+    "carreleur": "Fundi vigae",
+    "jardinier": "Mtunzaji bustani",
+    "climatisation": "Hewa baridi",
+    "soudeur": "Mchomeaji",
+    "couvreur": "Mjenzi paa",
+    "serrurier": "Mfungaji milango",
+    "vitrier": "Fundi kioo"
+  },
+  "quote": {
+    "status": {
+      "pending": "Inasubiri",
+      "sent": "Nukuu imepokelewa",
+      "accepted": "Imekubaliwa",
+      "refused": "Imekataliwa",
+      "done": "Imekamilika"
+    }
+  },
+  "subscription": {
+    "plan": {
+      "free": "Bure",
+      "standard": "Kawaida",
+      "premium": "Premium"
+    }
+  },
+  "auth": {
+    "splash": {
+      "taglinePrefix": "Jukwaa ",
+      "taglineSuffix": "la mafundi wa Gabon"
+    },
+    "role": {
+      "title": "Karibu",
+      "subtitle": "Chagua wasifu wako ili kuanza",
+      "client": {
+        "label": "Natafuta fundi",
+        "description": "Pata, linganisha na wasiliana"
+      },
+      "artisan": {
+        "label": "Mimi ni fundi",
+        "description": "Kukuza wateja wako"
+      },
+      "alreadyAccount": "Una akaunti tayari?",
+      "connect": "Ingia"
+    },
+    "login": {
+      "title": "Ingia",
+      "subtitle": "Karibu tena 👋",
+      "email": {
+        "label": "Anwani ya barua pepe",
+        "placeholder": "barua_yako@pepe.com"
+      },
+      "password": {
+        "label": "Nywila",
+        "placeholder": "••••••••"
+      },
+      "forgotPassword": "Umesahau nywila?",
+      "button": "Ingia",
+      "noAccount": "Bado huna akaunti?",
+      "register": "Jisajili",
+      "error": {
+        "invalidCredentials": "Barua pepe au nywila si sahihi. Angalia tena maelezo yako."
+      }
+    },
+    "register": {
+      "title": "Fungua akaunti",
+      "subtitle": "Jiunge na jumuiya ya projet-x",
+      "fullName": {
+        "label": "Jina kamili",
+        "placeholder": "Juma Mwangi"
+      },
+      "email": {
+        "label": "Anwani ya barua pepe",
+        "placeholder": "mfano@gmail.com"
+      },
+      "phone": {
+        "label": "Nambari ya simu",
+        "placeholder": "07 12 34 56"
+      },
+      "password": {
+        "label": "Nywila",
+        "placeholder": "Angalau herufi 8"
+      },
+      "confirmPassword": {
+        "label": "Thibitisha nywila",
+        "placeholder": "Rudia nywila yako"
+      },
+      "passwordHint": "Angalau herufi 8, herufi kubwa moja, nambari moja",
+      "button": "Fungua akaunti yangu",
+      "haveAccount": "Una akaunti tayari?",
+      "login": "Ingia",
+      "terms": "Kwa kuendelea, unakubali masharti yetu ya matumizi",
+      "validation": {
+        "fullNameRequired": "Jina kamili linahitajika",
+        "emailRequired": "Barua pepe inahitajika",
+        "passwordMin": "Angalau herufi 8",
+        "passwordMatch": "Nywila hazilingani"
+      },
+      "error": {
+        "generic": "Imeshindwa kuunda akaunti. Jaribu tena.",
+        "alreadyExists": "Akaunti tayari ipo na barua pepe hii. Tafadhali ingia."
+      }
+    },
+    "forgotPassword": {
+      "title": "Umesahau nywila?",
+      "subtitle": "Usijali — weka anwani yako ya barua pepe na tutakutumia kiungo cha kuunda nywila mpya.",
+      "email": {
+        "label": "Anwani ya barua pepe",
+        "placeholder": "barua_yako@pepe.com"
+      },
+      "button": "Tuma kiungo",
+      "success": "Kiungo kimetumwa! Angalia barua pepe yako.",
+      "backToLogin": "Rudi kwenye kuingia"
+    }
+  },
+  "client": {
+    "home": {
+      "greeting": "Habari, {{name}} 👋",
+      "location": "Libreville, Gabon",
+      "search": {
+        "placeholder": "Unatafuta fundi gani?"
+      },
+      "categories": {
+        "title": "Makundi"
+      },
+      "nearbyArtisans": {
+        "title": "Mafundi karibu nawe",
+        "count_one": "Fundi {{count}} karibu",
+        "count_other": "Mafundi {{count}} karibu"
+      },
+      "mapToggle": "Ramani",
+      "listToggle": "Orodha"
+    },
+    "results": {
+      "title": "Matokeo",
+      "count_one": "Fundi {{count}} amepatikana",
+      "count_other": "Mafundi {{count}} wamepatikana",
+      "subtitle_one": "Matokeo {{count}} · Libreville",
+      "subtitle_other": "Matokeo {{count}} · Libreville",
+      "filter": {
+        "note": "Ukadiriaji ★",
+        "distance": "Umbali",
+        "available": "Anapatikana",
+        "priceMax": "Chini ya elfu 15"
+      },
+      "scrollHint": "Inaonyesha {{shown}}/{{total}} — telezesha kuona zaidi",
+      "empty": {
+        "title": "Hakuna fundi aliyepatikana",
+        "description": "Jaribu kupanua eneo lako la utafutaji."
+      }
+    },
+    "artisanProfile": {
+      "online": "Mtandaoni",
+      "offline": "Nje ya mtandao",
+      "contact": {
+        "call": "Piga simu",
+        "chat": "Gumzo",
+        "requestQuote": "Nukuu"
+      },
+      "share": "Shiriki kwenye WhatsApp",
+      "reviews": {
+        "title": "Maoni ya wateja",
+        "count_one": "Tathmini {{count}}",
+        "count_other": "Tathmini {{count}}"
+      },
+      "portfolio": {
+        "title": "Kazi zilizofanywa",
+        "count": "{{current}}/{{total}}"
+      },
+      "about": {
+        "title": "Kuhusu"
+      },
+      "skills": {
+        "title": "Ujuzi"
+      },
+      "rate": {
+        "label": "Bei ya takriban",
+        "value": "{{amount}} XAF/saa"
+      },
+      "zone": {
+        "label": "Eneo la kazi"
+      }
+    },
+    "quoteRequest": {
+      "title": "Ombi la nukuu",
+      "description": {
+        "label": "Maelezo ya haja *",
+        "placeholder": "Mf: Mvujaji chini ya sinki la jikoni kwa siku 2, nahitaji ukarabati wa haraka…"
+      },
+      "address": {
+        "label": "Anwani ya kazi *",
+        "placeholder": "Mf: Mtaa wa Batterie IV, Libreville"
+      },
+      "availability": {
+        "label": "Upatikanaji unaotakiwa",
+        "placeholder": "ss/mm/mmmm"
+      },
+      "hint": "Fundi atawasiliana nawe kuthibitisha miadi na bei halisi.",
+      "photos": {
+        "label": "Picha (hiari)",
+        "add": "Ongeza picha"
+      },
+      "button": "Tuma ombi"
+    },
+    "quoteConfirmation": {
+      "title": "Ombi limetumwa!",
+      "notifiedDesc": "{{artisanName}} amearifu. Atajibu ndani ya masaa 24.",
+      "subtitle": "Fundi atajibu haraka iwezekanavyo.",
+      "steps": {
+        "sent": "Ombi limetumwa",
+        "artisanReplies": "Fundi anajibu",
+        "rdvConfirmed": "Miadi imethibitishwa"
+      },
+      "button": "Ona maombi yangu",
+      "backToHome": "Rudi mwanzoni"
+    },
+    "requests": {
+      "title": "Maombi yangu",
+      "tabs": {
+        "pending": "Inasubiri",
+        "accepted": "Imekubaliwa",
+        "history": "Historia"
+      },
+      "empty": {
+        "title": "Hakuna maombi",
+        "description": "Maombi yako ya nukuu yataonekana hapa."
+      }
+    },
+    "quoteDetail": {
+      "trackingTitle": "Ufuatiliaji wa ombi",
+      "artisan": {
+        "label": "Fundi"
+      },
+      "quote": {
+        "label": "Nukuu iliyopokelewa",
+        "amount": "Kiasi",
+        "delay": "Muda wa takriban",
+        "description": "Maelezo",
+        "accept": "Kubali nukuu",
+        "decline": "Kataa"
+      },
+      "timeline": {
+        "pending": "Inasubiri",
+        "sent": "Nukuu imepokelewa",
+        "accepted": "Imekubaliwa",
+        "rdv": "Miadi imethibitishwa",
+        "done": "Imekamilika"
+      },
+      "negotiate": "Jadiliana kupitia gumzo",
+      "noQuoteYet": "Hakuna nukuu iliyopokelewa bado.",
+      "chat": {
+        "button": "Wasiliana na fundi"
+      }
+    },
+    "chat": {
+      "title": "Ujumbe",
+      "placeholder": "Ujumbe…",
+      "send": "Tuma",
+      "empty": {
+        "title": "Hakuna ujumbe",
+        "description": "Mazungumzo yako yataonekana hapa."
+      },
+      "today": "Leo",
+      "online": "Mtandaoni"
+    },
+    "review": {
+      "title": "Tathmini yako",
+      "question": "Unakadiriaje huduma hii?",
+      "subtitle": "Kazi ilikwenda vipi?",
+      "rating": {
+        "label": "Ukadiriaji"
+      },
+      "comment": {
+        "label": "Maoni (hiari)",
+        "placeholder": "Shiriki uzoefu wako na jumuiya…"
+      },
+      "selectRating": "Chagua ukadiriaji",
+      "button": "Chapisha tathmini"
+    },
+    "profile": {
+      "title": "Wasifu wangu",
+      "stats": {
+        "requests": "Maombi",
+        "completed": "Yaliyokamilika",
+        "avgRating": "Ukadiriaji wa wastani"
+      },
+      "info": {
+        "title": "Maelezo"
+      },
+      "phone": {
+        "label": "Simu"
+      },
+      "email": {
+        "label": "Barua pepe"
+      },
+      "city": {
+        "label": "Mji"
+      },
+      "settings": {
+        "editInfo": "Hariri maelezo yangu",
+        "notifications": "Arifa"
+      },
+      "edit": {
+        "button": "Hariri"
+      },
+      "fullName": {
+        "label": "Jina kamili"
+      },
+      "logout": "Toka"
+    }
+  },
+  "artisan": {
+    "onboarding": {
+      "steps": {
+        "informations": "Maelezo",
+        "activite": "Shughuli",
+        "realisations": "Kazi"
+      },
+      "continue": "Endelea",
+      "step1": {
+        "title": "Tuambie kuhusu wewe",
+        "subtitle": "Maelezo haya yataonekana kwenye wasifu wako wa umma.",
+        "fullName": {
+          "label": "Jina kamili",
+          "placeholder": "Juma Mwangi"
+        },
+        "phone": {
+          "label": "Nambari ya simu",
+          "prefix": "+241",
+          "placeholder": "07 12 34 56"
+        },
+        "zone": {
+          "label": "Eneo la kijiografia",
+          "placeholder": "Mf: Mtaa wa IV, Libreville"
+        },
+        "phoneHint": "Nambari yako itathibitishwa na timu yetu kabla ya uanzishaji."
+      },
+      "step2": {
+        "title": "Shughuli yako",
+        "subtitle": "Maelezo haya husaidia wateja kukupata.",
+        "metier": {
+          "label": "Kazi yako *"
+        },
+        "competences": {
+          "label": "Ujuzi"
+        },
+        "tarif": {
+          "label": "Bei ya takriban *",
+          "placeholder": "15 000",
+          "units": {
+            "heure": "/saa",
+            "jour": "/siku",
+            "projet": "/mradi"
+          }
+        }
+      },
+      "step3": {
+        "title": "Kazi zako",
+        "subtitle": "Ongeza picha za kazi zako ili kujenga imani. Wasifu wenye picha hupata maombi mara 3 zaidi.",
+        "add": "Ongeza",
+        "photoLabel": "Picha {{n}}",
+        "hint": "Utaweza kuongeza picha zaidi baada ya uthibitisho.",
+        "submit": "Wasilisha wasifu wangu",
+        "termsPrefix": "Kwa kuwasilisha, unakubali",
+        "termsLink": "masharti yetu ya matumizi",
+        "photosPartialError": "Wasifu wako uliundwa, lakini picha fulani hazikuweza kupakiwa. Unaweza kuziongeza kutoka kwenye wasifu wako baada ya idhini."
+      }
+    },
+    "competences": {
+      "installation_plomberie": "Ufungaji wa mabomba",
+      "detection_fuite": "Kutafuta uvujaji",
+      "chauffe_eau": "Hita la maji",
+      "sanitaires": "Vyoo na bafu",
+      "tuyauterie": "Mabomba",
+      "evacuation": "Mifereji ya maji machafu",
+      "robinetterie": "Mabomba ya maji",
+      "cablage_residentiel": "Nyaya za nyumbani",
+      "tableau_electrique": "Sanduku la umeme",
+      "domotique": "Nyumba ya kisasa",
+      "eclairage_led": "Taa za LED",
+      "prises_inter": "Soketi na vitufe",
+      "mise_conformite": "Kufuata viwango",
+      "cablage_industriel": "Nyaya za viwanda",
+      "groupe_electrogene": "Jenereta",
+      "peinture_interieure": "Rangi ya ndani",
+      "peinture_exterieure": "Rangi ya nje",
+      "ravalement_facade": "Ukarabati wa facade",
+      "revetements_muraux": "Mapambo ya kuta",
+      "enduit": "Plasta",
+      "finitions": "Malizia",
+      "gros_oeuvre": "Ujenzi mkuu",
+      "carrelage": "Vigae",
+      "enduit_facade": "Plasta ya nje",
+      "chape_beton": "Sakafu ya zege",
+      "construction_mur": "Ujenzi wa ukuta",
+      "renovation_maconnerie": "Ukarabati wa ujenzi",
+      "fabrication_meuble": "Utengenezaji samani",
+      "pose_parquet": "Kuweka parquet",
+      "portes_fenetres": "Milango na madirisha",
+      "escaliers": "Ngazi",
+      "dressing": "Makabati ya nguo",
+      "boiseries": "Kazi ya mbao",
+      "terrasse_bois": "Terasi ya mbao",
+      "pose_carrelage": "Kuweka vigae",
+      "faience_salle_bain": "Vigae bafuni",
+      "joint_renovation": "Ukarabati wa mabaki",
+      "sol_beton_cire": "Sakafu ya zege",
+      "mosaique": "Mosai",
+      "terrasse_exterieure": "Terasi ya nje",
+      "taille_haies": "Kukata uzio",
+      "tonte_gazon": "Kukata nyasi",
+      "creation_jardin": "Uundaji bustani",
+      "arrosage_auto": "Umwagiliaji otomatiki",
+      "elagage": "Kupogoa miti",
+      "plantation": "Kupanda mimea",
+      "traitement_plantes": "Matibabu ya mimea",
+      "installation_clim": "Ufungaji AC",
+      "maintenance_clim": "Matengenezo AC",
+      "depannage_clim": "Ukarabati AC",
+      "ventilation": "Uingizaji hewa",
+      "pompe_chaleur": "Pampu ya joto",
+      "clim_reversible": "AC ya kubadilika",
+      "soudure_mig": "Kulehemu MIG",
+      "soudure_tig": "Kulehemu TIG",
+      "ferronnerie": "Kazi ya chuma",
+      "grilles_portails": "Gridi na malango",
+      "structure_metallique": "Muundo wa chuma",
+      "serrurerie_metal": "Ufuli wa chuma",
+      "pose_toiture": "Kufunika paa",
+      "reparation_toiture": "Kukarabati paa",
+      "charpente": "Fremu ya mbao",
+      "gouttieres": "Mifereji ya mvua",
+      "isolation_toiture": "Insulation ya paa",
+      "zinguerie": "Kazi ya bati",
+      "pose_serrure": "Kuweka kufuli",
+      "reparation_serrure": "Kutengeneza kufuli",
+      "blindage_porte": "Nguvu ya mlango",
+      "coffre_fort": "Kasisi",
+      "portail_acces": "Lango la kuingia",
+      "ouverture_urgence": "Kufungua dharura",
+      "pose_vitre": "Kuweka kioo",
+      "double_vitrage": "Kioo mara mbili",
+      "miroirs": "Vioo vya kujiangalia",
+      "veranda": "Veranda",
+      "moustiquaires": "Chandarua",
+      "vitrage_securite": "Kioo cha usalama"
+    },
+    "pending": {
+      "title": "Wasifu\nunapitiwa",
+      "subtitle": "Timu yetu inapitia maelezo yako kuhakikisha imani ya wateja.",
+      "timeline": {
+        "submitted": "Wasifu umewasilishwa",
+        "verification": "Ukaguzi unaendelea",
+        "verificationDelay": "Masaa 24-48",
+        "sms": "Arifa ya SMS",
+        "active": "Wasifu hai"
+      },
+      "whatsapp": "Wasiliana nasi kwenye WhatsApp",
+      "dashboard": "Fikia dashibodi"
+    },
+    "pendingVerification": {
+      "title": "Wasifu unapitiwa",
+      "subtitle": "Wasifu wako unapitiwa na timu yetu.",
+      "hint": "Utaarifiwa wasifu wako ukithibitishwa. Kawaida huchukua masaa 24 hadi 48."
+    },
+    "dashboard": {
+      "title": "Dashibodi",
+      "greeting": "Habari, {{name}} 👋",
+      "stats": {
+        "newRequests": {
+          "label": "Maombi mapya"
+        },
+        "rdvToday": {
+          "label": "Miadi leo"
+        }
+      },
+      "quota": {
+        "title": "Nukuu mwezi huu",
+        "remaining": "Mpango {{plan}} · Nukuu {{remaining}} zilizobaki mwezi huu"
+      },
+      "recentRequests": {
+        "title": "Maombi ya hivi karibuni",
+        "new": "MPYA",
+        "viewButton": "Ona"
+      },
+      "clientModeButton": "Tafuta fundi"
+    },
+    "requestDetail": {
+      "title": "Maelezo ya ombi",
+      "newBadge": "MPYA",
+      "clientType": "Mteja wa kawaida",
+      "client": {
+        "label": "Mteja"
+      },
+      "description": {
+        "label": "Maelezo ya haja"
+      },
+      "address": {
+        "label": "Anwani"
+      },
+      "availability": {
+        "label": "Upatikanaji unaotakiwa"
+      },
+      "createQuote": "Tengeneza nukuu",
+      "contactClient": "Wasiliana na mteja",
+      "decline": "Kataa ombi",
+      "sentTitle": "Nukuu imetumwa",
+      "acceptedTitle": "Nukuu imekubaliwa",
+      "refusedTitle": "Nukuu imekataliwa",
+      "doneTitle": "Kazi imekamilika",
+      "banner": {
+        "sent": "Inasubiri jibu la mteja",
+        "accepted": "Mteja amekubali nukuu yako",
+        "refused": "Mteja amekataa nukuu yako",
+        "done": "Kazi imekamilika kwa mafanikio"
+      },
+      "quoteSection": {
+        "label": "Nukuu yako",
+        "price": "Kiasi kilichopendekezwa",
+        "delay": "Muda uliokadiria",
+        "description": "Maelezo ya kazi"
+      },
+      "markDone": "Weka alama ya kukamilika",
+      "declineConfirmTitle": "Kataa ombi",
+      "declineConfirmMessage": "Una uhakika unataka kukataa ombi hili?",
+      "declineConfirmBtn": "Kataa"
+    },
+    "quoteCreate": {
+      "title": "Tengeneza nukuu",
+      "amount": {
+        "label": "Jumla ya kiasi (FCFA)",
+        "placeholder": "Mf: 50 000"
+      },
+      "description": {
+        "label": "Maelezo ya kazi",
+        "placeholder": "Elezea kazi utakayofanya..."
+      },
+      "price": {
+        "label": "Bei",
+        "placeholder": "25 000",
+        "suffix": "FCFA"
+      },
+      "delay": {
+        "label": "Muda wa takriban",
+        "placeholder": "2",
+        "suffix": "siku"
+      },
+      "deadline": {
+        "label": "Muda wa utekelezaji"
+      },
+      "summary": {
+        "availability": "Upatikanaji: {{date}}",
+        "noAvailability": "Haraka iwezekanavyo"
+      },
+      "hint": "Mteja ataarifu na anaweza kukubali, kukataa au kujadiliana nukuu yako.",
+      "button": "Tuma nukuu"
+    },
+    "quotes": {
+      "title": "Nukuu zangu",
+      "tabs": {
+        "toProcess": "Kuchakata",
+        "sent": "Zilizotumwa",
+        "archived": "Zilizohifadhiwa"
+      },
+      "status": {
+        "pending": "Kuchakata",
+        "sent": "Imetumwa",
+        "accepted": "Imekubaliwa",
+        "refused": "Imekataliwa",
+        "done": "Imekamilika"
+      },
+      "empty": {
+        "title": "Hakuna nukuu",
+        "description": "Nukuu zako zitaonekana hapa."
+      }
+    },
+    "agenda": {
+      "title": "Ratiba yangu",
+      "addRdv": "Miadi",
+      "freeDay": "Siku huru",
+      "rdvCount": "Miadi {{count}}",
+      "empty": {
+        "title": "Hakuna miadi",
+        "description": "Miadi yako iliyothibitishwa itaonekana hapa."
+      },
+      "appointment": {
+        "with": "Na",
+        "address": "Anwani"
+      }
+    },
+    "profile": {
+      "title": "Wasifu wangu",
+      "save": "Hifadhi",
+      "verified": "Imethibitishwa",
+      "reviews": "Tathmini {{count}}",
+      "ratePerHour": "{{amount}} {{currency}}/saa",
+      "rateJour": "{{amount}} {{currency}}/siku",
+      "rateProjet": "{{amount}} {{currency}}",
+      "sections": {
+        "information": "Maelezo",
+        "competences": "Ujuzi",
+        "tarif": "Bei",
+        "photos": "Picha"
+      },
+      "info": {
+        "name": "Jina",
+        "phone": "Simu",
+        "email": "Barua pepe",
+        "city": "Mji",
+        "modify": "Hariri"
+      },
+      "saveAll": "Hifadhi mabadiliko",
+      "tarif": {
+        "unit": "{{currency}} / saa",
+        "unitJour": "{{currency}} / siku",
+        "unitProjet": "{{currency}} (mradi)",
+        "pillHeure": "/saa",
+        "pillJour": "/siku",
+        "pillProjet": "/mradi",
+        "amountPlaceholder": "0",
+        "bioPlaceholder": "Mf.: Kauli ya bure · Usafiri ni pamoja · Inapatikana wikendi…",
+        "addShort": "Ongeza"
+      },
+      "edit": {
+        "button": "Hariri wasifu wangu"
+      },
+      "subscription": {
+        "label": "Usajili wangu"
+      },
+      "competences": {
+        "addTitle": "Ongeza ujuzi",
+        "allAdded": "Ujuzi wote wa kazi yako umeshaongezwa."
+      },
+      "photos": {
+        "label": "Kazi zangu",
+        "add": "Ongeza",
+        "addFull": "Ongeza picha",
+        "errorUpload": "Imeshindwa kupakia picha",
+        "errorDelete": "Imeshindwa kufuta picha"
+      },
+      "logout": "Toka",
+      "field": {
+        "saveError": "Haijahifadhiwa. Angalia muunganisho wako.",
+        "validationError": "Muundo batili. Rekebisha sehemu hii."
+      }
+    },
+    "subscription": {
+      "title": "Usajili wangu",
+      "current": {
+        "label": "Mpango wa sasa",
+        "badge": "Votre plan actuel"
+      },
+      "plans": {
+        "free": {
+          "name": "Bure",
+          "description": "Ufikiaji wa msingi wa jukwaa",
+          "price": "0",
+          "feat1": "3 devis par mois",
+          "feat2": "Profil de base"
+        },
+        "standard": {
+          "name": "Kawaida",
+          "description": "Mwonekano zaidi, ufikiaji wa kipaumbele kwa maombi",
+          "price": "5 000",
+          "feat1": "Devis illimités",
+          "feat2": "Badge Vérifié",
+          "feat3": "Statistiques profil"
+        },
+        "premium": {
+          "name": "Premium",
+          "description": "Mwonekano wa juu zaidi na vipengele vya hali ya juu",
+          "price": "12 000",
+          "feat1": "Tout Standard +",
+          "feat2": "Mise en avant carte",
+          "feat3": "SOS prioritaire 1h",
+          "feat4": "Publicité locale"
+        }
+      },
+      "upgrade": {
+        "button": "Panda mpango"
+      },
+      "priceUnit": "FCFA/mois",
+      "footer": "Paiement mensuel · Mobile Money (Airtel, Moov) · Résiliation facile",
+      "subtitleBefore": "Chagua ",
+      "subtitleHighlight": "mpango",
+      "subtitleAfter": " unaofaa shughuli yako."
+    },
+    "chat": {
+      "title": "Mazungumzo",
+      "placeholder": "Ujumbe…",
+      "send": "Tuma",
+      "today": "Leo",
+      "clientLabel": "Mteja · {{zone}}"
+    }
+  },
+  "admin": {
+    "nav": {
+      "section": "UDHIBITI",
+      "toValidate": "Kuthibitisha",
+      "toValidateFull": "Mafundi wa kuthibitishwa",
+      "active": "Waanzilishi",
+      "activeFull": "Mafundi wanaofanya kazi",
+      "reports": "Malalamiko"
+    },
+    "sidebar": {
+      "adminFallback": "Admin",
+      "appName": "projet-x",
+      "appSubtitle": "Jopo la wasimamizi"
+    },
+    "modal": {
+      "metier": "Fani",
+      "zone": "Eneo",
+      "tarif": "Bei",
+      "telephone": "Simu",
+      "bio": "Wasifu",
+      "competences": "Ujuzi",
+      "portfolio": {
+        "title_one": "Kazi zangu (picha {{count}})",
+        "title_other": "Kazi zangu (picha {{count}})",
+        "empty": "Hakuna picha zilizoongezwa"
+      }
+    },
+    "validation": {
+      "title": "Mafundi wanaongoja uthibitisho",
+      "empty": {
+        "title": "Foleni iko tupu",
+        "description": "Hakuna wasifu unaongoja uthibitisho."
+      },
+      "approve": "Thibitisha wasifu",
+      "reject": "Kataa wasifu",
+      "rejectReason": {
+        "label": "Sababu ya kukataliwa",
+        "placeholder": "Elezea sababu ya kukataliwa…"
+      },
+      "subtitle_one": "{{count}} wasifu unaongoja",
+      "subtitle_other": "{{count}} wasifu unaongoja",
+      "viewProfile": "Tazama wasifu"
+    },
+    "activeArtisans": {
+      "title": "Mafundi hai",
+      "suspend": "Simamisha",
+      "reactivate": "Amilisha tena",
+      "subtitle_one": "{{count}} fundi aliyethibitishwa",
+      "subtitle_other": "{{count}} mafundi waliothibitishwa",
+      "searchPlaceholder": "Tafuta…",
+      "filterAll": "Wote",
+      "verified": "Imethibitishwa",
+      "empty": {
+        "title": "Hakuna mafundi wanaofanya kazi",
+        "description": "Wasifu ulioidhinishwa utaonekana hapa."
+      }
+    },
+    "reports": {
+      "title": "Malalamiko",
+      "subtitle": "{{pending}} inasubiri · {{treated}} iliyoshughulikiwa",
+      "sections": {
+        "toProcess": "KUSHUGHULIKIA ({{count}})",
+        "treated": "ZILIZOSHUGHULIKIWA ({{count}})"
+      },
+      "reportedBy": "iliripotiwa na",
+      "statuses": {
+        "pending": "Inasubiri",
+        "treated": "Ilishughulikiwa"
+      },
+      "markTreated": "Weka alama ya kushughulikia",
+      "suspend": "Simamisha",
+      "empty": {
+        "title": "Hakuna malalamiko",
+        "description": "Hakuna malalamiko yanayosubiri."
+      }
+    }
+  },
+  "legal": {
+    "conditions": {
+      "title": "Masharti ya Matumizi",
+      "subtitle": "Jukwaa la projet-x – Gabon",
+      "updated": "Ilisasishwa mara ya mwisho: Juni 2026",
+      "intro": "Masharti haya ya Matumizi yanasimamia upatikanaji na matumizi ya jukwaa la projet-x, huduma inayounganisha mafundi waliohitimu na wateja nchini Gabon. Kutumia jukwaa kunamaanisha kukubaliana kikamilifu na masharti haya.",
+      "art1": {
+        "title": "Ibara ya 1 – Madhumuni",
+        "body": "Jukwaa la projet-x ni huduma ya kuunganisha mafundi waliohitimu na watu binafsi au wataalamu wanaotafuta huduma za ufundi nchini Gabon. Inaruhusu wateja kupata fundi kwa aina ya kazi na eneo la kijiografia, na inaruhusu mafundi kukuza biashara yao na kupokea maombi ya bei."
+      },
+      "art2": {
+        "title": "Ibara ya 2 – Ufafanuzi",
+        "body": "Jukwaa linamaanisha programu ya simu ya projet-x na vipengele vyake vyote. Fundi anamaanisha mtaalamu yeyote aliyesajiliwa anayetoa huduma zake kupitia jukwaa. Mteja anamaanisha mtu yeyote anayetafuta huduma za mafundi. Ombi la bei ni ombi linalowasilishwa na mteja kwa fundi."
+      },
+      "art3": {
+        "title": "Ibara ya 3 – Usajili na akaunti",
+        "body": "Usajili uko wazi kwa mtu yeyote mwenye nambari ya simu halali. Kila mtumiaji anawajibika kwa usiri wa nywila zake na shughuli zote zinazofanywa kutoka kwa akaunti yake. Akaunti ni za kibinafsi na haziwezi kuhamishiwa au kushirikiwa. Iwapo kuna tuhuma ya udanganyifu, projet-x inajiwekea haki ya kusimamisha akaunti husika."
+      },
+      "art4": {
+        "title": "Ibara ya 4 – Uthibitishaji wa maelezo ya mafundi",
+        "body": "Maelezo yote ya mafundi yanakaguliwa kwa mkono na timu ya projet-x kabla hayajaonekana na wateja. Ukaguzi huu unaweza kuchukua masaa 24 hadi 48. projet-x inajiwekea haki ya kukataa au kusimamisha maelezo yoyote ambayo hayakidhi vigezo vya ubora au masharti haya."
+      },
+      "art5": {
+        "title": "Ibara ya 5 – Mipango ya usajili",
+        "body": "Mafundi wana ufikiaji wa viwango vitatu vya usajili: Bila malipo (hadi maombi 3 ya bei kwa mwezi), Kawaida (hadi maombi 10 kwa mwezi), na Premium (maombi bila kikomo). Mipango ya malipo inafidiwa kulingana na bei zinazoonyeshwa katika programu. projet-x inajiwekea haki ya kubadilisha bei kwa taarifa ya siku 30."
+      },
+      "art6": {
+        "title": "Ibara ya 6 – Maombi ya bei",
+        "body": "Jukwaa linafanikisha mawasiliano kati ya wateja na mafundi bila kuingilia uamuzi wa bei au utekelezaji wa huduma. projet-x si sehemu ya mikataba inayohitimishwa kati ya wateja na mafundi. Huduma zote zinakubaliana moja kwa moja kati ya pande hizo mbili, chini ya jukumu lao peke yao."
+      },
+      "art7": {
+        "title": "Ibara ya 7 – Kalenda na miadi",
+        "body": "Kalenda iliyounganishwa inaruhusu mafundi kusimamia upatikanaji wao na wateja kuona vipindi vinavyopatikana. Kupanga miadi kupitia jukwaa ni mpango kati ya fundi na mteja, bila ahadi yoyote kutoka kwa projet-x kuhusu utekelezaji wake."
+      },
+      "art8": {
+        "title": "Ibara ya 8 – Maudhui yaliyochapishwa",
+        "body": "Picha, maelezo na taarifa zilizochapishwa kwenye jukwaa zinabaki kuwa mali ya waandishi wao. Kwa kuzichapisha, mtumiaji anampa projet-x leseni isiyo ya kipekee ya kuonyesha. Maudhui yoyote ya uongo, ya udanganyifu au ya kudhuru yataondolewa bila onyo la awali."
+      },
+      "art9": {
+        "title": "Ibara ya 9 – Wajibu wa watumiaji",
+        "body": "Watumiaji wanakubaliana kutoa taarifa sahihi na za kisasa, kuheshimu watumiaji wengine, na kutotumia jukwaa kwa madhumuni ya udanganyifu au kinyume na sheria na kanuni za Gabon zinazotumika."
+      },
+      "art10": {
+        "title": "Ibara ya 10 – Data ya kibinafsi",
+        "body": "projet-x inakusanya na kushughulikia data ya kibinafsi (jina, simu, mahali, picha) kwa ajili ya usimamizi wa akaunti na uoanishaji. Data hii haiuzwi kwa watu wengine. Una haki ya kupata, kurekebisha na kufuta data yako kupitia mipangilio ya programu au kwa kuwasiliana nasi."
+      },
+      "art11": {
+        "title": "Ibara ya 11 – Ukomo wa dhima",
+        "body": "projet-x inafanya kazi kama wasit wa kiufundi na haidhamini ubora wa huduma zinazotolewa na mafundi. Jukwaa haliwezi kuwajibika kwa migogoro kati ya mteja na fundi, wala kwa usumbufu wa huduma unaosababishwa na mambo ya nje kama tatizo la mtandao au nguvu kubwa."
+      },
+      "art12": {
+        "title": "Ibara ya 12 – Mabadiliko ya masharti",
+        "body": "projet-x inajiwekea haki ya kubadilisha masharti haya wakati wowote. Watumiaji wataarifiwa kuhusu mabadiliko yoyote makubwa kupitia arifa ndani ya programu. Kuendelea kutumia jukwaa baada ya mabadiliko yoyote kunamaanisha kukubaliana na masharti mapya."
+      },
+      "art13": {
+        "title": "Ibara ya 13 – Sheria inayotumika na migogoro",
+        "body": "Masharti haya yanasimamiwa na sheria ya Gabon. Katika kesi ya mgogoro, pande zote zinakubaliana kutafuta suluhisho la kirafiki kabla ya hatua yoyote ya kisheria. Bila makubaliano ya kirafiki, mgogoro wowote utawasilishwa kwa mahakama zenye mamlaka huko Libreville, Gabon."
+      },
+      "art14": {
+        "title": "Ibara ya 14 – Mawasiliano",
+        "body": "Kwa maswali yoyote kuhusu masharti haya au matumizi ya jukwaa, wasiliana nasi kwa: contact@projet-x.app au kupitia fomu ya msaada inayopatikana katika mipangilio ya programu."
+      },
+      "seePrivacy": "Angalia pia Sera yetu ya Faragha"
+    },
+    "privacy": {
+      "title": "Sera ya Faragha",
+      "subtitle": "Jukwaa la projet-x – Gabon",
+      "updated": "Ilisasishwa mara ya mwisho: Juni 2026",
+      "intro": "projet-x ina dhamira ya kulinda faragha ya watumiaji wake. Sera hii ya Faragha inaeleza data tunayokusanya, jinsi tunavyoitumia, na haki unazokuwa nazo juu yake.",
+      "art1": {
+        "title": "Ibara ya 1 – Mthibiti wa data",
+        "body": "Mthibiti wa usindikaji wa data ya kibinafsi ni projet-x, inayoendesha jukwaa la kuunganisha mafundi nchini Gabon. Kwa maswali yoyote kuhusu usindikaji wa data yako, unaweza kuwasiliana nasi kwa: contact@projet-x.app."
+      },
+      "art2": {
+        "title": "Ibara ya 2 – Data inayokusanywa",
+        "body": "Tunakusanya data zifuatazo unapojisajili na kutumia jukwaa: taarifa za utambulisho (jina kamili), maelezo ya mawasiliano (nambari ya simu), mahali pa kijiografia (mji, eneo la kazi, au kuratibu za GPS kwa mafundi), picha za kazi zilizofanywa (kwa mafundi peke yao), taarifa za kitaaluma (aina ya kazi, ujuzi, kiwango cha bei) na data ya uvumbuzi (rekodi za kuingia, vitendo ndani ya programu)."
+      },
+      "art3": {
+        "title": "Ibara ya 3 – Madhumuni ya usindikaji",
+        "body": "Data yako inasindikwa kwa madhumuni yafuatayo: kuunda na kusimamia akaunti yako, kuunganisha wateja na mafundi, kuonyesha wasifu wa mafundi, kushughulikia maombi ya bei na miadi, kutuma arifa zinazohusiana na shughuli zako kwenye jukwaa, na kuboresha huduma zetu kila wakati."
+      },
+      "art4": {
+        "title": "Ibara ya 4 – Msingi wa kisheria",
+        "body": "Usindikaji wa data yako unategemea misingi ya kisheria ifuatayo: utekelezaji wa mkataba wa matumizi uliokubali wakati wa kusajili, idhini yako kwa mawasiliano yasiyo ya lazima, na maslahi yetu halali katika usalama na uboreshaji wa jukwaa."
+      },
+      "art5": {
+        "title": "Ibara ya 5 – Wapokeaji wa data",
+        "body": "Data yako inapatikana kwa timu za projet-x katika muundo wa uendeshaji wa jukwaa. Wasifu wa mafundi (jina, kazi, eneo, bei, picha za kazi) unaonekana kwa watumiaji wote wa jukwaa. Hakuna data inayouzwa au kuhamishiwa kwa watu wengine kwa madhumuni ya kibiashara."
+      },
+      "art6": {
+        "title": "Ibara ya 6 – Uhifadhi na usalama",
+        "body": "Data yako inahifadhiwa kwenye seva za Supabase, mtoa huduma wa wingu salama. Tunatekeleza hatua za kiufundi na za shirika kulinda data yako dhidi ya ufikiaji usioidhinishwa, upotezaji, au ufichuo, ikiwa ni pamoja na mawasiliano yaliyosimbwa (HTTPS/TLS) na udhibiti wa ufikiaji."
+      },
+      "art7": {
+        "title": "Ibara ya 7 – Muda wa uhifadhi",
+        "body": "Data yako inahifadhiwa kwa muda wote akaunti yako ikiwa hai kwenye jukwaa. Ukifuta akaunti yako, data yako ya kibinafsi itafutwa ndani ya siku 30, isipokuwa data inayohitajika kutimiza majukumu yetu ya kisheria, ambayo inahifadhiwa kwa muda unaohitajika kisheria."
+      },
+      "art8": {
+        "title": "Ibara ya 8 – Haki zako",
+        "body": "Kulingana na kanuni zinazotumika, una haki zifuatazo juu ya data yako: haki ya ufikiaji (kupata nakala ya data yako), haki ya urekebishaji (kurekebisha data isiyo sahihi), haki ya ufutaji (kuomba kufutwa kwa data yako), haki ya ubebaji na haki ya kupinga. Ili kutumia haki hizi, wasiliana nasi kwa: contact@projet-x.app."
+      },
+      "art9": {
+        "title": "Ibara ya 9 – Uhamishaji wa kimataifa",
+        "body": "Data yako inaweza kusindikwa na watoa huduma wetu wa kiufundi walioko nje ya Gabon, hasa Supabase. Uhamishaji huu unafanywa chini ya dhamana za kimkataba zinazofaa zinazohakikisha kiwango cha ulinzi sawa na kile kinachofanya kazi nchini Gabon."
+      },
+      "art10": {
+        "title": "Ibara ya 10 – Mabadiliko ya sera",
+        "body": "Sera hii ya Faragha inaweza kusasishwa wakati wowote. Utaarifiwa kuhusu mabadiliko yoyote makubwa kupitia arifa ndani ya programu. Tarehe ya uboreshaji wa mwisho imeonyeshwa juu ya hati hii."
+      },
+      "art11": {
+        "title": "Ibara ya 11 – Mawasiliano na malalamiko",
+        "body": "Kwa maswali yoyote kuhusu Sera hii au kutumia haki zako, wasiliana nasi kwa: contact@projet-x.app. Kwa malalamiko ambayo hayajatatuliwa, unaweza kuwasiliana na mamlaka inayohusika na ulinzi wa data ya kibinafsi nchini Gabon."
+      },
+      "seeConditions": "Angalia pia Masharti yetu ya Matumizi"
+    }
+  }
+}

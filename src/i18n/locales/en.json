@@ -1,0 +1,1042 @@
+{
+  "common": {
+    "button": {
+      "confirm": "Confirm",
+      "cancel": "Cancel",
+      "save": "Save",
+      "back": "Back",
+      "next": "Next",
+      "submit": "Submit",
+      "edit": "Edit",
+      "delete": "Delete",
+      "retry": "Retry",
+      "close": "Close",
+      "send": "Send",
+      "accept": "Accept",
+      "decline": "Decline",
+      "viewAll": "View all",
+      "done": "Done"
+    },
+    "loading": "Loading…",
+    "error": {
+      "title": "Error",
+      "generic": "Something went wrong",
+      "network": "Please check your internet connection",
+      "permissionDenied": "Permission denied",
+      "galleryPermission": "Please allow access to your gallery to add photos.",
+      "photoUpload": "Unable to send the photo. Check your connection and try again."
+    },
+    "empty": {
+      "title": "No results",
+      "description": "There is nothing to display here."
+    },
+    "status": {
+      "verified": "Verified",
+      "pending": "Pending",
+      "rejected": "Rejected"
+    },
+    "phone": {
+      "selectCountry": "Select country",
+      "hint": "Format: {{placeholder}} · {{name}}"
+    },
+    "navigation": {
+      "prevWeek": "Previous week",
+      "nextWeek": "Next week"
+    },
+    "zoneSearch": {
+      "networkError": "Unable to search. Check your connection."
+    },
+    "artisanClientBanner": {
+      "label": "Client mode",
+      "back": "Back to artisan"
+    },
+    "legal": {
+      "title": "Legal",
+      "cgu": "Terms of use",
+      "privacy": "Privacy policy"
+    },
+    "selector": {
+      "switchToClient": "Switch to client mode",
+      "switchToArtisan": "Switch back to artisan"
+    },
+    "distance": {
+      "km": "{{value}} km",
+      "m": "{{value}} m"
+    },
+    "date": {
+      "todayAt": "Today {{time}}",
+      "yesterdayAt": "Yesterday {{time}}"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "empty": {
+        "title": "No notifications",
+        "description": "You have no notifications yet."
+      }
+    }
+  },
+  "notification": {
+    "quote": {
+      "newRequest": {
+        "title": "New quote request",
+        "body": "A client sent you a request. Open the app to respond."
+      },
+      "responded": {
+        "title": "Quote received",
+        "body": "Your craftsman has responded to your quote request."
+      },
+      "done": {
+        "title": "Job completed",
+        "body": "The craftsman has marked your job as completed."
+      }
+    },
+    "message": {
+      "received": {
+        "title": "New message",
+        "body": "You have received a new message."
+      }
+    }
+  },
+  "metier": {
+    "plombier": "Plumber",
+    "electricien": "Electrician",
+    "peintre": "Painter",
+    "maçon": "Mason",
+    "menuisier": "Carpenter",
+    "carreleur": "Tiler",
+    "jardinier": "Gardener",
+    "climatisation": "Air conditioning",
+    "soudeur": "Welder",
+    "couvreur": "Roofer",
+    "serrurier": "Locksmith",
+    "vitrier": "Glazier"
+  },
+  "quote": {
+    "status": {
+      "pending": "Pending",
+      "sent": "Quote received",
+      "accepted": "Accepted",
+      "refused": "Declined",
+      "done": "Done"
+    }
+  },
+  "subscription": {
+    "plan": {
+      "free": "Free",
+      "standard": "Standard",
+      "premium": "Premium"
+    }
+  },
+  "auth": {
+    "splash": {
+      "taglinePrefix": "Find the right artisan ",
+      "taglineSuffix": "for you"
+    },
+    "role": {
+      "title": "Who are you?",
+      "subtitle": "Choose your profile to continue",
+      "client": {
+        "label": "I am a client",
+        "description": "I'm looking for a qualified artisan"
+      },
+      "artisan": {
+        "label": "I am an artisan",
+        "description": "I offer my services"
+      },
+      "alreadyAccount": "Already have an account?",
+      "connect": "Sign in"
+    },
+    "login": {
+      "title": "Sign in",
+      "subtitle": "Welcome back",
+      "email": {
+        "label": "Email address",
+        "placeholder": "your@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      },
+      "forgotPassword": "Forgot password?",
+      "button": "Sign in",
+      "noAccount": "Don't have an account?",
+      "register": "Sign up",
+      "error": {
+        "invalidCredentials": "Incorrect email or password. Please check your details."
+      }
+    },
+    "register": {
+      "title": "Create an account",
+      "subtitle": "Join the community",
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Jean-Pierre Ondo"
+      },
+      "email": {
+        "label": "Email address",
+        "placeholder": "your@email.com"
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeholder": "+241 00 00 00 00"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "At least 8 characters"
+      },
+      "confirmPassword": {
+        "label": "Confirm password",
+        "placeholder": "Repeat your password"
+      },
+      "passwordHint": "At least 8 characters, one uppercase letter, one number",
+      "button": "Create account",
+      "haveAccount": "Already have an account?",
+      "login": "Sign in",
+      "terms": "By continuing, you agree to our terms of service",
+      "validation": {
+        "fullNameRequired": "Full name is required",
+        "emailRequired": "Email is required",
+        "passwordMin": "At least 8 characters",
+        "passwordMatch": "Passwords do not match"
+      },
+      "error": {
+        "generic": "Failed to create account. Please try again.",
+        "alreadyExists": "An account already exists with this email address. Please sign in."
+      }
+    },
+    "forgotPassword": {
+      "title": "Forgot password",
+      "subtitle": "Enter your email to receive a reset link",
+      "email": {
+        "label": "Email address",
+        "placeholder": "your@email.com"
+      },
+      "button": "Send link",
+      "success": "Link sent! Check your inbox.",
+      "backToLogin": "Back to sign in"
+    }
+  },
+  "client": {
+    "home": {
+      "greeting": "Hello, {{name}} 👋",
+      "location": "Libreville, Gabon",
+      "search": {
+        "placeholder": "What artisan are you looking for?"
+      },
+      "categories": {
+        "title": "Categories"
+      },
+      "nearbyArtisans": {
+        "title": "Artisans near you",
+        "count_one": "{{count}} artisan nearby",
+        "count_other": "{{count}} artisans nearby"
+      },
+      "mapToggle": "Map",
+      "listToggle": "List",
+      "filters": {
+        "button": "Filters"
+      },
+      "map": {
+        "recenter": "Center on my location"
+      }
+    },
+    "results": {
+      "title": "Results",
+      "search": {
+        "placeholder": "Search for an artisan…"
+      },
+      "count_one": "{{count}} artisan found",
+      "count_other": "{{count}} artisans found",
+      "subtitle_one": "{{count}} result · {{city}}",
+      "subtitle_other": "{{count}} results · {{city}}",
+      "filter": {
+        "note": "Rating ★",
+        "distance": "Distance",
+        "available": "Available",
+        "priceMax": "Under 15k"
+      },
+      "scrollHint": "Showing {{shown}}/{{total}} — scroll for more",
+      "empty": {
+        "title": "No artisan found",
+        "description": "Try expanding your search area."
+      }
+    },
+    "artisanProfile": {
+      "online": "Online",
+      "offline": "Offline",
+      "contact": {
+        "call": "Call",
+        "chat": "Chat",
+        "requestQuote": "Quote"
+      },
+      "share": "Share on WhatsApp",
+      "reviews": {
+        "title": "Reviews",
+        "count_one": "{{count}} review",
+        "count_other": "{{count}} reviews"
+      },
+      "portfolio": {
+        "title": "Portfolio",
+        "count": "{{current}}/{{total}}",
+        "empty": "No portfolio photos added yet."
+      },
+      "about": {
+        "title": "About",
+        "empty": "This artisan hasn't added a description yet."
+      },
+      "skills": {
+        "title": "Skills"
+      },
+      "rate": {
+        "label": "Indicative rate",
+        "heure": "{{amount}} {{currency}}/h",
+        "forfait": "{{amount}} {{currency}}",
+        "unit": {
+          "heure": "/hour",
+          "jour": "/day",
+          "projet": "/project"
+        }
+      },
+      "zone": {
+        "label": "Service area"
+      }
+    },
+    "quoteRequest": {
+      "title": "Request a quote",
+      "description": {
+        "label": "Describe your need *",
+        "placeholder": "e.g. Kitchen sink leak for 2 days, need a quick repair…"
+      },
+      "address": {
+        "label": "Site address *",
+        "placeholder": "e.g. Batterie IV district, Libreville"
+      },
+      "availability": {
+        "label": "Preferred availability",
+        "placeholder": "Choose a date (optional)",
+        "clear": "Clear"
+      },
+      "error": {
+        "descriptionTooShort": "Description must be at least 10 characters.",
+        "addressRequired": "Intervention address is required."
+      },
+      "hint": "The artisan will contact you to confirm the appointment and the exact rate.",
+      "photos": {
+        "label": "Photos (optional)",
+        "add": "Add a photo"
+      },
+      "button": "Send request"
+    },
+    "quoteConfirmation": {
+      "title": "Request sent!",
+      "notifiedDesc": "{{artisanName}} has been notified. They will reply within 24h.",
+      "subtitle": "The artisan will get back to you shortly.",
+      "steps": {
+        "sent": "Request sent",
+        "artisanReplies": "Artisan replies",
+        "rdvConfirmed": "Appointment confirmed"
+      },
+      "button": "View my requests",
+      "backToHome": "Back to home"
+    },
+    "requests": {
+      "title": "My requests",
+      "tabs": {
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "history": "History"
+      },
+      "empty": {
+        "title": "No requests",
+        "description": "Your quote requests will appear here."
+      },
+      "card": {
+        "unknownArtisan": "Unknown artisan"
+      }
+    },
+    "quoteDetail": {
+      "trackingTitle": "Request tracking",
+      "artisan": {
+        "label": "Artisan"
+      },
+      "quote": {
+        "label": "Quote received",
+        "amount": "Amount",
+        "delay": "Estimated time",
+        "description": "Details",
+        "accept": "Accept quote",
+        "decline": "Decline"
+      },
+      "timeline": {
+        "pending": "Pending",
+        "sent": "Quote received",
+        "accepted": "Accepted",
+        "rdv": "Appointment confirmed",
+        "done": "Completed"
+      },
+      "negotiate": "Negotiate via chat",
+      "noQuoteYet": "No quote received yet.",
+      "chat": {
+        "button": "Contact artisan"
+      }
+    },
+    "chat": {
+      "title": "Messages",
+      "placeholder": "Message…",
+      "send": "Send",
+      "empty": {
+        "title": "No messages",
+        "description": "Your conversations will appear here."
+      },
+      "today": "Today",
+      "online": "Online"
+    },
+    "review": {
+      "title": "Your review",
+      "question": "How would you rate this service?",
+      "subtitle": "How did the job go?",
+      "rating": {
+        "label": "Rating"
+      },
+      "comment": {
+        "label": "Comment (optional)",
+        "placeholder": "Share your experience with the community…"
+      },
+      "selectRating": "Select a rating",
+      "button": "Post review"
+    },
+    "profile": {
+      "title": "My profile",
+      "stats": {
+        "requests": "Requests",
+        "completed": "Completed",
+        "avgRating": "Avg. rating"
+      },
+      "info": {
+        "title": "Information"
+      },
+      "phone": {
+        "label": "Phone"
+      },
+      "email": {
+        "label": "Email"
+      },
+      "city": {
+        "label": "City"
+      },
+      "settings": {
+        "editInfo": "Edit my information",
+        "notifications": "Notifications"
+      },
+      "edit": {
+        "title": "Edit my profile",
+        "button": "Save",
+        "success": "Profile updated"
+      },
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Jean-Pierre Ondo"
+      },
+      "logout": "Sign out"
+    }
+  },
+  "artisan": {
+    "onboarding": {
+      "steps": {
+        "informations": "Information",
+        "activite": "Activity",
+        "realisations": "Portfolio"
+      },
+      "continue": "Continue →",
+      "step1": {
+        "title": "Tell us about yourself",
+        "subtitle": "This information will be visible on your public profile.",
+        "fullName": {
+          "label": "Full name",
+          "placeholder": "Jean-Pierre Ondo"
+        },
+        "phone": {
+          "label": "Phone number",
+          "prefix": "+241",
+          "placeholder": "07 12 34 56"
+        },
+        "zone": {
+          "label": "Geographic area",
+          "placeholder": "e.g. Batterie IV, Libreville"
+        },
+        "phoneHint": "Your number will be verified by our team before activation."
+      },
+      "step2": {
+        "title": "Your activity",
+        "subtitle": "This info helps clients find you.",
+        "metier": {
+          "label": "Your trade *"
+        },
+        "competences": {
+          "label": "Skills"
+        },
+        "tarif": {
+          "label": "Indicative rate *",
+          "placeholder": "15 000",
+          "units": {
+            "heure": "/hour",
+            "jour": "/day",
+            "projet": "/project"
+          }
+        }
+      },
+      "step3": {
+        "title": "Your portfolio",
+        "subtitle": "Add photos of your work to inspire confidence. Profiles with photos receive 3x more requests.",
+        "add": "Add",
+        "photoLabel": "Photo {{n}}",
+        "hint": "You can add more photos after validation.",
+        "submit": "Submit my profile",
+        "termsPrefix": "By submitting, you accept our",
+        "termsLink": "terms of use",
+        "photosPartialError": "Your profile was created, but some photos could not be uploaded. You can add them from your profile once approved."
+      }
+    },
+    "competences": {
+      "installation_plomberie": "Plumbing installation",
+      "detection_fuite": "Leak detection",
+      "chauffe_eau": "Water heater",
+      "sanitaires": "Toilets & sanitary",
+      "tuyauterie": "Piping",
+      "evacuation": "Drainage",
+      "robinetterie": "Taps & valves",
+      "cablage_residentiel": "Residential wiring",
+      "tableau_electrique": "Electrical panel",
+      "domotique": "Home automation",
+      "eclairage_led": "LED lighting",
+      "prises_inter": "Sockets & switches",
+      "mise_conformite": "Compliance",
+      "cablage_industriel": "Industrial wiring",
+      "groupe_electrogene": "Generator",
+      "peinture_interieure": "Interior painting",
+      "peinture_exterieure": "Exterior painting",
+      "ravalement_facade": "Facade rendering",
+      "revetements_muraux": "Wall coverings",
+      "enduit": "Plastering",
+      "finitions": "Finishing",
+      "gros_oeuvre": "Structural work",
+      "carrelage": "Tiling",
+      "enduit_facade": "Facade plaster",
+      "chape_beton": "Concrete screed",
+      "construction_mur": "Wall construction",
+      "renovation_maconnerie": "Masonry renovation",
+      "fabrication_meuble": "Furniture making",
+      "pose_parquet": "Parquet flooring",
+      "portes_fenetres": "Doors & windows",
+      "escaliers": "Staircases",
+      "dressing": "Wardrobes & storage",
+      "boiseries": "Woodwork",
+      "terrasse_bois": "Wooden deck",
+      "pose_carrelage": "Tile installation",
+      "faience_salle_bain": "Bathroom tiling",
+      "joint_renovation": "Grouting & renovation",
+      "sol_beton_cire": "Polished concrete",
+      "mosaique": "Mosaic",
+      "terrasse_exterieure": "Outdoor terrace",
+      "taille_haies": "Hedge trimming",
+      "tonte_gazon": "Lawn mowing",
+      "creation_jardin": "Garden design",
+      "arrosage_auto": "Auto irrigation",
+      "elagage": "Tree pruning",
+      "plantation": "Planting",
+      "traitement_plantes": "Plant treatment",
+      "installation_clim": "AC installation",
+      "maintenance_clim": "AC maintenance",
+      "depannage_clim": "AC repair",
+      "ventilation": "Ventilation",
+      "pompe_chaleur": "Heat pump",
+      "clim_reversible": "Reversible AC",
+      "soudure_mig": "MIG welding",
+      "soudure_tig": "TIG welding",
+      "ferronnerie": "Ironwork",
+      "grilles_portails": "Gates & railings",
+      "structure_metallique": "Metal structure",
+      "serrurerie_metal": "Metal locksmithing",
+      "pose_toiture": "Roofing",
+      "reparation_toiture": "Roof repair",
+      "charpente": "Timber framing",
+      "gouttieres": "Gutters",
+      "isolation_toiture": "Roof insulation",
+      "zinguerie": "Sheet metal work",
+      "pose_serrure": "Lock fitting",
+      "reparation_serrure": "Lock repair",
+      "blindage_porte": "Door reinforcement",
+      "coffre_fort": "Safe installation",
+      "portail_acces": "Gate & access",
+      "ouverture_urgence": "Emergency opening",
+      "pose_vitre": "Glass fitting",
+      "double_vitrage": "Double glazing",
+      "miroirs": "Mirrors",
+      "veranda": "Veranda",
+      "moustiquaires": "Mosquito screens",
+      "vitrage_securite": "Security glazing"
+    },
+    "pending": {
+      "title": "Profile under\nverification",
+      "subtitle": "Our team verifies your information to ensure client trust.",
+      "timeline": {
+        "submitted": "Profile submitted",
+        "verification": "Verification in progress",
+        "verificationDelay": "24-48h",
+        "sms": "SMS notification",
+        "active": "Profile active"
+      },
+      "whatsapp": "Contact us on WhatsApp",
+      "dashboard": "Access dashboard"
+    },
+    "pendingVerification": {
+      "title": "Profile under review",
+      "subtitle": "Your profile is being reviewed by our team.",
+      "hint": "You will be notified once your profile is validated. This usually takes 24 to 48 hours."
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "greeting": "Hello, {{name}} 👋",
+      "stats": {
+        "newRequests": {
+          "label": "New requests"
+        },
+        "rdvToday": {
+          "label": "Today's appointments"
+        }
+      },
+      "quota": {
+        "title": "Quotes this month",
+        "remaining": "{{plan}} Plan · {{remaining}} quotes left this month"
+      },
+      "recentRequests": {
+        "title": "Recent requests",
+        "new": "NEW",
+        "viewButton": "View"
+      },
+      "clientModeButton": "Find an artisan"
+    },
+    "requestDetail": {
+      "title": "Request details",
+      "newBadge": "NEW",
+      "clientType": "Individual client",
+      "client": {
+        "label": "Client"
+      },
+      "description": {
+        "label": "Description of need"
+      },
+      "address": {
+        "label": "Address"
+      },
+      "availability": {
+        "label": "Preferred availability"
+      },
+      "createQuote": "Create a quote",
+      "contactClient": "Contact client",
+      "decline": "Decline request",
+      "sentTitle": "Quote sent",
+      "acceptedTitle": "Quote accepted",
+      "refusedTitle": "Quote declined",
+      "doneTitle": "Job completed",
+      "banner": {
+        "sent": "Waiting for client's response",
+        "accepted": "The client accepted your quote",
+        "refused": "The client declined your quote",
+        "done": "Job successfully completed"
+      },
+      "quoteSection": {
+        "label": "Your quote",
+        "price": "Proposed amount",
+        "delay": "Estimated duration",
+        "description": "Work description"
+      },
+      "markDone": "Mark as completed",
+      "declineConfirmTitle": "Decline request",
+      "declineConfirmMessage": "Are you sure you want to decline this request?",
+      "declineConfirmBtn": "Decline"
+    },
+    "quoteCreate": {
+      "title": "Create a quote",
+      "amount": {
+        "label": "Total amount (FCFA)",
+        "placeholder": "e.g. 50 000"
+      },
+      "description": {
+        "label": "Work description",
+        "placeholder": "Detail the work you will carry out..."
+      },
+      "price": {
+        "label": "Price",
+        "placeholder": "25 000",
+        "suffix": "FCFA"
+      },
+      "delay": {
+        "label": "Estimated time",
+        "placeholder": "2",
+        "suffix": "day(s)"
+      },
+      "deadline": {
+        "label": "Completion time"
+      },
+      "summary": {
+        "availability": "Availability: {{date}}",
+        "noAvailability": "As soon as possible"
+      },
+      "hint": "The client will be notified and can accept, decline or negotiate your quote.",
+      "button": "Send quote"
+    },
+    "quotes": {
+      "title": "My quotes",
+      "tabs": {
+        "toProcess": "To process",
+        "sent": "Sent",
+        "archived": "Archived"
+      },
+      "status": {
+        "pending": "To process",
+        "sent": "Sent",
+        "accepted": "Accepted",
+        "refused": "Declined",
+        "done": "Done"
+      },
+      "empty": {
+        "title": "No quotes",
+        "description": "Your quotes will appear here."
+      }
+    },
+    "agenda": {
+      "title": "My agenda",
+      "addRdv": "+ Appt",
+      "freeDay": "Free day",
+      "rdvCount": "{{count}} appointment(s)",
+      "empty": {
+        "title": "No appointments",
+        "description": "Your confirmed appointments will appear here."
+      },
+      "appointment": {
+        "with": "With",
+        "address": "Address",
+        "unknownClient": "Unknown client",
+        "noDescription": "No description",
+        "durationHour": "{{h}}h",
+        "durationHourMin": "{{h}}h{{m}}"
+      }
+    },
+    "profile": {
+      "title": "My profile",
+      "save": "Save",
+      "verified": "Verified",
+      "reviews": "{{count}} reviews",
+      "ratePerHour": "{{amount}} {{currency}}/h",
+      "rateJour": "{{amount}} {{currency}}/day",
+      "rateProjet": "{{amount}} {{currency}}",
+      "sections": {
+        "information": "Information",
+        "competences": "Skills",
+        "tarif": "Rate",
+        "photos": "Photos"
+      },
+      "info": {
+        "name": "Name",
+        "phone": "Phone",
+        "email": "Email",
+        "city": "City",
+        "modify": "Edit"
+      },
+      "saveAll": "Save changes",
+      "tarif": {
+        "unit": "{{currency}} / hour",
+        "unitJour": "{{currency}} / day",
+        "unitProjet": "{{currency}} flat rate",
+        "pillHeure": "/hour",
+        "pillJour": "/day",
+        "pillProjet": "/project",
+        "amountPlaceholder": "0",
+        "bioPlaceholder": "E.g.: Free quote · Travel included · Available weekends…",
+        "addShort": "Add"
+      },
+      "edit": {
+        "button": "Edit my profile"
+      },
+      "subscription": {
+        "label": "My subscription"
+      },
+      "competences": {
+        "addTitle": "Add a skill",
+        "allAdded": "All skills for your trade are already added."
+      },
+      "photos": {
+        "label": "My portfolio",
+        "add": "Add",
+        "addFull": "Add a photo",
+        "errorUpload": "Failed to upload photo",
+        "errorDelete": "Failed to delete photo"
+      },
+      "logout": "Sign out",
+      "field": {
+        "saveError": "Not saved. Check your connection.",
+        "validationError": "Invalid format. Please correct this field."
+      }
+    },
+    "subscription": {
+      "title": "My subscription",
+      "priceUnit": "FCFA/month",
+      "footer": "Monthly billing · Mobile Money (Airtel, Moov) · Easy cancellation",
+      "current": {
+        "label": "Current plan",
+        "badge": "Your current plan"
+      },
+      "plans": {
+        "free": {
+          "name": "Free",
+          "description": "Basic access to the platform",
+          "price": "0",
+          "feat1": "3 quotes per month",
+          "feat2": "Basic profile"
+        },
+        "standard": {
+          "name": "Standard",
+          "description": "More visibility, priority access to requests",
+          "price": "5 000",
+          "feat1": "Unlimited quotes",
+          "feat2": "Verified badge",
+          "feat3": "Profile statistics"
+        },
+        "premium": {
+          "name": "Premium",
+          "description": "Maximum visibility and advanced features",
+          "price": "12 000",
+          "feat1": "All Standard +",
+          "feat2": "Map spotlight",
+          "feat3": "Priority SOS 1h",
+          "feat4": "Local advertising"
+        }
+      },
+      "upgrade": {
+        "button": "Upgrade plan"
+      },
+      "subtitleBefore": "Choose ",
+      "subtitleHighlight": "the plan",
+      "subtitleAfter": " that fits your activity."
+    },
+    "chat": {
+      "title": "Chat",
+      "placeholder": "Message…",
+      "send": "Send",
+      "today": "Today",
+      "clientLabel": "Client · {{zone}}"
+    }
+  },
+  "admin": {
+    "nav": {
+      "section": "MODERATION",
+      "toValidate": "To validate",
+      "toValidateFull": "Artisans to validate",
+      "active": "Active",
+      "activeFull": "Active artisans",
+      "reports": "Reports"
+    },
+    "sidebar": {
+      "adminFallback": "Admin",
+      "appName": "projet-x",
+      "appSubtitle": "Admin panel"
+    },
+    "modal": {
+      "metier": "Trade",
+      "zone": "Zone",
+      "tarif": "Rate",
+      "telephone": "Phone",
+      "bio": "Bio",
+      "competences": "Skills",
+      "portfolio": {
+        "title_one": "Portfolio ({{count}} photo)",
+        "title_other": "Portfolio ({{count}} photos)",
+        "empty": "No photos added"
+      }
+    },
+    "validation": {
+      "title": "Artisans to validate",
+      "subtitle_one": "{{count}} profile pending",
+      "subtitle_other": "{{count}} profiles pending",
+      "daysAgo": "{{count}} days ago",
+      "columns": {
+        "avatar": "AVATAR",
+        "name": "FULL NAME",
+        "metier": "TRADE",
+        "zone": "AREA",
+        "submittedAt": "SUBMITTED",
+        "actions": "ACTIONS"
+      },
+      "viewProfile": "View profile",
+      "empty": {
+        "title": "Queue is empty",
+        "description": "No profiles pending validation."
+      },
+      "approve": "Approve profile",
+      "reject": "Reject profile",
+      "rejectReason": {
+        "label": "Rejection reason",
+        "placeholder": "Explain the reason for rejection…"
+      }
+    },
+    "activeArtisans": {
+      "title": "Active artisans",
+      "subtitle_one": "{{count}} validated artisan on the platform",
+      "subtitle_other": "{{count}} validated artisans on the platform",
+      "searchPlaceholder": "Search…",
+      "filterAll": "All",
+      "columns": {
+        "avatar": "AVATAR",
+        "name": "FULL NAME",
+        "metier": "TRADE",
+        "zone": "AREA",
+        "subscription": "SUBSCRIPTION",
+        "validatedAt": "VALIDATED",
+        "actions": "ACTIONS"
+      },
+      "suspend": "Suspend",
+      "reactivate": "Reactivate",
+      "verified": "Verified",
+      "empty": {
+        "title": "No active artisans",
+        "description": "Validated artisans will appear here."
+      }
+    },
+    "reports": {
+      "title": "Reports",
+      "subtitle": "{{pending}} pending · {{treated}} treated",
+      "sections": {
+        "toProcess": "TO PROCESS ({{count}})",
+        "treated": "TREATED ({{count}})"
+      },
+      "reportedBy": "reported by",
+      "statuses": {
+        "pending": "Pending",
+        "treated": "Treated"
+      },
+      "markTreated": "Mark as treated",
+      "suspend": "Suspend",
+      "empty": {
+        "title": "No reports",
+        "description": "No pending reports."
+      }
+    }
+  },
+  "legal": {
+    "conditions": {
+      "title": "Terms of Use",
+      "subtitle": "projet-x Platform – Gabon",
+      "updated": "Last updated: June 2026",
+      "intro": "These Terms of Use govern access to and use of the projet-x platform, a service connecting qualified artisans and clients in Gabon. Using the platform implies full and unreserved acceptance of these Terms.",
+      "art1": {
+        "title": "Article 1 – Purpose",
+        "body": "The projet-x platform is a service connecting qualified tradespeople with individuals or professionals seeking artisan services in Gabon. It allows clients to find a tradesperson by trade type and geographic area, and allows artisans to promote their business and receive quote requests."
+      },
+      "art2": {
+        "title": "Article 2 – Definitions",
+        "body": "Platform refers to the projet-x mobile application and all its features. Artisan refers to any registered professional offering their services through the platform. Client refers to any person seeking artisan services. Quote request refers to a solicitation sent by a client to an artisan."
+      },
+      "art3": {
+        "title": "Article 3 – Registration and accounts",
+        "body": "Registration is open to anyone with a valid phone number. Each user is responsible for the confidentiality of their credentials and any activity carried out from their account. Accounts are strictly personal and may not be transferred or shared. In case of suspected fraud, projet-x reserves the right to suspend the account in question."
+      },
+      "art4": {
+        "title": "Article 4 – Artisan profile verification",
+        "body": "All artisan profiles undergo manual validation by the projet-x team before becoming visible to clients. This verification may take 24 to 48 hours. projet-x reserves the right to refuse or suspend any profile that does not meet quality standards or these Terms."
+      },
+      "art5": {
+        "title": "Article 5 – Subscription plans",
+        "body": "Artisans have access to three subscription levels: Free (up to 3 quote requests per month), Standard (up to 10 per month), and Premium (unlimited requests). Paid plans are billed at the rates displayed in the application. projet-x reserves the right to modify rates with 30 days' notice."
+      },
+      "art6": {
+        "title": "Article 6 – Quote requests",
+        "body": "The platform facilitates contact between clients and artisans without intervening in pricing or service delivery. projet-x is not a party to contracts concluded between clients and artisans. All services are agreed directly between the parties, under their sole responsibility."
+      },
+      "art7": {
+        "title": "Article 7 – Calendar and appointments",
+        "body": "The built-in calendar allows artisans to manage their availability and clients to view available slots. Scheduling an appointment through the platform is an arrangement between the artisan and the client, without any commitment from projet-x as to its completion."
+      },
+      "art8": {
+        "title": "Article 8 – User-published content",
+        "body": "Photos, descriptions, and information published on the platform remain the property of their authors. By publishing them, the user grants projet-x a non-exclusive display licence. Any illegal, misleading, or harmful content will be removed without notice."
+      },
+      "art9": {
+        "title": "Article 9 – User obligations",
+        "body": "Users agree to provide accurate and up-to-date information, to respect other users, and not to use the platform for fraudulent purposes or in violation of applicable Gabonese laws and regulations."
+      },
+      "art10": {
+        "title": "Article 10 – Personal data",
+        "body": "projet-x collects and processes personal data (name, phone, location, photos) for account management and matchmaking. This data is not sold to third parties. You have the right to access, correct, and delete your data through the app settings or by contacting us."
+      },
+      "art11": {
+        "title": "Article 11 – Limitation of liability",
+        "body": "projet-x acts as a technical intermediary and does not guarantee the quality of services performed by artisans. The platform shall not be held liable for disputes between a client and an artisan, or for service interruptions caused by external factors such as network outages or force majeure."
+      },
+      "art12": {
+        "title": "Article 12 – Changes to Terms",
+        "body": "projet-x reserves the right to modify these Terms at any time. Users will be notified of any substantial change via an in-app notification. Continued use of the platform after any change constitutes acceptance of the new terms."
+      },
+      "art13": {
+        "title": "Article 13 – Governing law and disputes",
+        "body": "These Terms are governed by Gabonese law. In case of dispute, the parties agree to seek an amicable resolution before any legal action. Failing an amicable agreement, any dispute shall be submitted to the competent courts of Libreville, Gabon."
+      },
+      "art14": {
+        "title": "Article 14 – Contact",
+        "body": "For any questions about these Terms or the use of the platform, contact us at: contact@projet-x.app or via the support form accessible from the app settings."
+      },
+      "seePrivacy": "See also our Privacy Policy"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "projet-x Platform – Gabon",
+      "updated": "Last updated: June 2026",
+      "intro": "projet-x is committed to protecting the privacy of its users. This Privacy Policy explains what data we collect, how we use it, and what rights you have over it.",
+      "art1": {
+        "title": "Article 1 – Data controller",
+        "body": "The data controller for personal data is projet-x, operating the artisan matchmaking platform in Gabon. For any questions regarding the processing of your data, you can contact us at: contact@projet-x.app."
+      },
+      "art2": {
+        "title": "Article 2 – Data collected",
+        "body": "We collect the following data when you register and use the platform: identity information (full name), contact details (phone number), geographic location (city, work area, or GPS coordinates for artisans), portfolio photos (artisans only), professional information (trade, skills, indicative rate), and browsing data (connection logs, in-app actions)."
+      },
+      "art3": {
+        "title": "Article 3 – Purposes of processing",
+        "body": "Your data is processed for the following purposes: creating and managing your account, connecting clients and artisans, displaying artisan profiles, processing quote requests and appointments, sending notifications related to your activity on the platform, and continuous improvement of our services."
+      },
+      "art4": {
+        "title": "Article 4 – Legal basis",
+        "body": "The processing of your data is based on the following legal grounds: performance of the usage contract you accepted upon registration, your consent for non-essential communications, and our legitimate interests in platform security and improvement."
+      },
+      "art5": {
+        "title": "Article 5 – Data recipients",
+        "body": "Your data is accessible to projet-x teams for platform operations. Artisan profiles (name, trade, area, rate, portfolio photos) are visible to all platform users. No data is sold or transferred to third parties for commercial purposes."
+      },
+      "art6": {
+        "title": "Article 6 – Hosting and security",
+        "body": "Your data is hosted on Supabase servers, a secure cloud service provider. We implement technical and organisational measures to protect your data against unauthorised access, loss, or disclosure, including encrypted communications (HTTPS/TLS) and access controls."
+      },
+      "art7": {
+        "title": "Article 7 – Data retention",
+        "body": "Your data is retained for the duration of your active account on the platform. If you delete your account, your personal data is deleted within 30 days, except for data needed to fulfil our legal obligations, which is retained for the legally required period."
+      },
+      "art8": {
+        "title": "Article 8 – Your rights",
+        "body": "Under applicable regulations, you have the following rights over your data: right of access (obtain a copy of your data), right to rectification (correct inaccurate data), right to erasure (request deletion of your data), right to portability, and right to object. To exercise these rights, contact us at: contact@projet-x.app."
+      },
+      "art9": {
+        "title": "Article 9 – International transfers",
+        "body": "Your data may be processed by our technical service providers established outside Gabon, including Supabase. Such transfers are governed by appropriate contractual safeguards ensuring a level of protection equivalent to that in force in Gabon."
+      },
+      "art10": {
+        "title": "Article 10 – Policy changes",
+        "body": "This Privacy Policy may be updated at any time. You will be notified of any substantial change via an in-app notification. The date of the last update is shown at the top of this document."
+      },
+      "art11": {
+        "title": "Article 11 – Contact and complaints",
+        "body": "For any questions about this Policy or to exercise your rights, contact us at: contact@projet-x.app. For unresolved complaints, you may contact the competent data protection authority in Gabon."
+      },
+      "seeConditions": "See also our Terms of Use"
+    }
+  }
+}
