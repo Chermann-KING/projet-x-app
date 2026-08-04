@@ -152,7 +152,7 @@ export default function AdminValidationScreen() {
                 artisans={artisans}
                 error={error}
                 onSelect={setSelected}
-                t={t}
+                t={t as unknown as TFunction}
                 compact
               />
             </View>
@@ -164,7 +164,7 @@ export default function AdminValidationScreen() {
                   artisans={artisans}
                   error={error}
                   onSelect={setSelected}
-                  t={t}
+                  t={t as unknown as TFunction}
                   compact={false}
                 />
               </View>
@@ -435,7 +435,11 @@ const styles = StyleSheet.create({
 
 // ── Sous-composants ────────────────────────────────────────────────────────
 
-type TFunction = ReturnType<typeof useTranslation>['t']
+// Signature volontairement simplifiée (pas le type i18next complet) : passer le
+// TFunction typé complet en prop fait exploser la profondeur d'instanciation
+// TypeScript une fois le catalogue de traductions suffisamment large. Ce
+// sous-composant n'appelle t() qu'avec une clé littérale sans options.
+type TFunction = (key: string) => string
 
 type TableContentProps = {
   artisans: Artisan[]

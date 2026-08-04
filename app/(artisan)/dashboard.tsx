@@ -19,9 +19,13 @@ import type { Artisan } from '@/domain/entities/Artisan'
 const PLAN_LIMITS: Record<string, number> = { free: 3, standard: 10, premium: Infinity }
 
 
+// Signature volontairement simplifiée (pas le type i18next complet) : le type
+// t complet en paramètre fait exploser la profondeur d'instanciation
+// TypeScript une fois le catalogue de traductions suffisamment large. Cette
+// fonction n'appelle t() qu'avec des clés littérales et une interpolation simple.
 function formatRequestTime(
   date: Date,
-  t: ReturnType<typeof useTranslation>['t'],
+  t: (key: string, options?: Record<string, unknown>) => string,
 ): string {
   const now = new Date()
   const diffDays = Math.floor((now.getTime() - date.getTime()) / 86_400_000)
@@ -230,7 +234,7 @@ export default function ArtisanDashboardScreen() {
                     ) : null}
                   </View>
                   <Text style={[styles.requestTime, { color: theme.mutedForeground }]}>
-                    {formatRequestTime(new Date(quote.createdAt), t)}
+                    {formatRequestTime(new Date(quote.createdAt), t as unknown as (key: string, options?: Record<string, unknown>) => string)}
                   </Text>
                 </View>
                 <Pressable

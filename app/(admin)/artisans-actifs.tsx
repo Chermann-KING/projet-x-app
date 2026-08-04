@@ -175,7 +175,7 @@ export default function ArtisansActifsScreen() {
               horizontalPadding={horizontalPadding}
               isProcessing={processingId === artisan.id}
               onSuspend={() => void handleSuspend(artisan)}
-              t={t}
+              t={t as unknown as TFunction}
             />
           ))}
         </ScrollView>
@@ -188,7 +188,7 @@ export default function ArtisansActifsScreen() {
                 artisans={filtered}
                 onSuspend={handleSuspend}
                 processingId={processingId}
-                t={t}
+                t={t as unknown as TFunction}
                 compact
               />
             </View>
@@ -199,7 +199,7 @@ export default function ArtisansActifsScreen() {
                   artisans={filtered}
                   onSuspend={handleSuspend}
                   processingId={processingId}
-                  t={t}
+                  t={t as unknown as TFunction}
                   compact={false}
                 />
               </View>
@@ -329,7 +329,11 @@ const styles = StyleSheet.create({
 
 // ── Sous-composants ────────────────────────────────────────────────────────
 
-type TFunction = ReturnType<typeof useTranslation>['t']
+// Signature volontairement simplifiée (pas le type i18next complet) : passer le
+// TFunction typé complet en prop fait exploser la profondeur d'instanciation
+// TypeScript une fois le catalogue de traductions suffisamment large. Ce
+// sous-composant n'appelle t() qu'avec une clé littérale sans options.
+type TFunction = (key: string) => string
 
 type ActifsTableContentProps = {
   artisans: Artisan[]
