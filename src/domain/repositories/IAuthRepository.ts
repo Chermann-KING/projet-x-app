@@ -6,6 +6,8 @@ export interface SignUpData {
   phone: string
   password: string
   role: UserRole
+  /** Langue de l'app au moment de l'inscription (ex. 'fr') — utilisée côté serveur pour les emails transactionnels. */
+  locale: string
 }
 
 export interface IAuthRepository {

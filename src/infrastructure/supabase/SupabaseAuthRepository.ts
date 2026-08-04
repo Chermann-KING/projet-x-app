@@ -29,6 +29,7 @@ export class SupabaseAuthRepository implements IAuthRepository {
           full_name: data.fullName,
           phone: data.phone,
           role: data.role,
+          locale: data.locale,
         },
       },
     })

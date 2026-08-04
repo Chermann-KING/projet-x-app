@@ -27,7 +27,7 @@ import {
 } from '@/shared/constants/PhoneConstants'
 
 export default function RegisterScreen() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const theme = useTheme()
   const { role } = useLocalSearchParams<{ role: UserRole }>()
   const { setUser } = useAuthStore()
@@ -59,7 +59,7 @@ export default function RegisterScreen() {
       const selectedCountry = PHONE_COUNTRIES.find((c) => c.iso === phoneCountryIso) ?? DEFAULT_PHONE_COUNTRY
       const e164Phone = phoneDigits ? digitsToE164(selectedCountry.dialCode, phoneDigits) : ''
       const user = await register.execute(
-        { fullName, email, phone: e164Phone, password, role: role ?? 'client' },
+        { fullName, email, phone: e164Phone, password, role: role ?? 'client', locale: i18n.language },
       )
       setUser(user)
       const target =
