@@ -67,7 +67,7 @@ function AdminSidebar({ collapsed = false }: { collapsed?: boolean }) {
     try {
       await logout.execute()
       useAuthStore.getState().reset()
-      router.replace('/(auth)' as Href)
+      router.replace('/' as Href)
     } catch (err) {
       AppLogger.error(err)
     }

@@ -1,6 +1,7 @@
-﻿import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { router } from 'expo-router'
+import { Redirect } from 'expo-router'
+import type { Href } from 'expo-router'
 import { Wrench } from 'lucide-react-native'
 import { useTranslation } from '@/i18n'
 import { ds } from '@/shared/designSystem'
@@ -9,36 +10,55 @@ import { useAuthStore } from '@/presentation/stores/authStore'
 import { getCurrentUser } from '@/di/container'
 import { AppLogger } from '@/shared/logger/AppLogger'
 
-export default function SplashScreen() {
+/**
+ * Route racine unique ("/"). Doit rester le seul fichier index.tsx au
+ * premier niveau des groupes (auth)/(admin)/(client)/(artisan) : Expo Router
+ * résout un groupe non déterministe si deux groupes définissent chacun un
+ * index.tsx concurrent sur "/".
+ */
+export default function Bootstrap() {
   const { t } = useTranslation()
   const theme = useTheme()
   const { setUser, setLoading } = useAuthStore()
+  const [destination, setDestination] = useState<Href | null>(null)
 
   useEffect(() => {
+    let active = true
+
     async function bootstrap(): Promise<void> {
       try {
-        const user = await getCurrentUser.execute()
+        const safeExecute = getCurrentUser.execute().catch(() => null)
+        const timeout = new Promise<null>((resolve) =>
+          setTimeout(() => resolve(null), 5000)
+        )
+        const user = await Promise.race([safeExecute, timeout])
+        if (!active) return
         setUser(user)
         if (user) {
-          const target =
+          const target: Href =
             user.role === 'artisan'
               ? '/(artisan)/dashboard'
               : user.role === 'admin'
-                ? '/(admin)/'
+                ? '/(admin)'
                 : '/(client)/home'
-          router.replace(target as Parameters<typeof router.replace>[0])
+          setDestination(target)
         } else {
-          router.replace('/(auth)/role')
+          setDestination('/(auth)/role' as Href)
         }
       } catch (error) {
         AppLogger.error(error)
         setLoading(false)
-        router.replace('/(auth)/role')
+        if (active) setDestination('/(auth)/role' as Href)
       }
     }
 
     void bootstrap()
+    return () => { active = false }
   }, [setUser, setLoading])
+
+  if (destination) {
+    return <Redirect href={destination} />
+  }
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>

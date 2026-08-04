@@ -7,7 +7,7 @@ export default function NotFoundScreen() {
       <Stack.Screen options={{ title: 'Page introuvable' }} />
       <View style={styles.container}>
         <Text style={styles.title}>Page introuvable</Text>
-        <Link href="/(auth)" style={styles.link}>
+        <Link href="/" style={styles.link}>
           Retour à l'accueil
         </Link>
       </View>
