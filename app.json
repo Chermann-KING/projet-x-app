@@ -24,6 +24,7 @@
         "backgroundColor": "#FAFAF9"
       },
       "package": "com.projetx.app",
+      "userInterfaceStyle": "light",
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION",
