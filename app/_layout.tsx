@@ -9,6 +9,7 @@ import * as SplashScreen from 'expo-splash-screen'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Constants from 'expo-constants'
 import { registerAppLogger } from '@/presentation/stores/notificationStore'
+import { AppLogger } from '@/shared/logger/AppLogger'
 import { ToastContainer } from '@/presentation/components/ui'
 import { usePushTokenRegistration } from '@/presentation/hooks/usePushTokenRegistration'
 
@@ -120,7 +121,7 @@ export default function RootLayout() {
   // Polices locales — docs/fonts → assets/fonts
   // BricolageGrotesque : fichiers statiques (600 et 700)
   // NunitoSans : police variable (fontWeight sélectionne 400/500/700)
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, fontsError] = useFonts({
     'BricolageGrotesque': require('../assets/fonts/BricolageGrotesque-SemiBold.ttf'),
     'BricolageGrotesque-Bold': require('../assets/fonts/BricolageGrotesque-Bold.ttf'),
     'NunitoSans': require('../assets/fonts/NunitoSans-Variable.ttf'),
@@ -129,6 +130,10 @@ export default function RootLayout() {
   useEffect(() => {
     registerAppLogger()
   }, [])
+
+  useEffect(() => {
+    if (fontsError) AppLogger.error(fontsError)
+  }, [fontsError])
 
   useEffect(() => {
     if (fontsLoaded) {
