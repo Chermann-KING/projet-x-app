@@ -23,6 +23,7 @@ function adminInitials(fullName: string): string {
 
 const SIDEBAR_FULL_WIDTH = 240
 const SIDEBAR_ICON_WIDTH = 64
+const AUTH_CHECK_TIMEOUT_MS = 8000
 
 function AdminSidebar({ collapsed = false }: { collapsed?: boolean }) {
   const { t } = useTranslation()
@@ -336,6 +337,22 @@ export default function AdminLayout() {
   const user = useAuthStore((s) => s.user)
   const isAuthLoading = useAuthStore((s) => s.isLoading)
   const { isDesktop, isTablet } = useAdminBreakpoint()
+  const [authCheckTimedOut, setAuthCheckTimedOut] = useState(false)
+
+  useEffect(() => {
+    if (!isAuthLoading) return
+    const timer = setTimeout(() => {
+      AppLogger.warn('TIMEOUT')
+      setAuthCheckTimedOut(true)
+    }, AUTH_CHECK_TIMEOUT_MS)
+    return () => clearTimeout(timer)
+  }, [isAuthLoading])
+
+  // Vérification d'auth bloquée au-delà du délai : on ne laisse jamais
+  // l'ActivityIndicator tourner indéfiniment, on retombe sur le login.
+  if (isAuthLoading && authCheckTimedOut) {
+    return <Redirect href={'/(auth)/login' as Href} />
+  }
 
   if (isAuthLoading) {
     return (
