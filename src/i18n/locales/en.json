@@ -214,6 +214,36 @@
       "button": "Send link",
       "success": "Link sent! Check your inbox.",
       "backToLogin": "Back to sign in"
+    },
+    "resetPassword": {
+      "title": "New password",
+      "subtitle": "Choose a new password for your account.",
+      "password": {
+        "label": "New password",
+        "placeholder": "At least 8 characters"
+      },
+      "confirmPassword": {
+        "label": "Confirm password",
+        "placeholder": "Repeat your password"
+      },
+      "button": "Save password",
+      "validation": {
+        "passwordMin": "At least 8 characters",
+        "mismatch": "Passwords do not match"
+      },
+      "error": {
+        "generic": "Could not update your password. Please try again."
+      },
+      "expired": {
+        "title": "Link expired",
+        "subtitle": "This reset link is no longer valid. Request a new one.",
+        "button": "Request a new link"
+      },
+      "success": {
+        "title": "Password updated",
+        "subtitle": "You can now sign in with your new password.",
+        "button": "Sign in"
+      }
     }
   },
   "client": {

@@ -206,6 +206,36 @@
       "button": "Tuma kiungo",
       "success": "Kiungo kimetumwa! Angalia barua pepe yako.",
       "backToLogin": "Rudi kwenye kuingia"
+    },
+    "resetPassword": {
+      "title": "Nywila mpya",
+      "subtitle": "Chagua nywila mpya kwa akaunti yako.",
+      "password": {
+        "label": "Nywila mpya",
+        "placeholder": "Angalau herufi 8"
+      },
+      "confirmPassword": {
+        "label": "Thibitisha nywila",
+        "placeholder": "Rudia nywila yako"
+      },
+      "button": "Hifadhi nywila",
+      "validation": {
+        "passwordMin": "Angalau herufi 8",
+        "mismatch": "Nywila hazilingani"
+      },
+      "error": {
+        "generic": "Imeshindwa kusasisha nywila. Jaribu tena."
+      },
+      "expired": {
+        "title": "Kiungo kimeisha muda",
+        "subtitle": "Kiungo hiki cha kuweka upya hakitumiki tena. Omba kiungo kipya.",
+        "button": "Omba kiungo kipya"
+      },
+      "success": {
+        "title": "Nywila imesasishwa",
+        "subtitle": "Sasa unaweza kuingia kwa nywila yako mpya.",
+        "button": "Ingia"
+      }
     }
   },
   "client": {

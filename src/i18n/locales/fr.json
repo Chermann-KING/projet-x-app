@@ -214,6 +214,36 @@
       "button": "Envoyer le lien",
       "success": "Lien envoyé ! Consultez votre boîte mail.",
       "backToLogin": "Retour à la connexion"
+    },
+    "resetPassword": {
+      "title": "Nouveau mot de passe",
+      "subtitle": "Choisissez un nouveau mot de passe pour votre compte.",
+      "password": {
+        "label": "Nouveau mot de passe",
+        "placeholder": "Minimum 8 caractères"
+      },
+      "confirmPassword": {
+        "label": "Confirmer le mot de passe",
+        "placeholder": "Répétez le mot de passe"
+      },
+      "button": "Enregistrer le mot de passe",
+      "validation": {
+        "passwordMin": "Minimum 8 caractères",
+        "mismatch": "Les mots de passe ne correspondent pas"
+      },
+      "error": {
+        "generic": "Impossible de mettre à jour le mot de passe. Réessayez."
+      },
+      "expired": {
+        "title": "Lien expiré",
+        "subtitle": "Ce lien de réinitialisation n'est plus valide. Demandez-en un nouveau.",
+        "button": "Demander un nouveau lien"
+      },
+      "success": {
+        "title": "Mot de passe mis à jour",
+        "subtitle": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+        "button": "Se connecter"
+      }
     }
   },
   "client": {

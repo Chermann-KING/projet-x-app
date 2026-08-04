@@ -1,4 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
+import * as Linking from 'expo-linking'
 import type { IAuthRepository, SignUpData } from '@/domain/repositories/IAuthRepository'
 import type { User } from '@/domain/entities/User'
 import { AuthError, NetworkError } from '@/shared/errors'
@@ -73,7 +74,22 @@ export class SupabaseAuthRepository implements IAuthRepository {
   }
 
   async resetPassword(email: string): Promise<void> {
-    const { error } = await this.client.auth.resetPasswordForEmail(email)
+    const { error } = await this.client.auth.resetPasswordForEmail(email, {
+      redirectTo: Linking.createURL('reset-password'),
+    })
+    if (error) throw new NetworkError()
+  }
+
+  async establishRecoverySession(accessToken: string, refreshToken: string): Promise<void> {
+    const { error } = await this.client.auth.setSession({
+      access_token: accessToken,
+      refresh_token: refreshToken,
+    })
+    if (error) throw new AuthError('AUTH_SESSION_EXPIRED', error.message)
+  }
+
+  async updatePassword(newPassword: string): Promise<void> {
+    const { error } = await this.client.auth.updateUser({ password: newPassword })
     if (error) throw new NetworkError()
   }
 

@@ -206,6 +206,36 @@
       "button": "Enviar link",
       "success": "Link enviado! Consulte o seu e-mail.",
       "backToLogin": "Voltar ao início de sessão"
+    },
+    "resetPassword": {
+      "title": "Nova palavra-passe",
+      "subtitle": "Escolha uma nova palavra-passe para a sua conta.",
+      "password": {
+        "label": "Nova palavra-passe",
+        "placeholder": "Mínimo 8 caracteres"
+      },
+      "confirmPassword": {
+        "label": "Confirmar palavra-passe",
+        "placeholder": "Repita a sua palavra-passe"
+      },
+      "button": "Guardar palavra-passe",
+      "validation": {
+        "passwordMin": "Mínimo 8 caracteres",
+        "mismatch": "As palavras-passe não coincidem"
+      },
+      "error": {
+        "generic": "Não foi possível atualizar a palavra-passe. Tente novamente."
+      },
+      "expired": {
+        "title": "Link expirado",
+        "subtitle": "Este link de redefinição já não é válido. Solicite um novo.",
+        "button": "Solicitar novo link"
+      },
+      "success": {
+        "title": "Palavra-passe atualizada",
+        "subtitle": "Já pode iniciar sessão com a sua nova palavra-passe.",
+        "button": "Iniciar sessão"
+      }
     }
   },
   "client": {

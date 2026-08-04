@@ -206,6 +206,36 @@
       "button": "Enviar enlace",
       "success": "¡Enlace enviado! Revisa tu correo.",
       "backToLogin": "Volver al inicio de sesión"
+    },
+    "resetPassword": {
+      "title": "Nueva contraseña",
+      "subtitle": "Elige una nueva contraseña para tu cuenta.",
+      "password": {
+        "label": "Nueva contraseña",
+        "placeholder": "Mínimo 8 caracteres"
+      },
+      "confirmPassword": {
+        "label": "Confirmar contraseña",
+        "placeholder": "Repite tu contraseña"
+      },
+      "button": "Guardar contraseña",
+      "validation": {
+        "passwordMin": "Mínimo 8 caracteres",
+        "mismatch": "Las contraseñas no coinciden"
+      },
+      "error": {
+        "generic": "No se pudo actualizar la contraseña. Inténtalo de nuevo."
+      },
+      "expired": {
+        "title": "Enlace caducado",
+        "subtitle": "Este enlace de restablecimiento ya no es válido. Solicita uno nuevo.",
+        "button": "Solicitar un nuevo enlace"
+      },
+      "success": {
+        "title": "Contraseña actualizada",
+        "subtitle": "Ya puedes iniciar sesión con tu nueva contraseña.",
+        "button": "Iniciar sesión"
+      }
     }
   },
   "client": {
