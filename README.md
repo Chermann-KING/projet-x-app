@@ -1,7 +1,7 @@
 # projet-x
 
 Plateforme mobile de mise en relation entre clients et artisans vérifiés en Afrique francophone.  
-Pilote au Gabon — métiers couverts : plombier, électricien, peintre, maçon.
+Pilote au Gabon — 12 métiers couverts : plomberie, électricité, peinture, maçonnerie, menuiserie, carrelage, jardinage, climatisation, soudure, couverture, serrurerie, vitrerie.
 
 ---
 
@@ -21,7 +21,9 @@ Le marché de l'artisanat en Afrique francophone souffre d'une opacité des prix
 
 ## Stack
 
-Expo 54 · React Native 0.81.5 · TypeScript strict · Supabase · NativeWind · Expo Router · Zustand · TanStack Query · Reanimated 4 · i18next (fr, en, es, pt, ar, sw)
+Expo 54 · React Native 0.81.5 · TypeScript strict · Supabase (Postgres, Auth, Storage, Edge Functions) · NativeWind · Expo Router · Zustand · TanStack Query · Reanimated 4 · i18next (fr, en, es, pt, ar, sw)
+
+Tests : Jest (unitaire) · Playwright (e2e, web) · script de détection de collisions de routes (`npm run check:routes`)
 
 ---
 
@@ -36,14 +38,14 @@ src/infrastructure/  → Implémentations Supabase, notifications, storage
 src/presentation/    → Composants React Native, hooks, stores
 ```
 
-Routing file-based via Expo Router : `(auth)/` `(client)/` `(artisan)/` `(admin)/`
+Routing file-based via Expo Router : `(auth)/` `(client)/` `(artisan)/` `(admin)/` `(legal)/`
 
 ---
 
 ## Modèle économique
 
-Freemium artisan — Gratuit / Standard ~5 000 FCFA / Premium ~12 000 FCFA.  
-Paiement Mobile Money prévu en V2.
+Freemium artisan — Gratuit / Standard 5 000 FCFA/mois / Premium 12 000 FCFA/mois.  
+Paiement Mobile Money (Airtel, Moov) prévu en V2.
 
 ---
 
