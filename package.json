@@ -6,15 +6,16 @@
   "scripts": {
     "prepare": "husky",
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,css}\"",
     "type-check": "tsc --noEmit",
     "check:routes": "node scripts/check-route-collisions.js",
     "test": "jest --watchAll=false",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@expo-google-fonts/bricolage-grotesque": "^0.3.0",
@@ -59,6 +60,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.0",
+    "@playwright/test": "^1.62.1",
     "@testing-library/react-native": "^14.0.0",
     "@types/jest": "^30.0.0",
     "@types/react": "~19.1.0",
