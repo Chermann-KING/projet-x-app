@@ -210,6 +210,11 @@
     "resetPassword": {
       "title": "Nueva contraseña",
       "subtitle": "Elige una nueva contraseña para tu cuenta.",
+      "confirm": {
+        "title": "Confirmar restablecimiento",
+        "subtitle": "Haz clic en el botón de abajo para continuar y elegir una nueva contraseña.",
+        "button": "Continuar"
+      },
       "password": {
         "label": "Nueva contraseña",
         "placeholder": "Mínimo 8 caracteres"

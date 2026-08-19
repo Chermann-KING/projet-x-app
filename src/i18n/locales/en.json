@@ -218,6 +218,11 @@
     "resetPassword": {
       "title": "New password",
       "subtitle": "Choose a new password for your account.",
+      "confirm": {
+        "title": "Confirm password reset",
+        "subtitle": "Click the button below to continue and choose a new password.",
+        "button": "Continue"
+      },
       "password": {
         "label": "New password",
         "placeholder": "At least 8 characters"

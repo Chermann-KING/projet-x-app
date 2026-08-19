@@ -1,9 +1,18 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
+import { Platform } from 'react-native'
 import * as Linking from 'expo-linking'
 import type { IAuthRepository, SignUpData } from '@/domain/repositories/IAuthRepository'
 import type { User } from '@/domain/entities/User'
 import { AuthError, NetworkError } from '@/shared/errors'
 import { AppLogger } from '@/shared/logger/AppLogger'
+
+// Android App Link, hosted on a free dedicated Vercel subdomain (see
+// projet-x-links.vercel.app/.well-known/assetlinks.json) — a real https URL
+// the OS hands off to the app directly, unlike projetx://reset-password which
+// silently fails when the recovery email link is opened inside an in-app
+// webview (Gmail app, etc.) instead of a full browser. iOS keeps the
+// custom-scheme fallback for now since Universal Links aren't set up there yet.
+const ANDROID_RESET_PASSWORD_APP_LINK = 'https://projet-x-links.vercel.app/reset-password'
 
 export class SupabaseAuthRepository implements IAuthRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -75,23 +84,32 @@ export class SupabaseAuthRepository implements IAuthRepository {
   }
 
   async resetPassword(email: string): Promise<void> {
-    const { error } = await this.client.auth.resetPasswordForEmail(email, {
-      redirectTo: Linking.createURL('reset-password'),
-    })
+    const redirectTo = Platform.OS === 'android'
+      ? ANDROID_RESET_PASSWORD_APP_LINK
+      : Linking.createURL('reset-password')
+    const { error } = await this.client.auth.resetPasswordForEmail(email, { redirectTo })
     if (error) throw new NetworkError()
   }
 
-  async establishRecoverySession(accessToken: string, refreshToken: string): Promise<void> {
-    const { error } = await this.client.auth.setSession({
-      access_token: accessToken,
-      refresh_token: refreshToken,
+  async verifyRecoveryOtp(tokenHash: string): Promise<void> {
+    const { error } = await this.client.auth.verifyOtp({
+      token_hash: tokenHash,
+      type: 'recovery',
     })
     if (error) throw new AuthError('AUTH_SESSION_EXPIRED', error.message)
   }
 
   async updatePassword(newPassword: string): Promise<void> {
     const { error } = await this.client.auth.updateUser({ password: newPassword })
-    if (error) throw new NetworkError()
+    if (!error) return
+
+    if (error.code === 'same_password') {
+      throw new AuthError('AUTH_SAME_PASSWORD', error.message)
+    }
+    if (error.code === 'session_not_found' || error.code === 'session_expired') {
+      throw new AuthError('AUTH_SESSION_EXPIRED', error.message)
+    }
+    throw new AuthError('AUTH_UPDATE_PASSWORD_FAILED', error.message)
   }
 
   async getCurrentUser(): Promise<User | null> {

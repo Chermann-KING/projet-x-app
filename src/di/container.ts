@@ -12,7 +12,7 @@ import { ExpoPushNotificationService } from '@/infrastructure/notifications/Expo
 import { LoginUseCase } from '@/application/auth/LoginUseCase'
 import { RegisterUseCase } from '@/application/auth/RegisterUseCase'
 import { ForgotPasswordUseCase } from '@/application/auth/ForgotPasswordUseCase'
-import { EstablishRecoverySessionUseCase } from '@/application/auth/EstablishRecoverySessionUseCase'
+import { VerifyRecoveryOtpUseCase } from '@/application/auth/VerifyRecoveryOtpUseCase'
 import { UpdatePasswordUseCase } from '@/application/auth/UpdatePasswordUseCase'
 import { LogoutUseCase } from '@/application/auth/LogoutUseCase'
 import { GetCurrentUserUseCase } from '@/application/auth/GetCurrentUserUseCase'
@@ -76,7 +76,7 @@ const reportRepository = new SupabaseReportRepository(supabase)
 export const login = new LoginUseCase(authRepository)
 export const register = new RegisterUseCase(authRepository)
 export const forgotPassword = new ForgotPasswordUseCase(authRepository)
-export const establishRecoverySession = new EstablishRecoverySessionUseCase(authRepository)
+export const verifyRecoveryOtp = new VerifyRecoveryOtpUseCase(authRepository)
 export const updatePassword = new UpdatePasswordUseCase(authRepository)
 export const logout = new LogoutUseCase(authRepository)
 export const getCurrentUser = new GetCurrentUserUseCase(authRepository)

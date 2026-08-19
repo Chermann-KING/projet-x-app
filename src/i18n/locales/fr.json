@@ -218,6 +218,11 @@
     "resetPassword": {
       "title": "Nouveau mot de passe",
       "subtitle": "Choisissez un nouveau mot de passe pour votre compte.",
+      "confirm": {
+        "title": "Confirmer la réinitialisation",
+        "subtitle": "Cliquez sur le bouton ci-dessous pour continuer et choisir un nouveau mot de passe.",
+        "button": "Continuer"
+      },
       "password": {
         "label": "Nouveau mot de passe",
         "placeholder": "Minimum 8 caractères"

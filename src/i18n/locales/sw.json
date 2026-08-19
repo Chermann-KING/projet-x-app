@@ -210,6 +210,11 @@
     "resetPassword": {
       "title": "Nywila mpya",
       "subtitle": "Chagua nywila mpya kwa akaunti yako.",
+      "confirm": {
+        "title": "Thibitisha kuweka upya",
+        "subtitle": "Bofya kitufe hapa chini kuendelea na kuchagua nywila mpya.",
+        "button": "Endelea"
+      },
       "password": {
         "label": "Nywila mpya",
         "placeholder": "Angalau herufi 8"

@@ -5,6 +5,8 @@ export type ErrorCode =
   | 'AUTH_SESSION_EXPIRED'
   | 'AUTH_EMAIL_ALREADY_USED'
   | 'AUTH_UNAUTHORIZED'
+  | 'AUTH_SAME_PASSWORD'
+  | 'AUTH_UPDATE_PASSWORD_FAILED'
   | 'ARTISAN_NOT_FOUND'
   | 'ARTISAN_PROFILE_INCOMPLETE'
   | 'ARTISAN_PENDING_VALIDATION'
@@ -43,6 +45,16 @@ export const ERROR_CATALOG: Record<ErrorCode, ErrorEntry> = {
   AUTH_UNAUTHORIZED: {
     title: 'Accès refusé',
     message: "Vous n'êtes pas autorisé à effectuer cette action.",
+    defaultDisplay: 'toast',
+  },
+  AUTH_SAME_PASSWORD: {
+    title: 'Mot de passe inchangé',
+    message: "Le nouveau mot de passe doit être différent de l'ancien.",
+    defaultDisplay: 'popup',
+  },
+  AUTH_UPDATE_PASSWORD_FAILED: {
+    title: 'Échec de la mise à jour',
+    message: "Impossible de mettre à jour le mot de passe. Réessayez.",
     defaultDisplay: 'toast',
   },
   ARTISAN_NOT_FOUND: {

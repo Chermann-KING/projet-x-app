@@ -210,6 +210,11 @@
     "resetPassword": {
       "title": "Nova palavra-passe",
       "subtitle": "Escolha uma nova palavra-passe para a sua conta.",
+      "confirm": {
+        "title": "Confirmar redefinição",
+        "subtitle": "Clique no botão abaixo para continuar e escolher uma nova palavra-passe.",
+        "button": "Continuar"
+      },
       "password": {
         "label": "Nova palavra-passe",
         "placeholder": "Mínimo 8 caracteres"

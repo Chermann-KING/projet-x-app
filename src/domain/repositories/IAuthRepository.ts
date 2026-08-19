@@ -15,9 +15,9 @@ export interface IAuthRepository {
   signUp(data: SignUpData): Promise<User>
   signOut(): Promise<void>
   resetPassword(email: string): Promise<void>
-  /** Établit une session à partir des tokens reçus dans le lien de récupération de mot de passe. */
-  establishRecoverySession(accessToken: string, refreshToken: string): Promise<void>
-  /** Nécessite une session active (normale ou de récupération, voir establishRecoverySession). */
+  /** Consomme le token à usage unique reçu par email et établit une session de récupération. */
+  verifyRecoveryOtp(tokenHash: string): Promise<void>
+  /** Nécessite une session active (normale ou de récupération, voir verifyRecoveryOtp). */
   updatePassword(newPassword: string): Promise<void>
   getCurrentUser(): Promise<User | null>
   updateAvatarUrl(userId: string, url: string): Promise<void>

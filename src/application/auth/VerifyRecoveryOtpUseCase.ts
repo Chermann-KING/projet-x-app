@@ -1,13 +1,13 @@
 import type { IAuthRepository } from '@/domain/repositories/IAuthRepository'
 import { ValidationError } from '@/shared/errors'
 
-export class EstablishRecoverySessionUseCase {
+export class VerifyRecoveryOtpUseCase {
   constructor(private readonly authRepository: IAuthRepository) {}
 
-  async execute(accessToken: string, refreshToken: string): Promise<void> {
-    if (!accessToken || !refreshToken) {
+  async execute(tokenHash: string): Promise<void> {
+    if (!tokenHash) {
       throw new ValidationError('Lien de récupération invalide')
     }
-    return this.authRepository.establishRecoverySession(accessToken, refreshToken)
+    return this.authRepository.verifyRecoveryOtp(tokenHash)
   }
 }
