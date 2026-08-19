@@ -10,4 +10,13 @@ const config = getDefaultConfig(__dirname)
 // On ajoute les conditions standard CJS pour couvrir ces packages.
 config.resolver.unstable_conditionNames = ['require', 'default']
 
+// Le watcher de Metro tourne en boucle infinie si Playwright écrit des
+// captures d'échec dans test-results/ pendant que le bundle compile : chaque
+// écriture déclenche un redémarrage du bundling, qui échoue à nouveau, qui
+// réécrit une capture, etc. Exclues du watcher, pas seulement de git.
+config.resolver.blockList = [
+  /test-results\/.*/,
+  /playwright-report\/.*/,
+]
+
 module.exports = withNativeWind(config, { input: './global.css' })
