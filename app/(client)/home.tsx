@@ -9,7 +9,7 @@ import {
   View,
 } from 'react-native'
 import { router } from 'expo-router'
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect } from 'expo-router/react-navigation'
 import WebView from 'react-native-webview'
 import {
   Droplets,

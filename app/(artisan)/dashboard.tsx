@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { router } from 'expo-router'
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect } from 'expo-router/react-navigation'
 import { CalendarDays, CheckCircle2, Clock, ClipboardList, Users } from 'lucide-react-native'
 import { useTranslation } from '@/i18n'
 import { translateDynamic } from '@/i18n'

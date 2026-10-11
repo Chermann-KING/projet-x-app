@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { router, useLocalSearchParams } from 'expo-router'
-import { useFocusEffect } from '@react-navigation/native'
+import { useFocusEffect } from 'expo-router/react-navigation'
 import { ChevronRight, Clock, ClipboardList } from 'lucide-react-native'
 import { useTranslation } from '@/i18n'
 import { translateDynamic } from '@/i18n'
