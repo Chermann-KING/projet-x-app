@@ -13,12 +13,12 @@ import {
 
 function makeDay(dateStr: string): Date {
   const [y, m, d] = dateStr.split('-').map(Number)
-  return new Date(y!, m! - 1, d!, 0, 0, 0, 0)
+  return new Date(y, m - 1, d, 0, 0, 0, 0)
 }
 
 function makeDateTime(dateStr: string, hours: number, minutes = 0): Date {
   const [y, m, d] = dateStr.split('-').map(Number)
-  return new Date(y!, m! - 1, d!, hours, minutes, 0, 0)
+  return new Date(y, m - 1, d, hours, minutes, 0, 0)
 }
 
 // Plage recurrente lundi 08:00-18:00
