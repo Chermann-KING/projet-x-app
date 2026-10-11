@@ -6,15 +6,15 @@ if (!TEST_EMAIL) {
 }
 
 test('forgot-password sends a reset link without error', async ({ page }) => {
-  page.on('console', (msg) => console.log(`[console.${msg.type()}]`, msg.text()))
+  page.on('console', (msg) => console.info(`[console.${msg.type()}]`, msg.text()))
   page.on('response', async (res) => {
     if (res.url().includes('supabase.co')) {
-      console.log('[response]', res.status(), res.url())
-      try { console.log('[response body]', await res.text()) } catch { /* ignore */ }
+      console.info('[response]', res.status(), res.url())
+      try { console.info('[response body]', await res.text()) } catch { /* ignore */ }
     }
   })
   page.on('requestfailed', (req) => {
-    console.log('[requestfailed]', req.url(), req.failure()?.errorText)
+    console.info('[requestfailed]', req.url(), req.failure()?.errorText)
   })
 
   await page.goto('/forgot-password')

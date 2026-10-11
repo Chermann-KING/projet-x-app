@@ -66,6 +66,8 @@ class AppLoggerImpl implements IAppLogger {
   }
 
   log(message: string, context?: object): void {
+    // reason: AppLogger est l'unique point de sortie console ; log() en est la variante non niveauée.
+    // eslint-disable-next-line no-console
     if (__DEV__) console.log(`[LOG] ${message}`, context)
   }
 }

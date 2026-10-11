@@ -17,6 +17,7 @@ module.exports = tseslint.config(
       '*.config.js',
     ],
   },
+  { settings: { react: { version: 'detect' } } },
   js.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,
   react.configs.flat.recommended,
@@ -28,7 +29,6 @@ module.exports = tseslint.config(
       parserOptions: { project: './tsconfig.json' },
       globals: { ...globals.browser, ...globals.node, ...globals.es2022 },
     },
-    settings: { react: { version: 'detect' } },
     rules: {
       // Clean Code — pas de any
       '@typescript-eslint/no-explicit-any': 'error',
