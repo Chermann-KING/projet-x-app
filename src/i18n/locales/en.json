@@ -73,6 +73,10 @@
         "title": "No notifications",
         "description": "You have no notifications yet."
       }
+    },
+    "notFound": {
+      "title": "Page not found",
+      "backHome": "Back to home"
     }
   },
   "notification": {

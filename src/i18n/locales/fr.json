@@ -73,6 +73,10 @@
         "title": "Aucune notification",
         "description": "Vous n'avez pas encore de notification."
       }
+    },
+    "notFound": {
+      "title": "Page introuvable",
+      "backHome": "Retour à l'accueil"
     }
   },
   "notification": {

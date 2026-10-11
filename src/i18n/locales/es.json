@@ -65,6 +65,10 @@
         "title": "Sin notificaciones",
         "description": "Aún no tiene notificaciones."
       }
+    },
+    "notFound": {
+      "title": "Página no encontrada",
+      "backHome": "Volver al inicio"
     }
   },
   "notification": {
