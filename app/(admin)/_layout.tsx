@@ -25,7 +25,7 @@ const SIDEBAR_FULL_WIDTH = 240
 const SIDEBAR_ICON_WIDTH = 64
 const AUTH_CHECK_TIMEOUT_MS = 8000
 
-function AdminSidebar({ collapsed = false }: { collapsed?: boolean }) {
+function AdminSidebar({ collapsed = false }: { collapsed?: boolean }): React.JSX.Element {
   const { t } = useTranslation()
   const pathname = usePathname()
   const user = useAuthStore((s) => s.user)
@@ -331,7 +331,7 @@ const sidebar = StyleSheet.create({
   userEmail: { fontSize: 11 },
 })
 
-export default function AdminLayout() {
+export default function AdminLayout(): React.JSX.Element {
   const screenOptions = useTabBarScreenOptions()
   const { t } = useTranslation()
   const user = useAuthStore((s) => s.user)

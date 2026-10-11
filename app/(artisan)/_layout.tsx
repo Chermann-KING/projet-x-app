@@ -15,7 +15,7 @@ function isQuoteDetailRoute(route: Parameters<typeof getFocusedRouteNameFromRout
   return ['[id]', 'create'].includes(focused)
 }
 
-export default function ArtisanLayout() {
+export default function ArtisanLayout(): React.JSX.Element | null {
   const screenOptions = useTabBarScreenOptions()
   const user = useAuthStore((s) => s.user)
   const pathname = usePathname()

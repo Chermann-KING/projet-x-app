@@ -11,7 +11,7 @@ interface Props {
   unitLabel: string
 }
 
-export function ArtisanProfileIdentity({ artisan, currency, unitLabel }: Props) {
+export function ArtisanProfileIdentity({ artisan, currency, unitLabel }: Props): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

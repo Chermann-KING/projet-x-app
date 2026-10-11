@@ -7,7 +7,7 @@ interface Props {
   focused: boolean
 }
 
-export function TabBarIcon({ children, focused }: Props) {
+export function TabBarIcon({ children, focused }: Props): React.JSX.Element {
   const theme = useTheme()
   return (
     <IconBox

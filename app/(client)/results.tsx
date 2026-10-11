@@ -25,7 +25,7 @@ type FilterKey = 'note' | 'distance' | 'available' | 'priceMax'
 
 const FILTERS: FilterKey[] = ['note', 'distance', 'available', 'priceMax']
 
-export default function ResultsScreen() {
+export default function ResultsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { metier, query: initialQuery } = useLocalSearchParams<{ metier?: string; query?: string | string[] }>()

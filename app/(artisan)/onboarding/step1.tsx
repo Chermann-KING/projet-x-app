@@ -34,7 +34,7 @@ import {
   digitsToE164,
 } from '@/shared/constants/PhoneConstants'
 
-export default function OnboardingStep1Screen() {
+export default function OnboardingStep1Screen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { location } = useUserLocation()

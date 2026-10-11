@@ -13,7 +13,7 @@ interface Props {
   stats: Stats
 }
 
-export function ClientProfileStats({ stats }: Props) {
+export function ClientProfileStats({ stats }: Props): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

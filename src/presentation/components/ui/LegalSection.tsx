@@ -5,7 +5,7 @@ import { useTranslation } from '@/i18n'
 import { ds } from '@/shared/designSystem'
 import { useTheme } from '@/presentation/hooks/useTheme'
 
-export function LegalSection() {
+export function LegalSection(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

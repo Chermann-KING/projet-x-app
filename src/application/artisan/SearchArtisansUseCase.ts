@@ -5,7 +5,7 @@ export type ArtisanSearchResult = Artisan & { distanceKm?: number | undefined }
 
 function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number): number {
   const R = 6371
-  const toRad = (d: number) => (d * Math.PI) / 180
+  const toRad = (d: number): number => (d * Math.PI) / 180
   const dLat = toRad(lat2 - lat1)
   const dLng = toRad(lng2 - lng1)
   const a =

@@ -121,7 +121,7 @@ function buildMapHtml(
 </html>`
 }
 
-export default function HomeScreen() {
+export default function HomeScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

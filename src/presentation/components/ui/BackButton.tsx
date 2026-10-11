@@ -14,7 +14,7 @@ interface Props {
   iconColor?: string
 }
 
-export function BackButton({ onPress, bg, iconColor }: Props) {
+export function BackButton({ onPress, bg, iconColor }: Props): React.JSX.Element {
   const theme = useTheme()
   const { t } = useTranslation()
 

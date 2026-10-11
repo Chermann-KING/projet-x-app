@@ -40,7 +40,7 @@ export function Input({
   leftIcon: LeftIcon,
   rightElement,
   prefix,
-}: InputProps) {
+}: InputProps): React.JSX.Element {
   const theme = useTheme()
   const [isFocused, setIsFocused] = useState(false)
   const [showPassword, setShowPassword] = useState(false)

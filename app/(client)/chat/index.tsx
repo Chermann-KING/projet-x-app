@@ -12,7 +12,7 @@ import { Avatar, EmptyState } from '@/presentation/components/ui'
 import type { QuoteWithArtisan } from '@/domain/entities/QuoteWithArtisan'
 import { MessageCircle } from 'lucide-react-native'
 
-export default function ChatListScreen() {
+export default function ChatListScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

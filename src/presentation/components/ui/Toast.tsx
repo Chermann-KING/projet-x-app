@@ -13,7 +13,7 @@ import { useTheme } from '@/presentation/hooks/useTheme'
 import { useNotificationStore } from '@/presentation/stores/notificationStore'
 import type { AppNotification } from '@/shared/logger/IAppLogger'
 
-function ToastIcon({ level, color }: { level: AppNotification['level']; color: string }) {
+function ToastIcon({ level, color }: { level: AppNotification['level']; color: string }): React.JSX.Element {
   switch (level) {
     case 'success':
       return <CheckCircle size={ds.size.icon.lg} color={color} />
@@ -29,7 +29,7 @@ interface ToastItemProps {
   onDismiss: () => void
 }
 
-function ToastItem({ notification, onDismiss }: ToastItemProps) {
+function ToastItem({ notification, onDismiss }: ToastItemProps): React.JSX.Element {
   const theme = useTheme()
   const opacity = useSharedValue(1)
 
@@ -91,7 +91,7 @@ function ToastItem({ notification, onDismiss }: ToastItemProps) {
   )
 }
 
-export function ToastContainer() {
+export function ToastContainer(): React.JSX.Element | null {
   const current = useNotificationStore((s) => s.current)
   const dismiss = useNotificationStore((s) => s.dismiss)
 

@@ -41,7 +41,7 @@ function formatSubmittedAt(date: Date): string {
 }
 
 /** AD01 — File de validation · Référence : figma/screenshots/05-espace-admin/01-arisans-a-valider.png */
-export default function AdminValidationScreen() {
+export default function AdminValidationScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const { isMobile, isTablet } = useAdminBreakpoint()
   const [artisans, setArtisans] = useState<Artisan[]>([])
@@ -449,7 +449,7 @@ type TableContentProps = {
   compact: boolean
 }
 
-function TableContent({ artisans, error, onSelect, t, compact }: TableContentProps) {
+function TableContent({ artisans, error, onSelect, t, compact }: TableContentProps): React.JSX.Element {
   return (
     <>
       <View style={[styles.tableHeader, { backgroundColor: TABLE_HEADER_BG, borderColor: TABLE_BORDER }]}>
@@ -529,7 +529,7 @@ type ArtisanCardProps = {
   onPress: () => void
 }
 
-function ArtisanCard({ artisan, horizontalPadding, onPress }: ArtisanCardProps) {
+function ArtisanCard({ artisan, horizontalPadding, onPress }: ArtisanCardProps): React.JSX.Element {
   return (
     <Pressable
       style={[styles.mobileCard, { paddingHorizontal: horizontalPadding }]}

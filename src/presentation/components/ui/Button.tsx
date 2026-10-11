@@ -21,7 +21,7 @@ export function Button({
   disabled = false,
   loading = false,
   fullWidth = true,
-}: ButtonProps) {
+}: ButtonProps): React.JSX.Element {
   const theme = useTheme()
   const [pressed, setPressed] = useState(false)
   const isDisabled = disabled || loading

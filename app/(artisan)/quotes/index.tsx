@@ -40,7 +40,7 @@ function formatAmount(amount: number | null | undefined, currency: CurrencyInfo)
   return formatCurrency(amount, currency)
 }
 
-export default function QuotesScreen() {
+export default function QuotesScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

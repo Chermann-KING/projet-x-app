@@ -16,7 +16,7 @@ import { AppLogger } from '@/shared/logger/AppLogger'
  * résout un groupe non déterministe si deux groupes définissent chacun un
  * index.tsx concurrent sur "/".
  */
-export default function Bootstrap() {
+export default function Bootstrap(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { setUser, setLoading } = useAuthStore()

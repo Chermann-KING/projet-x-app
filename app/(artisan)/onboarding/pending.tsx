@@ -35,7 +35,7 @@ async function redirectIfApproved(userId: string): Promise<void> {
   }
 }
 
-export default function OnboardingPendingScreen() {
+export default function OnboardingPendingScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
@@ -127,7 +127,7 @@ export default function OnboardingPendingScreen() {
   )
 }
 
-function TimelineRowItem({ row, theme }: { row: TimelineRow; theme: Theme }) {
+function TimelineRowItem({ row, theme }: { row: TimelineRow; theme: Theme }): React.JSX.Element {
   const { state, label, badge } = row
 
   const bullet =

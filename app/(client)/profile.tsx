@@ -24,7 +24,7 @@ interface ClientStats {
   avgRating: number | null
 }
 
-export default function ProfileScreen() {
+export default function ProfileScreen(): React.JSX.Element | null {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

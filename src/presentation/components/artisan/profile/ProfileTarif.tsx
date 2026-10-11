@@ -27,7 +27,7 @@ function ArtisanBioField({
 }: {
   artisan: Artisan
   onArtisanUpdate: (updated: Artisan) => void
-}) {
+}): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 
@@ -88,7 +88,7 @@ interface ProfileTarifProps {
   onArtisanUpdate: (updated: Artisan) => void
 }
 
-export function ProfileTarif({ artisan, currency, onArtisanUpdate }: ProfileTarifProps) {
+export function ProfileTarif({ artisan, currency, onArtisanUpdate }: ProfileTarifProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const [isSavingUnit, setIsSavingUnit] = useState(false)

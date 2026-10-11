@@ -20,7 +20,7 @@ import { AppLogger } from '@/shared/logger/AppLogger'
 import { AuthError } from '@/shared/errors'
 import { Button, Input, BackButton} from '@/presentation/components/ui'
 
-export default function LoginScreen() {
+export default function LoginScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { setUser } = useAuthStore()

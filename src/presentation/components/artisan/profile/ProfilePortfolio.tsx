@@ -25,7 +25,7 @@ interface ProfilePortfolioProps {
   onArtisanUpdate: (updated: Artisan) => void
 }
 
-export function ProfilePortfolio({ artisan, onArtisanUpdate }: ProfilePortfolioProps) {
+export function ProfilePortfolio({ artisan, onArtisanUpdate }: ProfilePortfolioProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const [isDeleting, setIsDeleting] = useState(false)

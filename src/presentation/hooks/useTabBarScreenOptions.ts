@@ -2,7 +2,22 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useTheme } from './useTheme'
 import { ds } from '@/shared/designSystem'
 
-export function useTabBarScreenOptions() {
+export interface TabBarScreenOptions {
+  headerShown: false
+  tabBarActiveTintColor: string
+  tabBarInactiveTintColor: string
+  tabBarStyle: {
+    height: number
+    backgroundColor: string
+    borderTopColor: string
+    borderTopWidth: number
+    paddingBottom: number
+    paddingTop: number
+  }
+  tabBarLabelStyle: { fontFamily: string; fontSize: number; marginTop: number }
+}
+
+export function useTabBarScreenOptions(): TabBarScreenOptions {
   const theme = useTheme()
   const insets = useSafeAreaInsets()
 
@@ -23,5 +38,5 @@ export function useTabBarScreenOptions() {
       fontSize: 11,
       marginTop: 4,
     },
-  } as const
+  }
 }

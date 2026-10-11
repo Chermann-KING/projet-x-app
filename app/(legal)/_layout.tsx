@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router'
 
-export default function LegalLayout() {
+export default function LegalLayout(): React.JSX.Element {
   return <Stack screenOptions={{ headerShown: false }} />
 }

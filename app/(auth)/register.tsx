@@ -26,7 +26,7 @@ import {
   digitsToE164,
 } from '@/shared/constants/PhoneConstants'
 
-export default function RegisterScreen() {
+export default function RegisterScreen(): React.JSX.Element {
   const { t, i18n } = useTranslation()
   const theme = useTheme()
   const { role } = useLocalSearchParams<{ role: UserRole }>()

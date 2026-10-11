@@ -12,7 +12,7 @@ import { AppLogger } from '@/shared/logger/AppLogger'
 import { EmptyState, BackButton} from '@/presentation/components/ui'
 import type { InboxNotification } from '@/domain/repositories/INotificationService'
 
-export default function ClientNotificationsScreen() {
+export default function ClientNotificationsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

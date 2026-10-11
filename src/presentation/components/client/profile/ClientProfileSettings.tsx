@@ -9,7 +9,7 @@ interface Props {
   onEditPress: () => void
 }
 
-export function ClientProfileSettings({ onEditPress }: Props) {
+export function ClientProfileSettings({ onEditPress }: Props): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 
@@ -43,7 +43,7 @@ function SettingRow({
   icon?: React.ReactNode
   onPress: () => void
   theme: ReturnType<typeof useTheme>
-}) {
+}): React.JSX.Element {
   return (
     <Pressable onPress={onPress} style={styles.row}>
       {icon ?? null}

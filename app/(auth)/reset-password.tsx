@@ -20,7 +20,7 @@ import { Button, Input, BackButton } from '@/presentation/components/ui'
 
 type ScreenStatus = 'confirm' | 'verifying' | 'ready' | 'expired' | 'success'
 
-export default function ResetPasswordScreen() {
+export default function ResetPasswordScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { token_hash: tokenHash, type } = useLocalSearchParams<{ token_hash?: string; type?: string }>()

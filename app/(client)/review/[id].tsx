@@ -22,7 +22,7 @@ import { Button, BackButton} from '@/presentation/components/ui'
 import type { Rating } from '@/domain/entities/Review'
 
 
-export default function ReviewScreen() {
+export default function ReviewScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const navigation = useNavigation()

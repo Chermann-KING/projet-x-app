@@ -66,7 +66,7 @@ function formatDuration(minutes: number): string {
 // Screen
 // ---------------------------------------------------------------------------
 
-export default function AgendaScreen() {
+export default function AgendaScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

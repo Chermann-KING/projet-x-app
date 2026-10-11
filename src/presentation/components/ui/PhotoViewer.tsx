@@ -12,7 +12,7 @@ interface PhotoViewerProps {
   onClose: () => void
 }
 
-export function PhotoViewer({ photos, initialIndex, visible, onClose }: PhotoViewerProps) {
+export function PhotoViewer({ photos, initialIndex, visible, onClose }: PhotoViewerProps): React.JSX.Element {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
 
   useEffect(() => {

@@ -20,7 +20,7 @@ function getState(index: number, currentStep: number): StepState {
   return 'upcoming'
 }
 
-function StepCircle({ state, index }: { state: StepState; index: number }) {
+function StepCircle({ state, index }: { state: StepState; index: number }): React.JSX.Element {
   const theme = useTheme()
   const bg =
     state === 'done' ? theme.success : state === 'active' ? theme.primary : theme.muted
@@ -46,7 +46,7 @@ function StepCircle({ state, index }: { state: StepState; index: number }) {
  * Chaque step cell est centré dans son slot → symétrie garantie quelle que
  * soit la largeur du container ou le nombre d'étapes.
  */
-export function StepIndicator({ steps, currentStep }: StepIndicatorProps) {
+export function StepIndicator({ steps, currentStep }: StepIndicatorProps): React.JSX.Element {
   const theme = useTheme()
 
   type Item =

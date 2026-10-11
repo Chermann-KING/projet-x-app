@@ -12,7 +12,7 @@ interface Props {
   onAvatarPress: () => void
 }
 
-export function ClientProfileIdentity({ user, avatarUrl, isUploading, onAvatarPress }: Props) {
+export function ClientProfileIdentity({ user, avatarUrl, isUploading, onAvatarPress }: Props): React.JSX.Element {
   const theme = useTheme()
 
   return (

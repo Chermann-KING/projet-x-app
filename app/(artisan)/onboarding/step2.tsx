@@ -31,7 +31,7 @@ const METIER_CHIPS: { key: Metier; Icon: typeof Zap }[] = [
 
 const TARIF_UNITS: TarifUnit[] = ['heure', 'jour', 'projet']
 
-export default function OnboardingStep2Screen() {
+export default function OnboardingStep2Screen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const store = useOnboardingStore()

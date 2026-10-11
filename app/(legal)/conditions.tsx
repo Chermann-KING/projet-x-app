@@ -6,7 +6,7 @@ import { useTranslation } from '@/i18n'
 import { ds } from '@/shared/designSystem'
 import { useTheme } from '@/presentation/hooks/useTheme'
 
-export default function ConditionsScreen() {
+export default function ConditionsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

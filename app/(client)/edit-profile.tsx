@@ -24,7 +24,7 @@ function initPhoneState(e164: string): { countryCode: string; localPhone: string
     localPhone: formatPhoneDisplay(localDigits, country.iso) }
 }
 
-export default function EditProfileScreen() {
+export default function EditProfileScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

@@ -45,7 +45,7 @@ function quoteStatusTextColor(status: Quote['status'], theme: Theme): string {
   }
 }
 
-export default function RequestsScreen() {
+export default function RequestsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

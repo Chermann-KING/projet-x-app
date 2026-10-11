@@ -50,7 +50,7 @@ function formatReportDate(date: Date): string {
 }
 
 /** AD03 — Signalements · Référence : figma/screenshots/05-espace-admin/02-arisans-signalements.png */
-export default function SignalementsScreen() {
+export default function SignalementsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const { isMobile, isTablet } = useAdminBreakpoint()
   const [reports, setReports] = useState<Report[]>([])
@@ -184,7 +184,7 @@ type ReportCardProps = {
   onSuspend?: () => void
 }
 
-function ReportCard({ report, dimmed = false, isProcessing = false, isMobile = false, onMarkTreated, onSuspend }: ReportCardProps) {
+function ReportCard({ report, dimmed = false, isProcessing = false, isMobile = false, onMarkTreated, onSuspend }: ReportCardProps): React.JSX.Element {
   const { t } = useTranslation()
   const isPending = report.status === 'pending'
 

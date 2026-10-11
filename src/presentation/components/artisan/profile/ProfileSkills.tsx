@@ -22,7 +22,7 @@ interface ProfileSkillsProps {
   onArtisanUpdate: (updated: Artisan) => void
 }
 
-export function ProfileSkills({ artisan, onArtisanUpdate }: ProfileSkillsProps) {
+export function ProfileSkills({ artisan, onArtisanUpdate }: ProfileSkillsProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const [isDeleting, setIsDeleting] = useState(false)

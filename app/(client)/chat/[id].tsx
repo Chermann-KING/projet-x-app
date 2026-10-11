@@ -37,7 +37,7 @@ function sameDay(a: Date, b: Date): boolean {
   return a.toDateString() === b.toDateString()
 }
 
-export default function ConversationScreen() {
+export default function ConversationScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const navigation = useNavigation()
@@ -123,7 +123,7 @@ export default function ConversationScreen() {
     return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
   }
 
-  function renderMessage({ item: msg, index }: { item: Message; index: number }) {
+  function renderMessage({ item: msg, index }: { item: Message; index: number }): React.JSX.Element {
     const mine = msg.senderId === user?.id
     const prevMsg = messages[index - 1]
     const nextMsg = messages[index + 1]

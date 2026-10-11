@@ -26,7 +26,7 @@ function resolveTextColor(
   return theme.foreground
 }
 
-export function Selector({ visible, onClose, options }: Props) {
+export function Selector({ visible, onClose, options }: Props): React.JSX.Element {
   const theme = useTheme()
   const insets = useSafeAreaInsets()
 

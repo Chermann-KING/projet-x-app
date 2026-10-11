@@ -24,7 +24,7 @@ export function AppHeader({
   onMenuPress,
   showNotifDot = false,
   onNotifPress,
-}: AppHeaderProps) {
+}: AppHeaderProps): React.JSX.Element {
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
   const avatarUrl = useAuthStore((s) => s.avatarUrl)

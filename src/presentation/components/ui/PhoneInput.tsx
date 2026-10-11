@@ -62,7 +62,7 @@ export function PhoneInput({
   error,
   showHint = true,
   disabled = false,
-}: PhoneInputProps) {
+}: PhoneInputProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const [pickerOpen, setPickerOpen] = useState(false)

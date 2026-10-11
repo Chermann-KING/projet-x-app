@@ -8,7 +8,7 @@ import { useAuthStore } from '@/presentation/stores/authStore'
 
 const NO_TAB_BAR = { display: 'none' } as const
 
-export default function ClientLayout() {
+export default function ClientLayout(): React.JSX.Element {
   const screenOptions = useTabBarScreenOptions()
   const user = useAuthStore((s) => s.user)
   const appMode = useAuthStore((s) => s.appMode)

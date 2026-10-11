@@ -25,7 +25,7 @@ import { ProfilePortfolio } from '@/presentation/components/artisan/profile/Prof
 import { getCurrencyFromPhone } from '@/shared/constants/PhoneConstants'
 import type { Artisan } from '@/domain/entities/Artisan'
 
-export default function ProfileScreen() {
+export default function ProfileScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

@@ -5,7 +5,12 @@ import { useField } from '@/hooks/useField'
 // Helper: save mock avec resolve/reject contrôlables
 // ---------------------------------------------------------------------------
 
-function makeControllableSave() {
+interface ControllableSave {
+  onSave: jest.Mock<Promise<void>, []>
+  settle: { ok: () => void; fail: (err?: Error) => void }
+}
+
+function makeControllableSave(): ControllableSave {
   const pending: Array<{ resolve: () => void; reject: (e: Error) => void }> = []
 
   const onSave = jest.fn(

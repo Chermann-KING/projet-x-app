@@ -49,7 +49,7 @@ function statusToIndex(status: QuoteStatus): number {
   }
 }
 
-export default function RequestDetailScreen() {
+export default function RequestDetailScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const navigation = useNavigation()

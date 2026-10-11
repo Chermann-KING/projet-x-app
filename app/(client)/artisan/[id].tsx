@@ -16,7 +16,7 @@ import { getCurrencyFromPhone } from '@/shared/constants/PhoneConstants'
 import { ds } from '@/shared/designSystem'
 import type { Artisan } from '@/domain/entities/Artisan'
 
-export default function ArtisanProfileScreen() {
+export default function ArtisanProfileScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { id } = useLocalSearchParams<{ id: string }>()

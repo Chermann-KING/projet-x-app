@@ -35,7 +35,7 @@ function formatRequestDate(date: Date): string {
   return `${date.toLocaleDateString(undefined, { day: 'numeric', month: 'short' })} ${time}`
 }
 
-export default function QuoteDetailScreen() {
+export default function QuoteDetailScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

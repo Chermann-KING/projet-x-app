@@ -27,7 +27,7 @@ import { OnboardingHeader, StepIndicator } from '@/presentation/components/ui'
 
 const MAX_PHOTOS = 5
 
-export default function OnboardingStep3Screen() {
+export default function OnboardingStep3Screen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

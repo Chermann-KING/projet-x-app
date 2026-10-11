@@ -8,7 +8,7 @@ interface Props {
   showBack?: boolean
 }
 
-export function OnboardingHeader({ showBack = true }: Props) {
+export function OnboardingHeader({ showBack = true }: Props): React.JSX.Element {
   const theme = useTheme()
 
   return (

@@ -10,7 +10,7 @@ interface Props {
   city: string | null
 }
 
-export function ClientProfileInfo({ user, city }: Props) {
+export function ClientProfileInfo({ user, city }: Props): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 
@@ -55,7 +55,7 @@ function InfoRow({
   label: string
   value: string
   theme: ReturnType<typeof useTheme>
-}) {
+}): React.JSX.Element {
   return (
     <View style={styles.row}>
       {icon}

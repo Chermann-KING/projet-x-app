@@ -14,7 +14,7 @@ const ROW_OVERRIDE = {
   alignSelf: 'stretch' as const,
 }
 
-export default function RoleScreen() {
+export default function RoleScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const [clientPressed, setClientPressed] = useState(false)

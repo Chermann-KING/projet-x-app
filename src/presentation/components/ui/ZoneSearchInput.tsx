@@ -54,7 +54,7 @@ export function ZoneSearchInput({
   placeholder,
   hasError = false,
   disabled = false,
-}: ZoneSearchInputProps) {
+}: ZoneSearchInputProps): React.JSX.Element {
   const { t, i18n } = useTranslation()
   const theme = useTheme()
 

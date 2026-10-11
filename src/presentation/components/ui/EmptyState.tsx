@@ -18,7 +18,7 @@ export function EmptyState({
   description,
   actionLabel,
   onAction,
-}: EmptyStateProps) {
+}: EmptyStateProps): React.JSX.Element {
   const theme = useTheme()
 
   return (

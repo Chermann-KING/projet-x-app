@@ -24,7 +24,7 @@ export function CurrencyInput({
   currency,
   placeholder = '0',
   disabled = false,
-}: CurrencyInputProps) {
+}: CurrencyInputProps): React.JSX.Element {
   const theme = useTheme()
   const [isFocused, setIsFocused] = useState(false)
 

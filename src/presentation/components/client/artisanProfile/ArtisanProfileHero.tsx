@@ -12,7 +12,7 @@ interface Props {
   artisan: Artisan
 }
 
-export function ArtisanProfileHero({ artisan }: Props) {
+export function ArtisanProfileHero({ artisan }: Props): React.JSX.Element {
   const theme = useTheme()
 
   const backBtn = (

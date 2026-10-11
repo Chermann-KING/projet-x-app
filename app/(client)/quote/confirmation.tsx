@@ -10,7 +10,7 @@ import { Button } from '@/presentation/components/ui'
 
 const STEPS = ['sent', 'artisanReplies', 'rdvConfirmed'] as const
 
-export default function QuoteConfirmationScreen() {
+export default function QuoteConfirmationScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const navigation = useNavigation()

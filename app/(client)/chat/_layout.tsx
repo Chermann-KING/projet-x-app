@@ -1,7 +1,7 @@
 import { Stack } from 'expo-router'
 import { useTheme } from '@/presentation/hooks/useTheme'
 
-export default function ChatLayout() {
+export default function ChatLayout(): React.JSX.Element {
   const theme = useTheme()
   return (
     <Stack

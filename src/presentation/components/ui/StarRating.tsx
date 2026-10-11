@@ -19,7 +19,7 @@ export function StarRating({
   interactive = false,
   size = ds.size.icon.md,
   onRatingChange,
-}: StarRatingProps) {
+}: StarRatingProps): React.JSX.Element {
   const theme = useTheme()
   const starFilled = theme.warning
   const starEmpty = theme.muted

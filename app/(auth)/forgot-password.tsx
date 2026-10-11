@@ -18,7 +18,7 @@ import { forgotPassword } from '@/di/container'
 import { AppLogger } from '@/shared/logger/AppLogger'
 import { Button, Input, BackButton} from '@/presentation/components/ui'
 
-export default function ForgotPasswordScreen() {
+export default function ForgotPasswordScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

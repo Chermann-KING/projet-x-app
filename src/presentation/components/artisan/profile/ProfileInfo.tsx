@@ -37,7 +37,7 @@ function InfoRow({
   label: string
   value: string
   theme: Theme
-}) {
+}): React.JSX.Element {
   return (
     <View style={styles.infoRow}>
       {icon}
@@ -63,7 +63,7 @@ function EditableInfoRow({
   theme: Theme
   keyboardType?: KeyboardTypeOptions
   autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters'
-}) {
+}): React.JSX.Element {
   const { t } = useTranslation()
   const isError = field.status === 'error'
 
@@ -108,7 +108,7 @@ function ArtisanPhoneField({
 }: {
   artisan: Artisan
   onArtisanUpdate: (updated: Artisan) => void
-}) {
+}): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 
@@ -194,7 +194,7 @@ function ArtisanZoneField({
 }: {
   artisan: Artisan
   onArtisanUpdate: (updated: Artisan) => void
-}) {
+}): React.JSX.Element {
   const { t, i18n } = useTranslation()
   const theme = useTheme()
 
@@ -361,7 +361,7 @@ interface ProfileInfoProps {
   onArtisanUpdate: (updated: Artisan) => void
 }
 
-export function ProfileInfo({ artisan, userEmail, onArtisanUpdate }: ProfileInfoProps) {
+export function ProfileInfo({ artisan, userEmail, onArtisanUpdate }: ProfileInfoProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

@@ -17,7 +17,7 @@ function getTarifRateKey(unit?: TarifUnit): string {
   return 'artisan.profile.ratePerHour'
 }
 
-function StarRating({ rating, size = 14 }: { rating: number; size?: number }) {
+function StarRating({ rating, size = 14 }: { rating: number; size?: number }): React.JSX.Element {
   const theme = useTheme()
   const filled = Math.round(rating)
   return (
@@ -54,7 +54,7 @@ export function ProfileHeader({
   planLabel,
   onArtisanUpdate,
   onAvatarUrlUpdate,
-}: ProfileHeaderProps) {
+}: ProfileHeaderProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   async function pickImage(aspect?: [number, number]): Promise<ImagePicker.ImagePickerAsset | null> {

@@ -40,7 +40,7 @@ function formatDateDisplay(date: Date): string {
 
 // ---------------------------------------------------------------------------
 
-export default function QuoteRequestScreen() {
+export default function QuoteRequestScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const navigation = useNavigation()

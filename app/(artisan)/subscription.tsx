@@ -17,7 +17,7 @@ type PlanCardProps = {
   currentPlan: SubscriptionPlan
 }
 
-function PlanCard({ planKey, currentPlan }: PlanCardProps) {
+function PlanCard({ planKey, currentPlan }: PlanCardProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const isCurrent = planKey === currentPlan
@@ -125,7 +125,7 @@ function PlanCard({ planKey, currentPlan }: PlanCardProps) {
 
 const PLANS: SubscriptionPlan[] = ['free', 'standard', 'premium']
 
-export default function SubscriptionScreen() {
+export default function SubscriptionScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const { plan } = useLocalSearchParams<{ plan?: string }>()

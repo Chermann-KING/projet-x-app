@@ -19,7 +19,7 @@ function getInitials(name: string): string {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
 }
 
-export function Avatar({ name, size = 'lg', isOnline = null, uri }: AvatarProps) {
+export function Avatar({ name, size = 'lg', isOnline = null, uri }: AvatarProps): React.JSX.Element {
   const theme = useTheme()
   const diameter = ds.size.avatar[size]
   const fontSize = FONT_SIZE[size]

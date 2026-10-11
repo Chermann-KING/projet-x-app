@@ -25,7 +25,7 @@ function useBadgeColors(variant: BadgeVariant): { bg: string; text: string; icon
   }
 }
 
-function BadgeIcon({ variant, color }: { variant: BadgeVariant; color: string }) {
+function BadgeIcon({ variant, color }: { variant: BadgeVariant; color: string }): React.JSX.Element {
   switch (variant) {
     case 'verified':
       return <Circle size={ds.size.icon.xs} color={color} fill={color} />
@@ -38,7 +38,7 @@ function BadgeIcon({ variant, color }: { variant: BadgeVariant; color: string })
   }
 }
 
-export function Badge({ variant, label }: BadgeProps) {
+export function Badge({ variant, label }: BadgeProps): React.JSX.Element {
   const colors = useBadgeColors(variant)
 
   return (

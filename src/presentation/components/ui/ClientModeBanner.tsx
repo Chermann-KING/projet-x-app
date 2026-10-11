@@ -10,7 +10,7 @@ import { useAuthStore } from '@/presentation/stores/authStore'
  * Bannière visible uniquement quand un artisan navigue en mode client.
  * Permet de revenir à l'espace artisan en un tap.
  */
-export function ClientModeBanner() {
+export function ClientModeBanner(): React.JSX.Element | null {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

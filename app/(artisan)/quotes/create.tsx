@@ -25,7 +25,7 @@ import { detectCountry } from '@/shared/constants/PhoneConstants'
 import type { Quote } from '@/domain/entities/Quote'
 import type { User } from '@/domain/entities/User'
 
-export default function CreateQuoteScreen() {
+export default function CreateQuoteScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

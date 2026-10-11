@@ -11,7 +11,7 @@ interface Props {
   onWhatsApp: () => void
 }
 
-export function ArtisanProfileActions({ onCall, onQuote, onChat, onWhatsApp }: Props) {
+export function ArtisanProfileActions({ onCall, onQuote, onChat, onWhatsApp }: Props): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

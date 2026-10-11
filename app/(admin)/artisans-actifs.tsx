@@ -46,7 +46,7 @@ function formatValidatedAt(date: Date): string {
 }
 
 /** AD02 — Artisans actifs · Référence : figma/screenshots/05-espace-admin/02-arisans-actifs.png */
-export default function ArtisansActifsScreen() {
+export default function ArtisansActifsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const { isMobile, isTablet } = useAdminBreakpoint()
   const [artisans, setArtisans] = useState<Artisan[]>([])
@@ -343,7 +343,7 @@ type ActifsTableContentProps = {
   compact: boolean
 }
 
-function ActifsTableContent({ artisans, onSuspend, processingId, t, compact }: ActifsTableContentProps) {
+function ActifsTableContent({ artisans, onSuspend, processingId, t, compact }: ActifsTableContentProps): React.JSX.Element {
   return (
     <>
       <View style={[styles.tableHeader, { backgroundColor: TABLE_HEADER_BG, borderColor: TABLE_BORDER }]}>
@@ -434,7 +434,7 @@ type ArtisanActifCardProps = {
   t: TFunction
 }
 
-function ArtisanActifCard({ artisan, horizontalPadding, isProcessing, onSuspend, t }: ArtisanActifCardProps) {
+function ArtisanActifCard({ artisan, horizontalPadding, isProcessing, onSuspend, t }: ArtisanActifCardProps): React.JSX.Element {
   const plan = getPlanInfo(artisan.subscriptionPlan)
   return (
     <View style={[styles.mobileCard, { paddingHorizontal: horizontalPadding }]}>

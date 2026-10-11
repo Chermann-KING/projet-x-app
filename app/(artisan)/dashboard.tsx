@@ -35,7 +35,7 @@ function formatRequestTime(
   return date.toLocaleDateString()
 }
 
-export default function ArtisanDashboardScreen() {
+export default function ArtisanDashboardScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)

@@ -12,7 +12,7 @@ interface Props {
 const PHOTO_CARD_W = 148
 const PHOTO_CARD_H = 112
 
-export function ArtisanProfileContent({ artisan, onPhotoPress }: Props) {
+export function ArtisanProfileContent({ artisan, onPhotoPress }: Props): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
 

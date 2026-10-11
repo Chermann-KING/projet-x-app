@@ -19,7 +19,7 @@ export function IconBox({
   width,
   height,
   radius = ds.radius.sm,
-}: Props) {
+}: Props): React.JSX.Element {
   const w = size ?? width ?? 40
   const h = size ?? height ?? 40
 

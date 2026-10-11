@@ -17,7 +17,7 @@ interface ArtisanCardProps {
   onPress: () => void
 }
 
-export function ArtisanCard({ artisan, distanceKm, isOnline, onPress }: ArtisanCardProps) {
+export function ArtisanCard({ artisan, distanceKm, isOnline, onPress }: ArtisanCardProps): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const [pressed, setPressed] = useState(false)
