@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, useCallback } from 'react'
 import {
   FlatList,
   Pressable,
@@ -33,9 +33,10 @@ export default function ResultsScreen(): React.JSX.Element {
   const inputRef = useRef<TextInput>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const [searchText, setSearchText] = useState(
-    Array.isArray(initialQuery) ? initialQuery[0] ?? '' : initialQuery ?? '',
-  )
+  const initialSearchText = Array.isArray(initialQuery) ? initialQuery[0] ?? '' : initialQuery ?? ''
+  const [searchText, setSearchText] = useState(initialSearchText)
+  // Ref : relancer la recherche sur changement de métier/position sans dépendre du texte saisi
+  const searchTextRef = useRef(initialSearchText)
   const [artisans, setArtisans] = useState<ArtisanSearchResult[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [activeFilter, setActiveFilter] = useState<FilterKey | null>('note')
@@ -47,11 +48,28 @@ export default function ResultsScreen(): React.JSX.Element {
       // Autofocus quand on arrive depuis la barre de recherche (sans filtre métier)
       setTimeout(() => inputRef.current?.focus(), 100)
     }
-  }, [])
+  }, [metier])
+
+  const loadResults = useCallback(async (query: string): Promise<void> => {
+    setIsLoading(true)
+    try {
+      const data = await searchArtisans.execute({
+        ...(metier ? { metier: metier as Artisan['metier'] } : {}),
+        ...(query.trim() ? { query: query.trim() } : {}),
+        lat: location.lat,
+        lng: location.lng,
+      })
+      setArtisans(data)
+    } catch (err) {
+      AppLogger.error(err)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [metier, location.lat, location.lng])
 
   useEffect(() => {
-    void loadResults(searchText)
-  }, [metier, location.lat, location.lng])
+    void loadResults(searchTextRef.current)
+  }, [loadResults])
 
   // Filtre "Disponible" : interroge la disponibilité pour la fenêtre aujourd'hui + 3 jours
   useEffect(() => {
@@ -81,26 +99,10 @@ export default function ResultsScreen(): React.JSX.Element {
   }, [activeFilter, artisans])
 
   function handleSearchChange(text: string): void {
+    searchTextRef.current = text
     setSearchText(text)
     if (debounceRef.current) clearTimeout(debounceRef.current)
     debounceRef.current = setTimeout(() => void loadResults(text), 400)
-  }
-
-  async function loadResults(query: string): Promise<void> {
-    setIsLoading(true)
-    try {
-      const data = await searchArtisans.execute({
-        ...(metier ? { metier: metier as Artisan['metier'] } : {}),
-        ...(query.trim() ? { query: query.trim() } : {}),
-        lat: location.lat,
-        lng: location.lng,
-      })
-      setArtisans(data)
-    } catch (err) {
-      AppLogger.error(err)
-    } finally {
-      setIsLoading(false)
-    }
   }
 
   // Tri et filtrage côté client selon le filtre actif

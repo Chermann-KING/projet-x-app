@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import {
   ActivityIndicator,
   Pressable,
@@ -29,20 +29,17 @@ export default function ProfileScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
   const reset = useAuthStore((s) => s.reset)
   const setAvatarUrl = useAuthStore((s) => s.setAvatarUrl)
   const [artisan, setArtisan] = useState<Artisan | null>(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    void load()
-  }, [])
-
-  async function load(): Promise<void> {
-    if (!user) return
+  const load = useCallback(async (): Promise<void> => {
+    if (!userId) return
     setIsLoading(true)
     try {
-      const profile = await getArtisanByUserId.execute(user.id)
+      const profile = await getArtisanByUserId.execute(userId)
       setArtisan(profile)
       if (profile) setAvatarUrl(profile.avatarUrl ?? null)
     } catch (err) {
@@ -50,7 +47,11 @@ export default function ProfileScreen(): React.JSX.Element {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userId, setAvatarUrl])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   async function handleLogout(): Promise<void> {
     try {

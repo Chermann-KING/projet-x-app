@@ -44,32 +44,33 @@ export default function QuotesScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
   const currency = getCurrencyByIso(detectCountry(user?.phone ?? '').iso)
   const { tab: tabParam } = useLocalSearchParams<{ tab?: TabKey }>()
   const [activeTab, setActiveTab] = useState<TabKey>(tabParam ?? 'toProcess')
   const [allQuotes, setAllQuotes] = useState<QuoteWithClientInfo[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    void load()
-  }, [])
-
-  useFocusEffect(useCallback(() => {
-    if (tabParam) setActiveTab(tabParam)
-  }, [tabParam]))
-
-  async function load(): Promise<void> {
-    if (!user) return
+  const load = useCallback(async (): Promise<void> => {
+    if (!userId) return
     setIsLoading(true)
     try {
-      const quotes = await getArtisanQuotes.execute(user.id)
+      const quotes = await getArtisanQuotes.execute(userId)
       setAllQuotes(quotes)
     } catch (err) {
       AppLogger.error(err)
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    void load()
+  }, [load])
+
+  useFocusEffect(useCallback(() => {
+    if (tabParam) setActiveTab(tabParam)
+  }, [tabParam]))
 
   const tabs: TabKey[] = ['toProcess', 'sent', 'archived']
 

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react'
 import {
   FlatList,
   KeyboardAvoidingView,
@@ -44,6 +44,7 @@ export default function ConversationScreen(): React.JSX.Element {
   const { id: quoteId, artisanUserId: artisanUserIdParam, artisanName: artisanNameParam, artisanAvatarUrl: artisanAvatarUrlParam, artisanIsOnline: artisanIsOnlineParam, artisanPhone: artisanPhoneParam } =
     useLocalSearchParams<{ id: string; artisanUserId?: string; artisanName?: string; artisanAvatarUrl?: string; artisanIsOnline?: string; artisanPhone?: string }>()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
   const listRef = useRef<FlatList>(null)
 
   const [messages, setMessages] = useState<Message[]>([])
@@ -59,9 +60,29 @@ export default function ConversationScreen(): React.JSX.Element {
     return () => parent?.setOptions({ tabBarStyle: undefined })
   }, [navigation])
 
+  const loadMessages = useCallback(async (): Promise<void> => {
+    try {
+      const data = await getConversationMessages.execute(quoteId)
+      setMessages(data)
+    } catch (err) {
+      AppLogger.error(err)
+    }
+  }, [quoteId])
+
+  const resolveArtisanUserId = useCallback(async (): Promise<void> => {
+    if (!userId) return
+    try {
+      const quotes = await getClientRequests.execute(userId)
+      const match = quotes.find((q) => q.id === quoteId)
+      if (match?.artisanUserId) setArtisanUserId(match.artisanUserId)
+    } catch (err) {
+      AppLogger.error(err)
+    }
+  }, [userId, quoteId])
+
   useEffect(() => {
     void loadMessages()
-    if (!artisanUserIdParam && user) void resolveArtisanUserId()
+    if (!artisanUserIdParam && userId) void resolveArtisanUserId()
 
     const unsubscribe = subscribeToConversation.execute(quoteId, (newMsg) => {
       setMessages((prev) => {
@@ -72,27 +93,7 @@ export default function ConversationScreen(): React.JSX.Element {
       })
     })
     return unsubscribe
-  }, [quoteId])
-
-  async function loadMessages(): Promise<void> {
-    try {
-      const data = await getConversationMessages.execute(quoteId)
-      setMessages(data)
-    } catch (err) {
-      AppLogger.error(err)
-    }
-  }
-
-  async function resolveArtisanUserId(): Promise<void> {
-    if (!user) return
-    try {
-      const quotes = await getClientRequests.execute(user.id)
-      const match = quotes.find((q) => q.id === quoteId)
-      if (match?.artisanUserId) setArtisanUserId(match.artisanUserId)
-    } catch (err) {
-      AppLogger.error(err)
-    }
-  }
+  }, [quoteId, userId, artisanUserIdParam, loadMessages, resolveArtisanUserId])
 
   async function handleSend(): Promise<void> {
     if (!text.trim() || !user || !artisanUserId || isSending) return

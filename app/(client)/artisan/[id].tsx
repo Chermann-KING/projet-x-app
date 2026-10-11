@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState, useCallback } from 'react'
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import { router, useLocalSearchParams, useNavigation } from 'expo-router'
 import { Linking } from 'react-native'
@@ -34,11 +34,7 @@ export default function ArtisanProfileScreen(): React.JSX.Element {
     return () => parent?.setOptions({ tabBarStyle: undefined })
   }, [navigation])
 
-  useEffect(() => {
-    void loadArtisan()
-  }, [id])
-
-  async function loadArtisan(): Promise<void> {
+  const loadArtisan = useCallback(async (): Promise<void> => {
     try {
       const data = await getArtisanProfile.execute(id)
       setArtisan(data)
@@ -47,7 +43,11 @@ export default function ArtisanProfileScreen(): React.JSX.Element {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [id])
+
+  useEffect(() => {
+    void loadArtisan()
+  }, [loadArtisan])
 
   function handleCall(): void {
     if (artisan?.phone) void Linking.openURL(`tel:${artisan.phone}`)

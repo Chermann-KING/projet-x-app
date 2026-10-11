@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import {
   ActivityIndicator,
   Alert,
@@ -47,11 +47,7 @@ export default function QuoteDetailScreen(): React.JSX.Element {
   const [isLoading, setIsLoading] = useState(true)
   const [isMarkingDone, setIsMarkingDone] = useState(false)
 
-  useEffect(() => {
-    void load()
-  }, [id])
-
-  async function load(): Promise<void> {
+  const load = useCallback(async (): Promise<void> => {
     if (!id) return
     setIsLoading(true)
     try {
@@ -63,7 +59,11 @@ export default function QuoteDetailScreen(): React.JSX.Element {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [id])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   function handleDecline(): void {
     Alert.alert(

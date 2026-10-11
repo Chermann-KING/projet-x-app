@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { router } from 'expo-router'
@@ -16,19 +16,16 @@ export default function ChatListScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
 
   const [conversations, setConversations] = useState<QuoteWithArtisan[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    void loadConversations()
-  }, [])
-
-  async function loadConversations(): Promise<void> {
-    if (!user) return
+  const loadConversations = useCallback(async (): Promise<void> => {
+    if (!userId) return
     setIsLoading(true)
     try {
-      const quotes = await getClientRequests.execute(user.id)
+      const quotes = await getClientRequests.execute(userId)
       const active = quotes.filter((q) => q.status === 'accepted' || q.status === 'sent' || q.status === 'pending')
       setConversations(active)
     } catch (err) {
@@ -36,7 +33,11 @@ export default function ChatListScreen(): React.JSX.Element {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    void loadConversations()
+  }, [loadConversations])
 
   return (
     <SafeAreaView style={[styles.safe, { backgroundColor: theme.background }]}>

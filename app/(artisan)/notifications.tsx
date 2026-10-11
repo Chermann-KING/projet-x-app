@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { router } from 'expo-router'
@@ -16,26 +16,27 @@ export default function ArtisanNotificationsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
   const [notifications, setNotifications] = useState<InboxNotification[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    void load()
-  }, [user?.id])
-
-  async function load(): Promise<void> {
-    if (!user) return
+  const load = useCallback(async (): Promise<void> => {
+    if (!userId) return
     setIsLoading(true)
     try {
-      const data = await getNotifications.execute(user.id)
+      const data = await getNotifications.execute(userId)
       setNotifications(data)
-      await markNotificationsRead.execute(user.id)
+      await markNotificationsRead.execute(userId)
     } catch (err) {
       AppLogger.error(err)
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   function handlePress(notif: InboxNotification): void {
     if (!notif.quoteId) return

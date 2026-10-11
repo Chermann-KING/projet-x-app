@@ -1,5 +1,5 @@
 import * as Location from 'expo-location'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 export interface UserLocation {
   lat: number
@@ -17,15 +17,22 @@ const LIBREVILLE_FALLBACK: UserLocation = {
   granted: false,
 }
 
+async function reverseGeocode(latitude: number, longitude: number): Promise<string | undefined> {
+  try {
+    const [geo] = await Location.reverseGeocodeAsync({ latitude, longitude })
+    if (!geo) return undefined
+    const parts = [geo.city ?? geo.subregion ?? geo.region, geo.country].filter(Boolean)
+    return parts.length > 0 ? parts.join(', ') : undefined
+  } catch {
+    return undefined
+  }
+}
+
 export function useUserLocation(): { location: UserLocation; isLocating: boolean } {
   const [location, setLocation] = useState<UserLocation>(LIBREVILLE_FALLBACK)
   const [isLocating, setIsLocating] = useState(true)
 
-  useEffect(() => {
-    void locate()
-  }, [])
-
-  async function locate(): Promise<void> {
+  const locate = useCallback(async (): Promise<void> => {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync()
 
@@ -53,18 +60,11 @@ export function useUserLocation(): { location: UserLocation; isLocating: boolean
     } finally {
       setIsLocating(false)
     }
-  }
+  }, [])
 
-  async function reverseGeocode(latitude: number, longitude: number): Promise<string | undefined> {
-    try {
-      const [geo] = await Location.reverseGeocodeAsync({ latitude, longitude })
-      if (!geo) return undefined
-      const parts = [geo.city ?? geo.subregion ?? geo.region, geo.country].filter(Boolean)
-      return parts.length > 0 ? parts.join(', ') : undefined
-    } catch {
-      return undefined
-    }
-  }
+  useEffect(() => {
+    void locate()
+  }, [locate])
 
   return { location, isLocating }
 }

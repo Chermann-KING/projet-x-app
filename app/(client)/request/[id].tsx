@@ -64,20 +64,20 @@ export default function RequestDetailScreen(): React.JSX.Element {
     return () => parent?.setOptions({ tabBarStyle: undefined })
   }, [navigation])
 
-  useFocusEffect(
-    useCallback(() => {
-      void loadQuote()
-    }, [id]),
-  )
-
-  async function loadQuote(): Promise<void> {
+  const loadQuote = useCallback(async (): Promise<void> => {
     try {
       const found = await getClientRequestById.execute(id)
       setQuote(found)
     } catch (err) {
       AppLogger.error(err)
     }
-  }
+  }, [id])
+
+  useFocusEffect(
+    useCallback(() => {
+      void loadQuote()
+    }, [loadQuote]),
+  )
 
   async function handleAccept(): Promise<void> {
     if (!quote || !user) return

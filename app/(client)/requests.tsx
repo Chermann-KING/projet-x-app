@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { router } from 'expo-router'
@@ -49,27 +49,28 @@ export default function RequestsScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
 
   const [quotes, setQuotes] = useState<QuoteWithArtisan[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<TabKey>('pending')
 
-  useEffect(() => {
-    void loadQuotes()
-  }, [])
-
-  async function loadQuotes(): Promise<void> {
-    if (!user) return
+  const loadQuotes = useCallback(async (): Promise<void> => {
+    if (!userId) return
     setIsLoading(true)
     try {
-      const data = await getClientRequests.execute(user.id)
+      const data = await getClientRequests.execute(userId)
       setQuotes(data)
     } catch (err) {
       AppLogger.error(err)
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    void loadQuotes()
+  }, [loadQuotes])
 
   const filteredQuotes = quotes.filter((q) => STATUS_MAP[activeTab].includes(q.status))
 

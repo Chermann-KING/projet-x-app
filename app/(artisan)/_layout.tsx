@@ -27,6 +27,9 @@ export default function ArtisanLayout(): React.JSX.Element | null {
   useEffect(() => {
     if (!user) return
     void checkArtisanProfile()
+    // reason: la vérification ne doit se rejouer que lorsque l'utilisateur change ;
+    // dépendre de pathname/router la relancerait à chaque navigation (appel réseau inutile).
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
 
   async function checkArtisanProfile(): Promise<void> {

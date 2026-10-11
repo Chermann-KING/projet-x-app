@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ChevronLeft, ChevronRight } from 'lucide-react-native'
@@ -70,6 +70,7 @@ export default function AgendaScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
 
   const [weekStart, setWeekStart] = useState(getMonday(new Date()))
   const [appointments, setAppointments] = useState<Appointment[]>([])
@@ -77,15 +78,11 @@ export default function AgendaScreen(): React.JSX.Element {
   const [clientNamesMap, setClientNamesMap] = useState<Record<string, string>>({})
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    void load()
-  }, [])
-
-  async function load(): Promise<void> {
-    if (!user) return
+  const load = useCallback(async (): Promise<void> => {
+    if (!userId) return
     setIsLoading(true)
     try {
-      const data = await getArtisanAgenda.execute(user.id)
+      const data = await getArtisanAgenda.execute(userId)
       setAppointments(data.appointments)
       setQuotesMap(data.quotesMap)
       setClientNamesMap(data.clientNamesMap)
@@ -94,7 +91,11 @@ export default function AgendaScreen(): React.JSX.Element {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   const weekDays = Array.from({ length: 7 }, (_, i) => addDays(weekStart, i))
 

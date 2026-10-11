@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import {
   ActivityIndicator,
   KeyboardAvoidingView,
@@ -42,11 +42,7 @@ export default function CreateQuoteScreen(): React.JSX.Element {
   const [prix, setPrix] = useState('')
   const [delai, setDelai] = useState('')
 
-  useEffect(() => {
-    void load()
-  }, [quoteId])
-
-  async function load(): Promise<void> {
+  const load = useCallback(async (): Promise<void> => {
     if (!quoteId) return
     setIsLoading(true)
     try {
@@ -58,7 +54,11 @@ export default function CreateQuoteScreen(): React.JSX.Element {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [quoteId])
+
+  useEffect(() => {
+    void load()
+  }, [load])
 
   async function handleSend(): Promise<void> {
     if (!quote || !prix || !descriptionTravaux) return

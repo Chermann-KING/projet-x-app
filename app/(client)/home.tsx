@@ -125,11 +125,12 @@ export default function HomeScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
   const setAppMode = useAuthStore((s) => s.setAppMode)
   const { location } = useUserLocation()
   const { hasUnread, refresh: refreshNotifBadge } = useNotifBadge()
 
-  useFocusEffect(useCallback(() => { refreshNotifBadge() }, []))
+  useFocusEffect(useCallback(() => { refreshNotifBadge() }, [refreshNotifBadge]))
 
   const [artisans, setArtisans] = useState<ArtisanSearchResult[]>([])
   const [isRefreshing, setIsRefreshing] = useState(true)
@@ -159,12 +160,7 @@ export default function HomeScreen(): React.JSX.Element {
     },
   ]
 
-  // Rechargement immédiat quand la localisation ou le métier sélectionné change
-  useEffect(() => {
-    void loadArtisans(searchQueryRef.current, activeMetier)
-  }, [location.lat, location.lng, activeMetier])
-
-  async function loadArtisans(query: string, metier: Metier | null): Promise<void> {
+  const loadArtisans = useCallback(async (query: string, metier: Metier | null): Promise<void> => {
     setIsRefreshing(true)
     try {
       const data = await searchArtisans.execute({
@@ -172,7 +168,7 @@ export default function HomeScreen(): React.JSX.Element {
         ...(query.trim() ? { query: query.trim() } : {}),
         lat: location.lat,
         lng: location.lng,
-        ...(user?.id ? { excludeUserId: user.id } : {}),
+        ...(userId ? { excludeUserId: userId } : {}),
       })
       setArtisans(data)
     } catch (err) {
@@ -180,7 +176,12 @@ export default function HomeScreen(): React.JSX.Element {
     } finally {
       setIsRefreshing(false)
     }
-  }
+  }, [location.lat, location.lng, userId])
+
+  // Rechargement immédiat quand la localisation ou le métier sélectionné change
+  useEffect(() => {
+    void loadArtisans(searchQueryRef.current, activeMetier)
+  }, [loadArtisans, activeMetier])
 
   function handleSearchChange(text: string): void {
     searchQueryRef.current = text

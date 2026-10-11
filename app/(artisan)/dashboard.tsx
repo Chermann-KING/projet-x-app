@@ -39,6 +39,7 @@ export default function ArtisanDashboardScreen(): React.JSX.Element {
   const { t } = useTranslation()
   const theme = useTheme()
   const user = useAuthStore((s) => s.user)
+  const userId = user?.id
   const setAppMode = useAuthStore((s) => s.setAppMode)
   const { hasUnread, refresh: refreshBadge } = useNotifBadge()
   const [artisan, setArtisan] = useState<Artisan | null>(null)
@@ -50,11 +51,29 @@ export default function ArtisanDashboardScreen(): React.JSX.Element {
 
   const firstName = user?.fullName?.split(' ')[0] ?? ''
 
+  const loadDashboard = useCallback(async (): Promise<void> => {
+    if (!userId) return
+    setIsLoading(true)
+    try {
+      const data = await getArtisanDashboard.execute(userId)
+      setArtisan(data.artisan)
+      setPendingQuotes(data.pendingQuotes)
+      setRdvTodayCount(data.rdvTodayCount)
+      setQuotesThisMonth(data.quotesThisMonth)
+      refreshBadge()
+    } catch (err) {
+      // NotFoundError = profil artisan pas encore créé (onboarding en cours) — silencieux
+      if (!(err instanceof NotFoundError)) AppLogger.error(err)
+    } finally {
+      setIsLoading(false)
+    }
+  }, [userId, refreshBadge])
+
   useEffect(() => {
     void loadDashboard()
-  }, [])
+  }, [loadDashboard])
 
-  useFocusEffect(useCallback(() => { refreshBadge() }, []))
+  useFocusEffect(useCallback(() => { refreshBadge() }, [refreshBadge]))
 
   function handleSwitchToClientMode(): void {
     setAppMode('client')
@@ -69,24 +88,6 @@ export default function ArtisanDashboardScreen(): React.JSX.Element {
       variant: 'primary' as const,
     },
   ]
-
-  async function loadDashboard(): Promise<void> {
-    if (!user) return
-    setIsLoading(true)
-    try {
-      const data = await getArtisanDashboard.execute(user.id)
-      setArtisan(data.artisan)
-      setPendingQuotes(data.pendingQuotes)
-      setRdvTodayCount(data.rdvTodayCount)
-      setQuotesThisMonth(data.quotesThisMonth)
-      refreshBadge()
-    } catch (err) {
-      // NotFoundError = profil artisan pas encore créé (onboarding en cours) — silencieux
-      if (!(err instanceof NotFoundError)) AppLogger.error(err)
-    } finally {
-      setIsLoading(false)
-    }
-  }
 
   const plan = artisan?.subscriptionPlan ?? 'free'
   const limit = PLAN_LIMITS[plan] ?? 3

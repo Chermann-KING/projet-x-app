@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState, useCallback } from 'react'
 import {
   FlatList,
   KeyboardAvoidingView,
@@ -57,6 +57,15 @@ export default function ArtisanChatScreen(): React.JSX.Element {
     return () => parent?.setOptions({ tabBarStyle: undefined })
   }, [navigation])
 
+  const loadMessages = useCallback(async (): Promise<void> => {
+    try {
+      const data = await getConversationMessages.execute(quoteId)
+      setMessages(data)
+    } catch (err) {
+      AppLogger.error(err)
+    }
+  }, [quoteId])
+
   useEffect(() => {
     void loadMessages()
 
@@ -69,16 +78,7 @@ export default function ArtisanChatScreen(): React.JSX.Element {
       })
     })
     return unsubscribe
-  }, [quoteId])
-
-  async function loadMessages(): Promise<void> {
-    try {
-      const data = await getConversationMessages.execute(quoteId)
-      setMessages(data)
-    } catch (err) {
-      AppLogger.error(err)
-    }
-  }
+  }, [quoteId, loadMessages])
 
   async function handleSend(): Promise<void> {
     if (!text.trim() || !user || !clientUserId || isSending) return
