@@ -1,7 +1,13 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IArtisanRepository, ArtisanSearchFilters } from '@/domain/repositories/IArtisanRepository'
-import type { Artisan, ArtisanPhoto, TarifUnit, VerificationStatus } from '@/domain/entities/Artisan'
+import type { Artisan, ArtisanPhoto, VerificationStatus } from '@/domain/entities/Artisan'
 import { NotFoundError } from '@/shared/errors'
+import {
+  mapArtisanPhotoRow,
+  mapArtisanRow,
+  type ArtisanPhotoRow,
+  type ArtisanRow,
+} from './mappers/ArtisanRowMapper'
 
 export class SupabaseArtisanRepository implements IArtisanRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -11,10 +17,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .from('artisan_profiles')
       .select('*, artisan_photos(*)')
       .eq('id', id)
-      .single()
+      .single<ArtisanRow>()
 
     if (error) return null
-    return this.mapToEntity(data)
+    return mapArtisanRow(data)
   }
 
   async findByIds(ids: string[]): Promise<Artisan[]> {
@@ -23,8 +29,9 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .from('artisan_profiles')
       .select('*, artisan_photos(*)')
       .in('id', ids)
+      .overrideTypes<ArtisanRow[], { merge: false }>()
     if (error) throw error
-    return (data ?? []).map((row) => this.mapToEntity(row))
+    return (data ?? []).map(mapArtisanRow)
   }
 
   async findByUserId(userId: string): Promise<Artisan | null> {
@@ -32,10 +39,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .from('artisan_profiles')
       .select('*, artisan_photos(*)')
       .eq('user_id', userId)
-      .single()
+      .single<ArtisanRow>()
 
     if (error) return null
-    return this.mapToEntity(data)
+    return mapArtisanRow(data)
   }
 
   async search(filters: ArtisanSearchFilters): Promise<Artisan[]> {
@@ -48,9 +55,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
     if (filters.minRating) query = query.gte('average_rating', filters.minRating)
 
     const { data, error } = await query.limit(50)
+      .overrideTypes<ArtisanRow[], { merge: false }>()
 
     if (error) throw error
-    return (data ?? []).map(this.mapToEntity)
+    return (data ?? []).map(mapArtisanRow)
   }
 
   async create(
@@ -75,10 +83,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
         is_verified: false,
       })
       .select('*, artisan_photos(*)')
-      .single()
+      .single<ArtisanRow>()
 
     if (error) throw error
-    return this.mapToEntity(created)
+    return mapArtisanRow(created)
   }
 
   async update(id: string, data: Partial<Artisan>): Promise<Artisan> {
@@ -100,10 +108,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       })
       .eq('id', id)
       .select('*, artisan_photos(*)')
-      .single()
+      .single<ArtisanRow>()
 
     if (error) throw new NotFoundError('Artisan', id)
-    return this.mapToEntity(updated)
+    return mapArtisanRow(updated)
   }
 
   async updateVerificationStatus(id: string, status: VerificationStatus): Promise<void> {
@@ -125,9 +133,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .eq('verification_status', 'pending')
       .order('created_at', { ascending: true })
       .limit(50)
+      .overrideTypes<ArtisanRow[], { merge: false }>()
 
     if (error) throw error
-    return (data ?? []).map(this.mapToEntity)
+    return (data ?? []).map(mapArtisanRow)
   }
 
   async findAll(): Promise<Artisan[]> {
@@ -136,9 +145,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .select('*, artisan_photos(*)')
       .order('created_at', { ascending: false })
       .limit(100)
+      .overrideTypes<ArtisanRow[], { merge: false }>()
 
     if (error) throw error
-    return (data ?? []).map(this.mapToEntity)
+    return (data ?? []).map(mapArtisanRow)
   }
 
   async addPhoto(artisanId: string, url: string, storagePath: string): Promise<ArtisanPhoto> {
@@ -146,15 +156,10 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .from('artisan_photos')
       .insert({ artisan_id: artisanId, url, storage_path: storagePath })
       .select()
-      .single()
+      .single<ArtisanPhotoRow>()
 
     if (error) throw error
-    return {
-      id: data.id as string,
-      url: data.url as string,
-      ...(data.caption != null ? { caption: data.caption as string } : {}),
-      storagePath: data.storage_path as string,
-    }
+    return mapArtisanPhotoRow(data)
   }
 
   async deletePhoto(artisanId: string, photoId: string): Promise<void> {
@@ -165,43 +170,5 @@ export class SupabaseArtisanRepository implements IArtisanRepository {
       .eq('artisan_id', artisanId)
 
     if (error) throw error
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private mapToEntity(row: any): Artisan {
-    const lastSeenAt: string | null = row.profiles?.last_seen_at ?? null
-    const isOnline = lastSeenAt != null
-      ? Date.now() - new Date(lastSeenAt).getTime() < 5 * 60 * 1000
-      : false
-
-    return {
-      id: row.id as string,
-      userId: row.user_id as string,
-      fullName: row.full_name as string,
-      metier: row.metier,
-      competences: (row.competences ?? []) as string[],
-      zoneGeographique: row.zone_geographique as string,
-      ...(row.tarif_indicatif != null ? { tarifIndicatif: row.tarif_indicatif as number } : {}),
-      ...(row.tarif_unit != null ? { tarifUnit: row.tarif_unit as TarifUnit } : {}),
-      ...(row.bio != null ? { bio: row.bio as string } : {}),
-      ...(row.lat != null ? { lat: row.lat as number } : {}),
-      ...(row.lng != null ? { lng: row.lng as number } : {}),
-      ...(row.avatar_url != null ? { avatarUrl: row.avatar_url as string } : {}),
-      ...(row.banner_url != null ? { bannerUrl: row.banner_url as string } : {}),
-      isVerified: row.is_verified as boolean,
-      verificationStatus: row.verification_status,
-      averageRating: (row.average_rating ?? 0) as number,
-      reviewCount: (row.review_count ?? 0) as number,
-      photos: (row.artisan_photos ?? []).map((p: Record<string, unknown>) => ({
-        id: p.id,
-        url: p.url,
-        ...(p.caption != null ? { caption: p.caption as string } : {}),
-        ...(p.storage_path != null ? { storagePath: p.storage_path as string } : {}),
-      })),
-      subscriptionPlan: row.subscription_plan,
-      phone: row.phone as string,
-      createdAt: new Date(row.created_at as string),
-      isOnline,
-    }
   }
 }

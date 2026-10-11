@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IAppointmentRepository } from '@/domain/repositories/IAppointmentRepository'
 import type { Appointment, AppointmentStatus } from '@/domain/entities/Appointment'
 import { NetworkError, NotFoundError } from '@/shared/errors'
+import { mapAppointmentRow, type AppointmentRow } from './mappers/AppointmentRowMapper'
 
 export class SupabaseAppointmentRepository implements IAppointmentRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -11,13 +12,13 @@ export class SupabaseAppointmentRepository implements IAppointmentRepository {
       .from('appointments')
       .select('*')
       .eq('id', id)
-      .single()
+      .single<AppointmentRow>()
 
     if (error) {
       if (error.code === 'PGRST116') return null
       throw new NetworkError()
     }
-    return data ? this.toAppointment(data) : null
+    return data ? mapAppointmentRow(data) : null
   }
 
   async findByArtisanId(artisanId: string): Promise<Appointment[]> {
@@ -26,9 +27,10 @@ export class SupabaseAppointmentRepository implements IAppointmentRepository {
       .select('*')
       .eq('artisan_id', artisanId)
       .order('scheduled_at', { ascending: true })
+      .overrideTypes<AppointmentRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toAppointment(row))
+    return (data ?? []).map(mapAppointmentRow)
   }
 
   async findByClientId(clientId: string): Promise<Appointment[]> {
@@ -37,9 +39,10 @@ export class SupabaseAppointmentRepository implements IAppointmentRepository {
       .select('*')
       .eq('client_id', clientId)
       .order('scheduled_at', { ascending: true })
+      .overrideTypes<AppointmentRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toAppointment(row))
+    return (data ?? []).map(mapAppointmentRow)
   }
 
   async create(data: Omit<Appointment, 'id' | 'createdAt'>): Promise<Appointment> {
@@ -53,10 +56,10 @@ export class SupabaseAppointmentRepository implements IAppointmentRepository {
         status: data.status,
       })
       .select()
-      .single()
+      .single<AppointmentRow>()
 
     if (error || !created) throw new NetworkError()
-    return this.toAppointment(created)
+    return mapAppointmentRow(created)
   }
 
   async updateStatus(id: string, status: AppointmentStatus): Promise<void> {
@@ -68,20 +71,5 @@ export class SupabaseAppointmentRepository implements IAppointmentRepository {
 
     if (error) throw new NetworkError()
     if (!data || data.length === 0) throw new NotFoundError('Appointment', id)
-  }
-
-  private toAppointment(row: Record<string, unknown>): Appointment {
-    return {
-      id: row.id as string,
-      quoteId: row.quote_id as string,
-      clientId: row.client_id as string,
-      artisanId: row.artisan_id as string,
-      scheduledAt: new Date(row.scheduled_at as string),
-      ...(row.duration_minutes != null
-        ? { durationMinutes: row.duration_minutes as number }
-        : {}),
-      status: row.status as AppointmentStatus,
-      createdAt: new Date(row.created_at as string),
-    }
   }
 }

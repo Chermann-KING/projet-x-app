@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IMessageRepository } from '@/domain/repositories/IMessageRepository'
 import type { Message } from '@/domain/entities/Message'
 import { NetworkError } from '@/shared/errors'
+import { mapMessageRow, type MessageRow } from './mappers/MessageRowMapper'
 
 export class SupabaseMessageRepository implements IMessageRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -12,9 +13,10 @@ export class SupabaseMessageRepository implements IMessageRepository {
       .select('*')
       .eq('quote_id', quoteId)
       .order('created_at', { ascending: true })
+      .overrideTypes<MessageRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toMessage(row))
+    return (data ?? []).map(mapMessageRow)
   }
 
   async findConversations(
@@ -26,14 +28,15 @@ export class SupabaseMessageRepository implements IMessageRepository {
       .or(`sender_id.eq.${userId},receiver_id.eq.${userId}`)
       .order('created_at', { ascending: false })
       .limit(500)
+      .overrideTypes<MessageRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
 
     const byQuote = new Map<string, Message>()
     for (const row of data ?? []) {
-      const quoteId = row.quote_id as string
+      const quoteId = row.quote_id
       if (!byQuote.has(quoteId)) {
-        byQuote.set(quoteId, this.toMessage(row))
+        byQuote.set(quoteId, mapMessageRow(row))
       }
     }
 
@@ -54,10 +57,10 @@ export class SupabaseMessageRepository implements IMessageRepository {
         is_read: data.isRead,
       })
       .select()
-      .single()
+      .single<MessageRow>()
 
     if (error || !created) throw new NetworkError()
-    return this.toMessage(created)
+    return mapMessageRow(created)
   }
 
   async markAsRead(messageId: string): Promise<void> {
@@ -87,23 +90,11 @@ export class SupabaseMessageRepository implements IMessageRepository {
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'messages', filter: `quote_id=eq.${quoteId}` },
         (payload) => {
-          onMessage(this.toMessage(payload.new as Record<string, unknown>))
+          onMessage(mapMessageRow(payload.new as MessageRow))
         },
       )
       .subscribe()
 
     return () => { void this.client.removeChannel(channel) }
-  }
-
-  private toMessage(row: Record<string, unknown>): Message {
-    return {
-      id: row.id as string,
-      senderId: row.sender_id as string,
-      receiverId: row.receiver_id as string,
-      quoteId: row.quote_id as string,
-      content: row.content as string,
-      isRead: row.is_read as boolean,
-      createdAt: new Date(row.created_at as string),
-    }
   }
 }

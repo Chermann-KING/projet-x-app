@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IQuoteRepository } from '@/domain/repositories/IQuoteRepository'
 import type { Quote, QuoteStatus } from '@/domain/entities/Quote'
 import { NetworkError, NotFoundError } from '@/shared/errors'
+import { mapQuoteRow, type QuoteRow } from './mappers/QuoteRowMapper'
 
 export class SupabaseQuoteRepository implements IQuoteRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -11,13 +12,13 @@ export class SupabaseQuoteRepository implements IQuoteRepository {
       .from('quotes')
       .select('*')
       .eq('id', id)
-      .single()
+      .single<QuoteRow>()
 
     if (error) {
       if (error.code === 'PGRST116') return null
       throw new NetworkError()
     }
-    return data ? this.toQuote(data) : null
+    return data ? mapQuoteRow(data) : null
   }
 
   async findByClientId(clientId: string): Promise<Quote[]> {
@@ -27,9 +28,10 @@ export class SupabaseQuoteRepository implements IQuoteRepository {
       .eq('client_id', clientId)
       .order('created_at', { ascending: false })
       .limit(100)
+      .overrideTypes<QuoteRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toQuote(row))
+    return (data ?? []).map(mapQuoteRow)
   }
 
   async findByArtisanId(artisanId: string): Promise<Quote[]> {
@@ -39,9 +41,10 @@ export class SupabaseQuoteRepository implements IQuoteRepository {
       .eq('artisan_id', artisanId)
       .order('created_at', { ascending: false })
       .limit(100)
+      .overrideTypes<QuoteRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toQuote(row))
+    return (data ?? []).map(mapQuoteRow)
   }
 
   async create(data: Omit<Quote, 'id' | 'createdAt' | 'updatedAt'>): Promise<Quote> {
@@ -58,10 +61,10 @@ export class SupabaseQuoteRepository implements IQuoteRepository {
         delai_propose: data.delaiPropose ?? null,
       })
       .select()
-      .single()
+      .single<QuoteRow>()
 
     if (error || !created) throw new NetworkError()
-    return this.toQuote(created)
+    return mapQuoteRow(created)
   }
 
   async update(id: string, data: Partial<Quote>): Promise<Quote> {
@@ -80,11 +83,11 @@ export class SupabaseQuoteRepository implements IQuoteRepository {
       .update(patch)
       .eq('id', id)
       .select()
-      .single()
+      .single<QuoteRow>()
 
     if (error) throw new NetworkError()
     if (!updated) throw new NotFoundError('Quote', id)
-    return this.toQuote(updated)
+    return mapQuoteRow(updated)
   }
 
   async updateStatus(id: string, status: QuoteStatus): Promise<void> {
@@ -94,21 +97,5 @@ export class SupabaseQuoteRepository implements IQuoteRepository {
       .eq('id', id)
 
     if (error) throw new NetworkError()
-  }
-
-  private toQuote(row: Record<string, unknown>): Quote {
-    return {
-      id: row.id as string,
-      clientId: row.client_id as string,
-      artisanId: row.artisan_id as string,
-      description: row.description as string,
-      adresse: row.adresse as string,
-      ...(row.disponibilite_souhaitee ? { disponibiliteSouhaitee: new Date(row.disponibilite_souhaitee as string) } : {}),
-      status: row.status as QuoteStatus,
-      ...(row.prix !== null && row.prix !== undefined ? { prix: row.prix as number } : {}),
-      ...(row.delai_propose ? { delaiPropose: row.delai_propose as string } : {}),
-      createdAt: new Date(row.created_at as string),
-      updatedAt: new Date(row.updated_at as string),
-    }
   }
 }

@@ -2,6 +2,39 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IReportRepository } from '@/domain/repositories/IReportRepository'
 import type { Report, ReportStatus } from '@/domain/entities/Report'
 
+interface ReportPartyRow {
+  id: string
+  full_name: string
+}
+
+interface ReportRow {
+  id: string
+  reason: string
+  status: ReportStatus
+  created_at: string
+  artisan: ReportPartyRow | ReportPartyRow[] | null
+  reporter: ReportPartyRow | ReportPartyRow[] | null
+}
+
+function firstParty(party: ReportRow['artisan']): ReportPartyRow | undefined {
+  return Array.isArray(party) ? party[0] : (party ?? undefined)
+}
+
+function mapReportRow(row: ReportRow): Report {
+  const artisan = firstParty(row.artisan)
+  const reporter = firstParty(row.reporter)
+  return {
+    id: row.id,
+    artisanId: artisan?.id ?? '',
+    artisanName: artisan?.full_name ?? 'Inconnu',
+    reporterId: reporter?.id ?? '',
+    reporterName: reporter?.full_name ?? 'Inconnu',
+    reason: row.reason,
+    status: row.status,
+    createdAt: new Date(row.created_at),
+  }
+}
+
 export class SupabaseReportRepository implements IReportRepository {
   constructor(private readonly client: SupabaseClient) {}
 
@@ -17,10 +50,10 @@ export class SupabaseReportRepository implements IReportRepository {
         reporter:profiles!reporter_id ( id, full_name )
       `)
       .order('created_at', { ascending: false })
+      .overrideTypes<ReportRow[], { merge: false }>()
 
     if (error) throw error
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (data ?? []).map((row: any) => this.mapToEntity(row))
+    return (data ?? []).map(mapReportRow)
   }
 
   async updateStatus(id: string, status: ReportStatus): Promise<void> {
@@ -38,21 +71,5 @@ export class SupabaseReportRepository implements IReportRepository {
       .eq('status', 'pending')
     if (error) return 0
     return count ?? 0
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private mapToEntity(row: any): Report {
-    const artisan = Array.isArray(row.artisan) ? row.artisan[0] : row.artisan
-    const reporter = Array.isArray(row.reporter) ? row.reporter[0] : row.reporter
-    return {
-      id: row.id as string,
-      artisanId: artisan?.id ?? '',
-      artisanName: artisan?.full_name ?? 'Inconnu',
-      reporterId: reporter?.id ?? '',
-      reporterName: reporter?.full_name ?? 'Inconnu',
-      reason: row.reason as string,
-      status: row.status as ReportStatus,
-      createdAt: new Date(row.created_at as string),
-    }
   }
 }

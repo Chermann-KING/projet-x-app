@@ -2,6 +2,7 @@ import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IUserRepository } from '@/domain/repositories/IUserRepository'
 import type { User } from '@/domain/entities/User'
 import { NetworkError } from '@/shared/errors'
+import { mapUserRow, type UserRow } from './mappers/UserRowMapper'
 
 export class SupabaseUserRepository implements IUserRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -11,10 +12,10 @@ export class SupabaseUserRepository implements IUserRepository {
       .from('profiles')
       .select('*')
       .eq('id', id)
-      .single()
+      .single<UserRow>()
 
     if (error || !data) return null
-    return this.mapRow(data)
+    return mapUserRow(data)
   }
 
   async findManyByIds(ids: string[]): Promise<User[]> {
@@ -23,7 +24,8 @@ export class SupabaseUserRepository implements IUserRepository {
       .from('profiles')
       .select('*')
       .in('id', ids)
-    return (data ?? []).map((row) => this.mapRow(row as Record<string, unknown>))
+      .overrideTypes<UserRow[], { merge: false }>()
+    return (data ?? []).map(mapUserRow)
   }
 
   async findByEmail(email: string): Promise<User | null> {
@@ -31,10 +33,10 @@ export class SupabaseUserRepository implements IUserRepository {
       .from('profiles')
       .select('*')
       .eq('email', email)
-      .single()
+      .single<UserRow>()
 
     if (error || !data) return null
-    return this.mapRow(data)
+    return mapUserRow(data)
   }
 
   async create(data: Omit<User, 'id' | 'createdAt'>): Promise<User> {
@@ -47,10 +49,10 @@ export class SupabaseUserRepository implements IUserRepository {
         role: data.role,
       })
       .select()
-      .single()
+      .single<UserRow>()
 
     if (error || !row) throw new NetworkError()
-    return this.mapRow(row)
+    return mapUserRow(row)
   }
 
   async update(id: string, data: Partial<User>): Promise<User> {
@@ -64,21 +66,9 @@ export class SupabaseUserRepository implements IUserRepository {
       .update(patch)
       .eq('id', id)
       .select()
-      .single()
+      .single<UserRow>()
 
     if (error || !row) throw new NetworkError()
-    return this.mapRow(row)
-  }
-
-  private mapRow(row: Record<string, unknown>): User {
-    return {
-      id: row.id as string,
-      email: row.email as string,
-      fullName: row.full_name as string,
-      phone: row.phone as string,
-      role: row.role as User['role'],
-      createdAt: new Date(row.created_at as string),
-      ...(row.avatar_url ? { avatarUrl: row.avatar_url as string } : {}),
-    }
+    return mapUserRow(row)
   }
 }

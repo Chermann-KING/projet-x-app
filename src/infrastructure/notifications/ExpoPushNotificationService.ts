@@ -6,12 +6,34 @@ import type {
 } from '@/domain/repositories/INotificationService'
 import { AppLogger } from '@/shared/logger/AppLogger'
 
+interface InboxRow {
+  id: string
+  type: InboxNotification['type']
+  quote_id?: string | null
+  title: string
+  body: string
+  is_read: boolean
+  created_at: string
+}
+
+function mapInboxRow(row: InboxRow): InboxNotification {
+  return {
+    id: row.id,
+    type: row.type,
+    ...(row.quote_id != null ? { quoteId: row.quote_id } : {}),
+    title: row.title,
+    body: row.body,
+    isRead: row.is_read,
+    createdAt: new Date(row.created_at),
+  }
+}
+
 export class ExpoPushNotificationService implements INotificationService {
   constructor(private readonly client: SupabaseClient) {}
 
-  async send(userId: string, payload: PushPayload): Promise<void> {
+  send(userId: string, payload: PushPayload): Promise<void> {
     // Edge Function handles both DB insert (BYPASSRLS) and Expo push (server-side).
-    void this.client.functions
+    return this.client.functions
       .invoke('create-notification', {
         body: {
           userId,
@@ -22,9 +44,9 @@ export class ExpoPushNotificationService implements INotificationService {
         },
       })
       .then(({ error }) => {
-        if (error) AppLogger.error('create-notification failed', error)
+        if (error) AppLogger.error(error)
       })
-      .catch((err) => AppLogger.error('create-notification network error', err))
+      .catch((error: unknown) => AppLogger.error(error))
   }
 
   async registerToken(userId: string, token: string): Promise<void> {
@@ -40,18 +62,11 @@ export class ExpoPushNotificationService implements INotificationService {
       .eq('user_id', userId)
       .order('created_at', { ascending: false })
       .limit(50)
+      .overrideTypes<InboxRow[], { merge: false }>()
 
     if (!data) return []
 
-    return data.map((row) => ({
-      id: row.id as string,
-      type: row.type as InboxNotification['type'],
-      ...(row.quote_id != null ? { quoteId: row.quote_id as string } : {}),
-      title: row.title as string,
-      body: row.body as string,
-      isRead: row.is_read as boolean,
-      createdAt: new Date(row.created_at as string),
-    }))
+    return data.map(mapInboxRow)
   }
 
   async countUnread(userId: string): Promise<number> {

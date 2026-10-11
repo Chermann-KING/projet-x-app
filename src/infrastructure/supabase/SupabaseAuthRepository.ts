@@ -5,6 +5,7 @@ import type { IAuthRepository, SignUpData } from '@/domain/repositories/IAuthRep
 import type { User } from '@/domain/entities/User'
 import { AuthError, NetworkError } from '@/shared/errors'
 import { AppLogger } from '@/shared/logger/AppLogger'
+import { mapUserRow, type UserRow } from './mappers/UserRowMapper'
 
 // Android App Link, hosted on a free dedicated Vercel subdomain (see
 // projet-x-links.vercel.app/.well-known/assetlinks.json) — a real https URL
@@ -132,18 +133,10 @@ export class SupabaseAuthRepository implements IAuthRepository {
       .from('profiles')
       .select('*')
       .eq('id', userId)
-      .single()
+      .single<UserRow>()
 
     if (error || !data) throw new AuthError('PROFILE_NOT_FOUND', 'Profile not found')
 
-    return {
-      id: data.id as string,
-      email: data.email as string,
-      fullName: data.full_name as string,
-      phone: data.phone as string,
-      role: data.role as User['role'],
-      createdAt: new Date(data.created_at as string),
-      ...(data.avatar_url != null ? { avatarUrl: data.avatar_url as string } : {}),
-    }
+    return mapUserRow(data)
   }
 }

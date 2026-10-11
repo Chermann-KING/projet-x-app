@@ -1,7 +1,8 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import type { IReviewRepository } from '@/domain/repositories/IReviewRepository'
-import type { Review, Rating } from '@/domain/entities/Review'
+import type { Review } from '@/domain/entities/Review'
 import { NetworkError } from '@/shared/errors'
+import { mapReviewRow, type ReviewRow } from './mappers/ReviewRowMapper'
 
 export class SupabaseReviewRepository implements IReviewRepository {
   constructor(private readonly client: SupabaseClient) {}
@@ -12,9 +13,10 @@ export class SupabaseReviewRepository implements IReviewRepository {
       .select('*')
       .eq('client_id', clientId)
       .order('created_at', { ascending: false })
+      .overrideTypes<ReviewRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toReview(row))
+    return (data ?? []).map(mapReviewRow)
   }
 
   async findByArtisanId(artisanId: string): Promise<Review[]> {
@@ -23,9 +25,10 @@ export class SupabaseReviewRepository implements IReviewRepository {
       .select('*')
       .eq('artisan_id', artisanId)
       .order('created_at', { ascending: false })
+      .overrideTypes<ReviewRow[], { merge: false }>()
 
     if (error) throw new NetworkError()
-    return (data ?? []).map((row) => this.toReview(row))
+    return (data ?? []).map(mapReviewRow)
   }
 
   async findByAppointmentId(appointmentId: string): Promise<Review | null> {
@@ -33,13 +36,13 @@ export class SupabaseReviewRepository implements IReviewRepository {
       .from('reviews')
       .select('*')
       .eq('appointment_id', appointmentId)
-      .single()
+      .single<ReviewRow>()
 
     if (error) {
       if (error.code === 'PGRST116') return null
       throw new NetworkError()
     }
-    return data ? this.toReview(data) : null
+    return data ? mapReviewRow(data) : null
   }
 
   async create(data: Omit<Review, 'id' | 'createdAt'>): Promise<Review> {
@@ -53,21 +56,9 @@ export class SupabaseReviewRepository implements IReviewRepository {
         comment: data.comment ?? null,
       })
       .select()
-      .single()
+      .single<ReviewRow>()
 
     if (error || !created) throw new NetworkError()
-    return this.toReview(created)
-  }
-
-  private toReview(row: Record<string, unknown>): Review {
-    return {
-      id: row.id as string,
-      appointmentId: row.appointment_id as string,
-      clientId: row.client_id as string,
-      artisanId: row.artisan_id as string,
-      rating: row.rating as Rating,
-      ...(row.comment !== null && row.comment !== undefined ? { comment: row.comment as string } : {}),
-      createdAt: new Date(row.created_at as string),
-    }
+    return mapReviewRow(created)
   }
 }
