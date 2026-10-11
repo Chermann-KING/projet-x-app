@@ -2,36 +2,36 @@
 
 ## Pré-requis
 
-- Node.js 20+
-- npm 10+
+- Node.js 22.13+
+- pnpm 12+ (via Corepack : `corepack enable`)
 - Expo Go sur votre téléphone (iOS ou Android) pour tester
 
 ## Installation
 
 ```bash
 # 1. Installer les dépendances
-npm install
+pnpm install
 
 # 2. Copier les variables d'environnement
 cp .env.example .env
 # → Renseigner EXPO_PUBLIC_SUPABASE_URL et EXPO_PUBLIC_SUPABASE_KEY
 
 # 3. Démarrer le projet
-npx expo start
+pnpm exec expo start
 ```
 
 ## Commandes disponibles
 
 | Commande | Description |
 |---|---|
-| `npm start` | Lance le serveur Expo |
-| `npm run android` | Lance sur émulateur Android |
-| `npm run ios` | Lance sur simulateur iOS |
-| `npm run web` | Lance la version web |
-| `npm run lint` | Vérification ESLint |
-| `npm run type-check` | Vérification TypeScript |
-| `npm run format` | Formatage Prettier |
-| `npm test` | Tests Jest |
+| `pnpm start` | Lance le serveur Expo |
+| `pnpm android` | Lance sur émulateur Android |
+| `pnpm ios` | Lance sur simulateur iOS |
+| `pnpm web` | Lance la version web |
+| `pnpm lint` | Vérification ESLint |
+| `pnpm type-check` | Vérification TypeScript |
+| `pnpm format` | Formatage Prettier |
+| `pnpm test` | Tests Jest |
 
 ## Structure du projet
 
