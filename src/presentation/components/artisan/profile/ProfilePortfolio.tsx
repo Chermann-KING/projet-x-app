@@ -35,7 +35,7 @@ export function ProfilePortfolio({ artisan, onArtisanUpdate }: ProfilePortfolioP
   async function handleAdd(): Promise<void> {
     if (artisan.photos.length >= MAX_PORTFOLIO_PHOTOS) return
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-    if (status !== 'granted') {
+    if (status !== ImagePicker.PermissionStatus.GRANTED) {
       Alert.alert(t('common.error.permissionDenied'), t('common.error.galleryPermission'))
       return
     }

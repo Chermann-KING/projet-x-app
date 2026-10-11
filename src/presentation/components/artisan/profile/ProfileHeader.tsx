@@ -59,7 +59,7 @@ export function ProfileHeader({
   const theme = useTheme()
   async function pickImage(aspect?: [number, number]): Promise<ImagePicker.ImagePickerAsset | null> {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-    if (status !== 'granted') {
+    if (status !== ImagePicker.PermissionStatus.GRANTED) {
       Alert.alert(t('common.error.permissionDenied'), t('common.error.galleryPermission'))
       return null
     }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { Platform } from 'react-native'
-import Constants from 'expo-constants'
+import Constants, { AppOwnership } from 'expo-constants'
 import type { ExpoPushTokenOptions } from 'expo-notifications'
 import { useAuthStore } from '@/presentation/stores/authStore'
 import { notificationService } from '@/di/container'
@@ -21,7 +21,7 @@ async function registerPushToken(userId: string): Promise<void> {
   // au niveau module. Le dynamic import empêche ce chargement.
   // SDK 53+ : Expo Go retourne 'storeClient' pour executionEnvironment.
   // appOwnership === 'expo' est le seul check fiable pour détecter Expo Go.
-  if (Constants.appOwnership === 'expo') return
+  if (Constants.appOwnership === AppOwnership.Expo) return
 
   const Notifications = await import('expo-notifications')
 
@@ -37,12 +37,12 @@ async function registerPushToken(userId: string): Promise<void> {
     const { status: existingStatus } = await Notifications.getPermissionsAsync()
     let finalStatus = existingStatus
 
-    if (existingStatus !== 'granted') {
+    if (existingStatus !== Notifications.PermissionStatus.GRANTED) {
       const { status } = await Notifications.requestPermissionsAsync()
       finalStatus = status
     }
 
-    if (finalStatus !== 'granted') return
+    if (finalStatus !== Notifications.PermissionStatus.GRANTED) return
 
     const projectId = (
       Constants.expoConfig?.extra as { eas?: { projectId?: string } } | null

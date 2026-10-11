@@ -28,7 +28,7 @@ const FILTERS: FilterKey[] = ['note', 'distance', 'available', 'priceMax']
 export default function ResultsScreen() {
   const { t } = useTranslation()
   const theme = useTheme()
-  const { metier, query: initialQuery } = useLocalSearchParams<{ metier?: string; query?: string }>()
+  const { metier, query: initialQuery } = useLocalSearchParams<{ metier?: string; query?: string | string[] }>()
   const { location } = useUserLocation()
   const inputRef = useRef<TextInput>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)

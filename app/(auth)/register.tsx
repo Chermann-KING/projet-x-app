@@ -66,7 +66,7 @@ export default function RegisterScreen() {
         user.role === 'artisan'
           ? '/(artisan)/dashboard'
           : '/(client)/home'
-      router.replace(target as Parameters<typeof router.replace>[0])
+      router.replace(target)
     } catch (error) {
       AppLogger.error(error)
       const isAlreadyExists = error instanceof AuthError && error.code === 'USER_ALREADY_EXISTS'
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   webWrap: Platform.select({
     web: { flex: 1, maxWidth: 480, width: '100%', alignSelf: 'center' as const },
     default: { flex: 1 },
-  }) as object,
+  }),
   scroll: {
     flexGrow: 1,
     paddingHorizontal: ds.size.paddingH + ds.space[1], // 20

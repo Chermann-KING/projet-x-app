@@ -193,7 +193,7 @@ export default function ArtisanDashboardScreen() {
             <Text style={[styles.sectionTitle, { color: theme.foreground }]}>
               {t('artisan.dashboard.recentRequests.title')}
             </Text>
-            <Pressable onPress={() => router.push('/(artisan)/quotes/index' as never)}>
+            <Pressable onPress={() => router.push('/(artisan)/quotes/index')}>
               <Text style={[styles.viewAll, { color: theme.primary }]}>
                 {t('common.button.viewAll')}
               </Text>

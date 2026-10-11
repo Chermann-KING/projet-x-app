@@ -59,7 +59,7 @@ export default function ProfileScreen() {
   async function handleAvatarPress(): Promise<void> {
     if (!user) return
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-    if (status !== 'granted') {
+    if (status !== ImagePicker.PermissionStatus.GRANTED) {
       Alert.alert(t('common.error.permissionDenied'), t('common.error.galleryPermission'))
       return
     }

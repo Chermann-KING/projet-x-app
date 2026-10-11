@@ -1,5 +1,4 @@
 import { Tabs, Redirect } from 'expo-router'
-import type { Href } from 'expo-router'
 import { Home, FileText, MessageCircle, User } from 'lucide-react-native'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import { useTabBarScreenOptions } from '@/presentation/hooks/useTabBarScreenOptions'
@@ -19,7 +18,7 @@ export default function ClientLayout() {
     user?.role === 'client' || (user?.role === 'artisan' && appMode === 'client')
 
   if (!isClientAllowed) {
-    return <Redirect href={'/(auth)/login' as Href} />
+    return <Redirect href={'/(auth)/login'} />
   }
 
   return (

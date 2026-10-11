@@ -29,7 +29,7 @@ export function useUserLocation(): { location: UserLocation; isLocating: boolean
     try {
       const { status } = await Location.requestForegroundPermissionsAsync()
 
-      if (status !== 'granted') {
+      if (status !== Location.PermissionStatus.GRANTED) {
         const last = await Location.getLastKnownPositionAsync()
         if (last) {
           setLocation({ lat: last.coords.latitude, lng: last.coords.longitude, granted: false })

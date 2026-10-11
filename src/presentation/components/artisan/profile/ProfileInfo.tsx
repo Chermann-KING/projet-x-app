@@ -238,7 +238,7 @@ function ArtisanZoneField({
         },
       })
       if (!res.ok) throw new Error('network')
-      const data: NominatimResult[] = await res.json()
+      const data = (await res.json()) as NominatimResult[]
       setResults(data)
       setShowDropdown(data.length > 0)
     } catch (err) {

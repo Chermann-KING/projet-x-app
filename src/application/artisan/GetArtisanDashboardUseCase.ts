@@ -4,7 +4,6 @@ import type { IAppointmentRepository } from '@/domain/repositories/IAppointmentR
 import type { IUserRepository } from '@/domain/repositories/IUserRepository'
 import type { Artisan } from '@/domain/entities/Artisan'
 import type { Quote } from '@/domain/entities/Quote'
-import type { Appointment } from '@/domain/entities/Appointment'
 import { NotFoundError } from '@/shared/errors'
 
 export interface QuoteWithClientInfo extends Quote {
@@ -65,7 +64,7 @@ export class GetArtisanDashboardUseCase {
         : {}),
     }))
 
-    const rdvTodayCount = (appointments as Appointment[]).filter((a) =>
+    const rdvTodayCount = (appointments).filter((a) =>
       isToday(new Date(a.scheduledAt)),
     ).length
 

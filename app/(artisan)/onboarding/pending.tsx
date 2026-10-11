@@ -24,6 +24,17 @@ type Theme = ReturnType<typeof useTheme>
 
 const POLL_INTERVAL_MS = 30_000
 
+async function redirectIfApproved(userId: string): Promise<void> {
+  try {
+    const profile = await getArtisanByUserId.execute(userId)
+    if (profile?.verificationStatus === 'approved') {
+      router.replace('/(artisan)/dashboard')
+    }
+  } catch (err) {
+    AppLogger.error(err)
+  }
+}
+
 export default function OnboardingPendingScreen() {
   const { t } = useTranslation()
   const theme = useTheme()
@@ -31,16 +42,7 @@ export default function OnboardingPendingScreen() {
 
   useEffect(() => {
     if (!user?.id) return
-    const timer = setInterval(async () => {
-      try {
-        const profile = await getArtisanByUserId.execute(user.id)
-        if (profile?.verificationStatus === 'approved') {
-          router.replace('/(artisan)/dashboard')
-        }
-      } catch (err) {
-        AppLogger.error(err)
-      }
-    }, POLL_INTERVAL_MS)
+    const timer = setInterval(() => void redirectIfApproved(user.id), POLL_INTERVAL_MS)
     return () => clearInterval(timer)
   }, [user?.id])
 

@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
       alignSelf: 'center' as const,
     },
     default: { flex: 1 },
-  }) as object,
+  }),
   scroll: {
     flexGrow: 1,
     paddingHorizontal: ds.size.paddingH + ds.space[1], // 20

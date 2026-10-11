@@ -43,21 +43,21 @@ function AdminSidebar({ collapsed = false }: { collapsed?: boolean }) {
       .catch(() => undefined)
   }, [])
 
-  const navItems: Array<{ href: Href; label: string; icon: typeof CheckSquare; badge: number }> = [
+  const navItems: Array<{ href: Extract<Href, string>; label: string; icon: typeof CheckSquare; badge: number }> = [
     {
-      href: '/(admin)' as Href,
+      href: '/(admin)',
       label: t('admin.nav.toValidateFull'),
       icon: CheckSquare,
       badge: pendingArtisanCount,
     },
     {
-      href: '/(admin)/artisans-actifs' as Href,
+      href: '/(admin)/artisans-actifs',
       label: t('admin.nav.activeFull'),
       icon: Users,
       badge: 0,
     },
     {
-      href: '/(admin)/signalements' as Href,
+      href: '/(admin)/signalements',
       label: t('admin.nav.reports'),
       icon: AlertTriangle,
       badge: pendingReportCount,
@@ -68,13 +68,13 @@ function AdminSidebar({ collapsed = false }: { collapsed?: boolean }) {
     try {
       await logout.execute()
       useAuthStore.getState().reset()
-      router.replace('/' as Href)
+      router.replace('/')
     } catch (err) {
       AppLogger.error(err)
     }
   }
 
-  function isActive(href: Href): boolean {
+  function isActive(href: string): boolean {
     const path = String(href)
     // Web strips route groups from URLs: /(admin)/foo → /foo, /(admin) → /
     const webPath = path.replace(/^\/\(admin\)/, '') || '/'
@@ -351,7 +351,7 @@ export default function AdminLayout() {
   // Vérification d'auth bloquée au-delà du délai : on ne laisse jamais
   // l'ActivityIndicator tourner indéfiniment, on retombe sur le login.
   if (isAuthLoading && authCheckTimedOut) {
-    return <Redirect href={'/(auth)/login' as Href} />
+    return <Redirect href={'/(auth)/login'} />
   }
 
   if (isAuthLoading) {
@@ -363,7 +363,7 @@ export default function AdminLayout() {
   }
 
   if (!user || user.role !== 'admin') {
-    return <Redirect href={'/(auth)/login' as Href} />
+    return <Redirect href={'/(auth)/login'} />
   }
 
   // Web desktop : sidebar complète | Web tablette : sidebar icon-only

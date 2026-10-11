@@ -288,7 +288,7 @@ export const CURRENCY_BY_ISO: Readonly<Record<string, CurrencyInfo>> = {
   ZW: ZWG,
 } as const
 
-export const DEFAULT_CURRENCY = CURRENCY_BY_ISO['GA'] as CurrencyInfo
+export const DEFAULT_CURRENCY = CURRENCY_BY_ISO['GA']
 
 export function getCurrencyByIso(iso: string): CurrencyInfo {
   return CURRENCY_BY_ISO[iso] ?? DEFAULT_CURRENCY

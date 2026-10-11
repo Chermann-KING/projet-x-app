@@ -147,7 +147,7 @@ export default function RequestsScreen() {
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
         refreshing={isLoading}
-        onRefresh={loadQuotes}
+        onRefresh={() => void loadQuotes()}
         ItemSeparatorComponent={() => <View style={styles.sep} />}
         ListEmptyComponent={
           !isLoading ? (

@@ -773,7 +773,7 @@ export const PHONE_COUNTRIES: readonly PhoneCountry[] = [
 
 // ─── Défaut ──────────────────────────────────────────────────────────────────
 
-export const DEFAULT_PHONE_COUNTRY: PhoneCountry = PHONE_COUNTRIES[0]!
+export const DEFAULT_PHONE_COUNTRY: PhoneCountry = PHONE_COUNTRIES[0]
 
 // ─── Utilitaires ─────────────────────────────────────────────────────────────
 
@@ -782,7 +782,7 @@ export function getFormat(country: PhoneCountry, digits: string): PhoneFormat {
   return (
     country.formats.find((fmt) => fmt.detect !== null && fmt.detect.test(digits)) ??
     country.formats.find((fmt) => fmt.detect === null) ??
-    country.formats[0]!
+    country.formats[0]
   )
 }
 

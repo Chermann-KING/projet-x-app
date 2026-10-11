@@ -73,7 +73,7 @@ export default function ChatListScreen() {
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
         refreshing={isLoading}
-        onRefresh={loadConversations}
+        onRefresh={() => void loadConversations()}
         ListEmptyComponent={
           !isLoading ? (
             <EmptyState

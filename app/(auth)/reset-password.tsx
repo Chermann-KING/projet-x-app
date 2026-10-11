@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   webWrap: Platform.select({
     web: { flex: 1, maxWidth: 480, width: '100%', alignSelf: 'center' as const },
     default: { flex: 1 },
-  }) as object,
+  }),
   scroll: {
     flexGrow: 1,
     paddingHorizontal: ds.size.paddingH + ds.space[1],

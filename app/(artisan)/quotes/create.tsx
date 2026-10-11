@@ -238,7 +238,7 @@ export default function CreateQuoteScreen() {
                 styles.btnSend,
                 { backgroundColor: canSend ? theme.primary : theme.muted },
               ]}
-              onPress={handleSend}
+              onPress={() => void handleSend()}
               disabled={!canSend || isSending}
             >
               {isSending

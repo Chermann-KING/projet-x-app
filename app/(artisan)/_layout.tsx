@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Tabs, Redirect, usePathname, useRouter } from 'expo-router'
-import type { Href } from 'expo-router'
 import { LayoutGrid, ClipboardList, Calendar, User } from 'lucide-react-native'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import { useTabBarScreenOptions } from '@/presentation/hooks/useTabBarScreenOptions'
@@ -43,7 +42,7 @@ export default function ArtisanLayout() {
   }
 
   if (!user || user.role !== 'artisan') {
-    return <Redirect href={'/(auth)/login' as Href} />
+    return <Redirect href={'/(auth)/login'} />
   }
 
   if (!profileChecked && user) return null

@@ -43,12 +43,12 @@ export default function Bootstrap() {
                 : '/(client)/home'
           setDestination(target)
         } else {
-          setDestination('/(auth)/role' as Href)
+          setDestination('/(auth)/role')
         }
       } catch (error) {
         AppLogger.error(error)
         setLoading(false)
-        if (active) setDestination('/(auth)/role' as Href)
+        if (active) setDestination('/(auth)/role')
       }
     }
 

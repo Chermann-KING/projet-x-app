@@ -43,7 +43,7 @@ export default function OnboardingStep3Screen() {
   async function pickPhoto(): Promise<void> {
     if (store.photos.length >= MAX_PHOTOS) return
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync()
-    if (status !== 'granted') {
+    if (status !== ImagePicker.PermissionStatus.GRANTED) {
       Alert.alert(t('common.error.permissionDenied'), t('common.error.galleryPermission'))
       return
     }

@@ -13,7 +13,7 @@ const PHONE_E164 = /^\+[1-9]\d{1,14}$/
 
 // Capitalise la première lettre de chaque mot (séparateurs : espace et tiret)
 function toTitleCase(text: string): string {
-  return text.replace(/(^|[\s-])(\S)/gu, (_, sep, char) => sep + char.toUpperCase())
+  return text.replace(/(^|[\s-])(\S)/gu, (_: string, sep: string, char: string) => sep + char.toUpperCase())
 }
 
 export interface UpdateArtisanProfileInput {

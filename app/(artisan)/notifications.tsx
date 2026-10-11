@@ -91,7 +91,7 @@ export default function ArtisanNotificationsScreen() {
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
         refreshing={isLoading}
-        onRefresh={load}
+        onRefresh={() => void load()}
         ListEmptyComponent={
           !isLoading ? (
             <EmptyState

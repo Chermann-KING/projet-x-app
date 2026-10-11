@@ -12,7 +12,7 @@ export function useNotifBadge(): { hasUnread: boolean; refresh: () => void } {
     getUnreadCount
       .execute(userId)
       .then((count) => setHasUnread(count > 0))
-      .catch(AppLogger.error)
+      .catch((error: unknown) => AppLogger.error(error))
   }
 
   useEffect(() => {

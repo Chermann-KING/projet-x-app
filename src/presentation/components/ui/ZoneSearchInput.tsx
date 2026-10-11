@@ -96,7 +96,7 @@ export function ZoneSearchInput({
 
         if (!res.ok) throw new Error('network')
 
-        const data: NominatimResult[] = await res.json()
+        const data = (await res.json()) as NominatimResult[]
         setResults(data)
       } catch (err) {
         if ((err as Error).name === 'AbortError') return
@@ -113,7 +113,7 @@ export function ZoneSearchInput({
     onValueChange(text)
     setError(null)
     if (debounceRef.current) clearTimeout(debounceRef.current)
-    debounceRef.current = setTimeout(() => search(text), DEBOUNCE_MS)
+    debounceRef.current = setTimeout(() => void search(text), DEBOUNCE_MS)
   }
 
   function handleSelect(result: NominatimResult): void {
