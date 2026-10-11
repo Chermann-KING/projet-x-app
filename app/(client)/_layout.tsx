@@ -1,6 +1,6 @@
 import { Tabs, Redirect } from 'expo-router'
 import { Home, FileText, MessageCircle, User } from 'lucide-react-native'
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
+import { getFocusedRouteNameFromRoute } from 'expo-router/react-navigation'
 import { useTabBarScreenOptions } from '@/presentation/hooks/useTabBarScreenOptions'
 import { TabBarIcon } from '@/presentation/components/ui'
 import { usePresenceHeartbeat } from '@/presentation/hooks/usePresenceHeartbeat'

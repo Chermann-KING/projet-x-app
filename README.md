@@ -21,7 +21,7 @@ Le marché de l'artisanat en Afrique francophone souffre d'une opacité des prix
 
 ## Stack
 
-Expo 54 · React Native 0.81.5 · TypeScript strict · Supabase (Postgres, Auth, Storage, Edge Functions) · NativeWind · Expo Router · Zustand · TanStack Query · Reanimated 4 · i18next (fr, en, es, pt, ar, sw)
+Expo 57 · React Native 0.86.3 · TypeScript strict · Supabase (Postgres, Auth, Storage, Edge Functions) · NativeWind · Expo Router · Zustand · TanStack Query · Reanimated 4 · i18next (fr, en, es, pt, ar, sw)
 
 Tests : Jest (unitaire) · Playwright (e2e, web) · script de détection de collisions de routes (`pnpm run check:routes`)
 
