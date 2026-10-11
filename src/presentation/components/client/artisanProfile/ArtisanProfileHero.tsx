@@ -29,7 +29,7 @@ export function ArtisanProfileHero({ artisan }: Props): React.JSX.Element {
           style={[styles.hero, { backgroundColor: theme.primary }]}
           resizeMode="cover"
         >
-          <View style={[StyleSheet.absoluteFillObject, { backgroundColor: 'rgba(0,0,0,0.25)' }]} />
+          <View style={[StyleSheet.absoluteFill, { backgroundColor: 'rgba(0,0,0,0.25)' }]} />
           <SafeAreaView edges={['top']}>{backBtn}</SafeAreaView>
         </ImageBackground>
       ) : (

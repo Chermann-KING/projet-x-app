@@ -202,7 +202,7 @@ export function ProfileHeader({
 const styles = StyleSheet.create({
   heroWrapper: { position: 'relative', marginBottom: 32 },
   heroBanner: { height: 100, width: '100%', overflow: 'hidden' },
-  bannerOverlay: { ...StyleSheet.absoluteFillObject },
+  bannerOverlay: { ...StyleSheet.absoluteFill },
   cameraHint: {
     position: 'absolute',
     bottom: ds.space[2],
